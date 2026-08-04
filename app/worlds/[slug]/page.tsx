@@ -3,77 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-
-const worlds = {
-  forest: {
-    number: "01",
-    name: "Forest World",
-    subtitle: "The Beginning of the BlobVerse",
-    image: "/images/worlds/forest-cover.png",
-    range: "#00001–#00100",
-    genesisId: "00001",
-    accent: "text-emerald-400",
-    description:
-      "Forest World is the first chapter of the Blob Explorers journey—an enchanted kingdom filled with ancient woodland paths, glowing lanterns, hidden waterfalls and emerald discoveries.",
-  },
-  river: {
-    number: "02",
-    name: "River World",
-    subtitle: "Follow the Flow of Discovery",
-    image: "/images/worlds/river-cover.png",
-    range: "#00101–#00200",
-    genesisId: "00101",
-    accent: "text-cyan-400",
-    description:
-      "River World is a flowing kingdom of crystal waterways, hidden waterfalls, ancient bridges and legendary river passages.",
-  },
-  mountain: {
-    number: "03",
-    name: "Mountain World",
-    subtitle: "Rise Above the Clouds",
-    image: "/images/worlds/mountain-cover.png",
-    range: "#00201–#00300",
-    genesisId: "00201",
-    accent: "text-slate-300",
-    description:
-      "Mountain World is a majestic realm of towering peaks, ancient bridges and daring expeditions high above the clouds.",
-  },
-  volcano: {
-    number: "04",
-    name: "Volcano World",
-    subtitle: "Explore the Realm of Fire",
-    image: "/images/worlds/volcano-cover.png",
-    range: "#00301–#00400",
-    genesisId: "00301",
-    accent: "text-orange-400",
-    description:
-      "Volcano World is a blazing kingdom of lava rivers, volcanic forges and fearless expeditions through molten mountain passages.",
-  },
-  snow: {
-    number: "05",
-    name: "Snow World",
-    subtitle: "Cross the Frozen Frontier",
-    image: "/images/worlds/snow-cover.png",
-    range: "#00401–#00500",
-    genesisId: "00401",
-    accent: "text-sky-300",
-    description:
-      "Snow World is a magical winter realm of frozen forests, snowy mountains and hidden frontier pathways.",
-  },
-  ice: {
-    number: "06",
-    name: "Ice World",
-    subtitle: "Discover the Crystal Kingdom",
-    image: "/images/worlds/ice-cover.png",
-    range: "#00501–#00600",
-    genesisId: "00501",
-    accent: "text-cyan-300",
-    description:
-      "Ice World is a luminous realm of glowing glaciers, crystal caves and legendary frozen trails.",
-  },
-};
-
-type WorldSlug = keyof typeof worlds;
+import { getWorldBySlug } from "@/config/worlds";
 
 export default async function WorldPage({
   params,
@@ -81,7 +11,7 @@ export default async function WorldPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const world = worlds[slug as WorldSlug];
+  const world = getWorldBySlug(slug);
 
   if (!world) {
     notFound();

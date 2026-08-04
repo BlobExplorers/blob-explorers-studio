@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import {
   explorers,
   getExplorerById,
-} from "@/components/data/explorers";
+} from "@/data/explorers";
 
 export default async function ExplorerPage({
   params,

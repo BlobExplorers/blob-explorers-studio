@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { collection } from "@/config/collection";
 import {
   getHiddenWorldCount,
   getRevealedWorldCount,
@@ -10,11 +10,11 @@ export default function Stats() {
 
   const stats = [
     {
-      number: siteConfig.totalNFTs.toLocaleString(),
+      number: collection.totalSupply.toLocaleString(),
       label: "Total NFTs",
     },
     {
-      number: `${revealedWorlds} / ${siteConfig.totalWorlds}`,
+      number: `${revealedWorlds} / ${collection.totalWorlds}`,
       label: "Worlds Revealed",
     },
     {

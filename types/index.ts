@@ -14,9 +14,16 @@ export type World = {
 export type Explorer = {
   id: string;
   name: string;
+
   world: string;
   worldName: string;
-  image: string;
+
+  profession: string;
   heroProp: string;
+
+  image: string;
   description: string;
+
+  rarity?: string;
+  status?: "revealed" | "hidden";
 };

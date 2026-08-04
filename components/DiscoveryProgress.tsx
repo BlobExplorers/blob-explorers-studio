@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { collection } from "@/config/collection";
 import {
   getHiddenWorldCount,
   getRevealedWorldCount,
@@ -7,7 +7,7 @@ import {
 export default function DiscoveryProgress() {
   const revealedWorlds = getRevealedWorldCount();
   const hiddenWorlds = getHiddenWorldCount();
-  const progress = (revealedWorlds / siteConfig.totalWorlds) * 100;
+  const progress = (revealedWorlds / collection.totalWorlds) * 100;
 
   return (
     <section className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-20">
@@ -52,7 +52,7 @@ export default function DiscoveryProgress() {
 
           <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/[0.06] p-5 text-center sm:p-6">
             <p className="text-4xl font-black text-yellow-400">
-              {siteConfig.totalWorlds}
+              {collection.totalWorlds}
             </p>
 
             <p className="mt-3 text-sm font-semibold text-gray-300 sm:text-base">
@@ -66,7 +66,7 @@ export default function DiscoveryProgress() {
             <span className="text-gray-400">Discovery Progress</span>
 
             <span className="shrink-0 text-emerald-400">
-              {revealedWorlds} / {siteConfig.totalWorlds}
+              {revealedWorlds} / {collection.totalWorlds}
             </span>
           </div>
 
@@ -78,8 +78,8 @@ export default function DiscoveryProgress() {
           </div>
 
           <p className="mt-5 text-center text-xs leading-6 text-gray-500 sm:mt-6 sm:text-sm sm:leading-7">
-            The complete BlobVerse will unlock twenty-four hours after the
-            official OpenSea launch.
+            The complete BlobVerse will unlock {collection.revealDelayHours}{" "}
+            hours after the official OpenSea launch.
           </p>
         </div>
       </div>

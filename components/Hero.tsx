@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Fireflies from "@/components/Fireflies";
+import { collection } from "@/config/collection";
+import { siteConfig } from "@/config/site";
 
 export default function Hero() {
   return (
@@ -23,7 +25,7 @@ export default function Hero() {
             transition={{ delay: 0.1 }}
             className="text-xs font-bold uppercase tracking-[0.24em] text-yellow-400 sm:text-sm sm:tracking-[0.35em]"
           >
-            Ethereum NFT Collection
+            {collection.blockchain} NFT Collection
           </motion.p>
 
           <motion.h1
@@ -32,7 +34,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="mt-5 text-5xl font-black leading-none text-white sm:text-6xl lg:mt-6 lg:text-7xl"
           >
-            Blob Explorers
+            {siteConfig.name}
           </motion.h1>
 
           <motion.h2
@@ -41,7 +43,7 @@ export default function Hero() {
             transition={{ delay: 0.35 }}
             className="mt-6 text-2xl font-bold leading-tight text-green-400 sm:text-3xl lg:mt-8 lg:text-4xl"
           >
-            Every Blob Has a Story to Explore.
+            {siteConfig.tagline}
           </motion.h2>
 
           <motion.p
@@ -50,8 +52,9 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg lg:mx-0 lg:mt-8 lg:text-xl lg:leading-9"
           >
-            Discover 7,777 handcrafted Blob Explorers travelling across magical
-            worlds filled with adventure, discovery and unforgettable stories.
+            Discover {collection.totalSupply.toLocaleString()} handcrafted Blob
+            Explorers travelling across magical worlds filled with adventure,
+            discovery and unforgettable stories.
           </motion.p>
 
           <motion.div

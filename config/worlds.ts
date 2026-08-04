@@ -1,4 +1,6 @@
-export const worlds = [
+import type { World } from "@/types";
+
+export const worlds: World[] = [
   {
     slug: "forest",
     number: "01",
@@ -77,9 +79,7 @@ export const worlds = [
     description:
       "Ice World is a luminous realm of glowing glaciers, crystal caves and legendary frozen trails.",
   },
-] as const;
-
-export type WorldSlug = (typeof worlds)[number]["slug"];
+];
 
 export function getWorldBySlug(slug: string) {
   return worlds.find((world) => world.slug === slug);

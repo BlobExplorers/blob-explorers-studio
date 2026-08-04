@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { explorers } from "@/components/data/explorers";
+import { explorers } from "@/data/explorers";
 
 const filters = [
   { label: "All", value: "all" },

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
-import { explorers } from "@/components/data/explorers";
-import { worlds } from "@/components/data/worlds";
+import { explorers } from "@/data/explorers";
+import { worlds } from "@/config/worlds";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [

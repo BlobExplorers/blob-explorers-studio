@@ -1,3 +1,5 @@
+import { collection } from "@/config/collection";
+
 const features = [
   {
     title: "Handcrafted",
@@ -46,9 +48,10 @@ export default function About() {
             </p>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0">
-              The adventure begins with six revealed worlds. Twenty-four hours
-              after the official OpenSea launch, all 78 worlds will be unlocked,
-              revealing the complete BlobVerse.
+              The adventure begins with {collection.revealedWorlds} revealed
+              worlds. {collection.revealDelayHours} hours after the official
+              OpenSea launch, all {collection.totalWorlds} worlds will be
+              unlocked, revealing the complete BlobVerse.
             </p>
           </div>
 

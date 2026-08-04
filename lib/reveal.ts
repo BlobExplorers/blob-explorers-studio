@@ -1,13 +1,13 @@
-import { siteConfig } from "@/config/site";
+import { collection } from "@/config/collection";
 
-export function getRevealedWorldCount() {
-  return siteConfig.launchWorlds;
+export function getRevealedWorldCount(): number {
+  return Number(collection.revealedWorlds);
 }
 
-export function getHiddenWorldCount() {
-  return siteConfig.totalWorlds - getRevealedWorldCount();
+export function getHiddenWorldCount(): number {
+  return Number(collection.totalWorlds) - Number(collection.revealedWorlds);
 }
 
-export function isFullReveal() {
-  return getRevealedWorldCount() === siteConfig.totalWorlds;
+export function isFullReveal(): boolean {
+  return getRevealedWorldCount() >= Number(collection.totalWorlds);
 }

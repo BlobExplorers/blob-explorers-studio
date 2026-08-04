@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { worlds } from "@/components/data/worlds";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { worlds } from "@/config/worlds";
+import { collection } from "@/config/collection";
+import { getRevealedWorldCount } from "@/lib/reveal";
 
 export default function Worlds() {
+  const revealedWorldCount = getRevealedWorldCount();
+  const visibleWorlds = worlds.slice(0, revealedWorldCount);
+
   return (
     <section
       id="worlds"
@@ -15,11 +20,11 @@ export default function Worlds() {
         <SectionHeading
           eyebrow="Enter the BlobVerse"
           title="Explore the Worlds"
-          description="One iconic Blob Explorer journeys through magical worlds, unique professions and handcrafted adventures."
+          description={`Explore ${visibleWorlds.length} currently revealed worlds, each filled with unique professions and handcrafted adventures.`}
         />
 
         <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-7">
-          {worlds.map((world) => (
+          {visibleWorlds.map((world) => (
             <article
               key={world.slug}
               className={`premium-card group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b ${world.gradient} shadow-2xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/50`}
@@ -50,7 +55,7 @@ export default function Worlds() {
                 </p>
 
                 <div className="mt-5 inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-gray-200 sm:text-sm">
-                  100 Handcrafted NFTs
+                  {collection.nftsPerWorld} Handcrafted NFTs
                 </div>
 
                 <Link
@@ -67,6 +72,13 @@ export default function Worlds() {
             </article>
           ))}
         </div>
+
+        {visibleWorlds.length < collection.totalWorlds && (
+          <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-7 text-gray-500 sm:text-base">
+            The remaining worlds will unlock {collection.revealDelayHours} hours
+            after the official OpenSea launch.
+          </p>
+        )}
       </div>
     </section>
   );

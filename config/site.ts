@@ -17,6 +17,14 @@ fullRevealAt: null,
   blockchain: "Ethereum",
 
   tagline: "Every Blob Has a Story to Explore.",
+  collection: {
+  blockchain: "Ethereum",
+  standard: "ERC-721",
+  totalSupply: 7777,
+  totalWorlds: 78,
+  revealedWorlds: 6,
+  hiddenWorlds: 72,
+},
 
   social: {
     x: "https://x.com/BlobExplorers",

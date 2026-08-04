@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { explorers } from "@/components/data/explorers";
+import { explorers } from "@/data/explorers";
 
 export default function FeaturedNFTs() {
   return (

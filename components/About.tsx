@@ -46,8 +46,9 @@ export default function About() {
             </p>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0">
-              Six worlds have been discovered at launch. Seventy-two remain
-              hidden, waiting to be revealed as the adventure continues.
+              The adventure begins with six revealed worlds. Twenty-four hours
+              after the official OpenSea launch, all 78 worlds will be unlocked,
+              revealing the complete BlobVerse.
             </p>
           </div>
 

@@ -6,6 +6,8 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { explorers } from "@/data/explorers";
+import { worlds } from "@/config/worlds";
+import { getRevealedWorldCount } from "@/lib/reveal";
 
 const filters = [
   { label: "All", value: "all" },
@@ -21,15 +23,29 @@ export default function CollectionPage() {
   const [selectedWorld, setSelectedWorld] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const revealedWorldCount = getRevealedWorldCount();
+
+  const revealedWorldSlugs = new Set(
+    worlds
+      .slice(0, revealedWorldCount)
+      .map((world) => world.slug)
+  );
+
+  const revealedExplorers = explorers.filter((explorer) =>
+    revealedWorldSlugs.has(explorer.world)
+  );
+
   const normalizedSearch = searchQuery.trim().toLowerCase();
 
-  const filteredExplorers = explorers.filter((explorer) => {
+  const filteredExplorers = revealedExplorers.filter((explorer) => {
     const matchesWorld =
       selectedWorld === "all" || explorer.world === selectedWorld;
 
+    const normalizedId = normalizedSearch.replace("#", "");
+
     const matchesSearch =
       normalizedSearch === "" ||
-      explorer.id.toLowerCase().includes(normalizedSearch.replace("#", "")) ||
+      explorer.id.toLowerCase().includes(normalizedId) ||
       explorer.name.toLowerCase().includes(normalizedSearch) ||
       explorer.worldName.toLowerCase().includes(normalizedSearch);
 
@@ -52,8 +68,8 @@ export default function CollectionPage() {
             </h1>
 
             <p className="mt-5 text-base leading-7 text-gray-300 sm:mt-6 sm:text-lg sm:leading-8">
-              Search and explore the first six revealed Blob Explorers from the
-              opening worlds of the BlobVerse.
+              Search and explore the currently revealed Blob Explorers from
+              the opening worlds of the BlobVerse.
             </p>
           </div>
 
@@ -109,7 +125,7 @@ export default function CollectionPage() {
             </p>
 
             <p className="text-sm font-semibold text-emerald-400">
-              6 Worlds Revealed
+              {revealedWorldCount} Worlds Revealed
             </p>
           </div>
 

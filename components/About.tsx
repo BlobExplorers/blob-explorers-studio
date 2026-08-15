@@ -3,23 +3,26 @@ import { collection } from "@/config/collection";
 const features = [
   {
     title: "Handcrafted",
-    text: "Every Explorer is designed one by one with a unique profession, outfit and hero prop.",
+    text: "Every Explorer is designed one by one with a unique profession, outfit, signature hero prop and story.",
   },
   {
     title: "78 Worlds",
-    text: "The complete BlobVerse spans 78 planned worlds, with new realms revealed over time.",
+    text: "The complete BlobVerse spans 78 worlds, each offering a distinct environment, theme and chapter of the journey.",
   },
   {
     title: "Ethereum",
-    text: "A premium 7,777-piece NFT collection created for the Ethereum blockchain.",
+    text: "A premium 7,777-piece NFT collection created for the Ethereum blockchain using the ERC-721 standard.",
   },
   {
-    title: "One Identity",
-    text: "The same iconic Blob Explorer travels through every world while keeping one recognizable identity.",
+    title: "One Recognizable Identity",
+    text: "Every Explorer carries the recognizable Blob Explorers identity while becoming unique through its world, profession, outfit, hero prop and story.",
   },
 ];
 
 export default function About() {
+  const revealedWorlds = collection.revealedWorlds;
+  const hiddenWorlds = collection.totalWorlds - revealedWorlds;
+
   return (
     <section
       id="story"
@@ -35,23 +38,22 @@ export default function About() {
             </p>
 
             <h2 className="mt-5 text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl">
-              One Blob.
+              One Explorer.
               <br />
-              <span className="text-emerald-400">Infinite Worlds.</span>
+              <span className="text-emerald-400">Infinite Stories.</span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:mt-7 sm:text-lg lg:mx-0">
-              Blob Explorers follows one iconic character on a handcrafted
-              journey across the BlobVerse. Every world introduces new
-              professions, environments, armor and legendary hero props while
-              preserving the same recognizable Blob identity.
+              Blob Explorers follows one recognizable Explorer identity across
+              the BlobVerse, where every NFT becomes a unique handcrafted
+              story through a different world, profession, outfit, signature
+              hero prop and adventure.
             </p>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0">
-              The adventure begins with {collection.revealedWorlds} revealed
-              worlds. {collection.revealDelayHours} hours after the official
-              OpenSea launch, all {collection.totalWorlds} worlds will be
-              unlocked, revealing the complete BlobVerse.
+              {revealedWorlds} worlds have been discovered. {hiddenWorlds}{" "}
+              remain hidden, waiting for future explorers to uncover their
+              stories.
             </p>
           </div>
 

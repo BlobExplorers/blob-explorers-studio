@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-white/10 px-5 py-10 sm:px-8 md:px-12 md:py-12 lg:px-20">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center md:flex-row md:justify-between md:text-left">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <Link
           href="/"
           className="flex flex-col items-center gap-4 sm:flex-row md:items-center"
@@ -41,7 +41,7 @@ export default function Footer() {
             <Link
               key={link.label}
               href={link.href}
-              className="hover:text-emerald-400 transition"
+              className="transition hover:text-emerald-400"
             >
               {link.label}
             </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${siteConfig.name} on X`}
-              className="hover:text-emerald-400 transition"
+              className="transition hover:text-emerald-400"
             >
               X
             </a>
@@ -67,8 +67,8 @@ export default function Footer() {
         </p>
 
         <p>
-          Built for {collection.blockchain}. Handcrafted across the
-          BlobVerse.
+          {collection.totalSupply.toLocaleString()} handcrafted Explorers
+          across {collection.totalWorlds} worlds.
         </p>
       </div>
     </footer>

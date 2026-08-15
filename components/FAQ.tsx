@@ -2,27 +2,27 @@ const faqs = [
   {
     question: "What is Blob Explorers?",
     answer:
-      "Blob Explorers is a premium handcrafted Ethereum NFT collection following one iconic Blob Explorer across 78 planned worlds.",
+      "Blob Explorers is a premium handcrafted Ethereum NFT collection where every Explorer becomes a unique story through different worlds, professions, outfits and signature hero props while preserving the recognizable Blob Explorers identity.",
   },
   {
     question: "How many NFTs are in the collection?",
     answer:
-      "The collection contains exactly 7,777 handcrafted NFTs created one by one.",
+      "The collection contains exactly 7,777 handcrafted NFTs, created one by one with individually designed professions, outfits, environments and hero props.",
   },
   {
     question: "Why are only six worlds visible?",
     answer:
-      "The BlobVerse is revealed in phases. Six worlds are available at launch, while the remaining worlds will be unlocked over time.",
+      "Six worlds have been discovered at launch, while seventy-two remain hidden, waiting for future explorers.",
   },
   {
     question: "Is every NFT handcrafted?",
     answer:
-      "Yes. Every profession, hero prop and artwork is individually designed rather than randomly generated.",
+      "Yes. Every NFT is individually designed rather than randomly generated, with a unique profession, outfit, environment and signature hero prop.",
   },
   {
     question: "Which blockchain does Blob Explorers use?",
     answer:
-      "Blob Explorers is built for the Ethereum blockchain.",
+      "Blob Explorers is built for the Ethereum blockchain using the ERC-721 standard.",
   },
 ];
 

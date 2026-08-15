@@ -12,7 +12,7 @@ export const worlds: World[] = [
     accent: "text-emerald-400",
     gradient: "from-emerald-500/30 via-green-950/70 to-black",
     description:
-      "Forest World is the first chapter of the Blob Explorers journey—an enchanted kingdom filled with ancient woodland paths, glowing lanterns, hidden waterfalls and emerald discoveries.",
+      "The first chapter of the Blob Explorers journey — an enchanted woodland realm filled with ancient paths, hidden waterfalls, glowing discoveries and the spirit of exploration.",
   },
   {
     slug: "river",
@@ -25,7 +25,7 @@ export const worlds: World[] = [
     accent: "text-cyan-400",
     gradient: "from-cyan-500/30 via-blue-950/70 to-black",
     description:
-      "River World is a flowing kingdom of crystal waterways, hidden waterfalls, ancient bridges and legendary river passages.",
+      "A flowing realm of crystal waterways, hidden waterfalls, ancient bridges and mysterious passages waiting to be explored.",
   },
   {
     slug: "mountain",
@@ -38,7 +38,7 @@ export const worlds: World[] = [
     accent: "text-slate-300",
     gradient: "from-slate-400/30 via-slate-900/80 to-black",
     description:
-      "Mountain World is a majestic realm of towering peaks, ancient bridges and daring expeditions high above the clouds.",
+      "A majestic alpine realm of towering peaks, ancient bridges and daring expeditions rising high above the clouds.",
   },
   {
     slug: "volcano",
@@ -51,7 +51,7 @@ export const worlds: World[] = [
     accent: "text-orange-400",
     gradient: "from-red-500/30 via-red-950/70 to-black",
     description:
-      "Volcano World is a blazing kingdom of lava rivers, volcanic forges and fearless expeditions through molten mountain passages.",
+      "A blazing kingdom of lava rivers, volcanic forges and dangerous passages where every expedition leads deeper into the realm of fire.",
   },
   {
     slug: "snow",
@@ -64,7 +64,7 @@ export const worlds: World[] = [
     accent: "text-sky-300",
     gradient: "from-sky-300/20 via-slate-900/80 to-black",
     description:
-      "Snow World is a magical winter realm of frozen forests, snowy mountains and hidden frontier pathways.",
+      "A magical winter realm of frozen forests, snow-covered mountains and unexplored frontier paths beneath an endless frozen sky.",
   },
   {
     slug: "ice",
@@ -77,7 +77,7 @@ export const worlds: World[] = [
     accent: "text-cyan-300",
     gradient: "from-cyan-300/20 via-blue-950/80 to-black",
     description:
-      "Ice World is a luminous realm of glowing glaciers, crystal caves and legendary frozen trails.",
+      "A luminous frozen realm of glowing glaciers, crystalline caves and mysterious trails hidden deep within the ice.",
   },
 ];
 

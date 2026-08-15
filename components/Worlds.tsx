@@ -8,6 +8,7 @@ import { getRevealedWorldCount } from "@/lib/reveal";
 export default function Worlds() {
   const revealedWorldCount = getRevealedWorldCount();
   const visibleWorlds = worlds.slice(0, revealedWorldCount);
+  const hiddenWorldCount = collection.totalWorlds - revealedWorldCount;
 
   return (
     <section
@@ -20,7 +21,7 @@ export default function Worlds() {
         <SectionHeading
           eyebrow="Enter the BlobVerse"
           title="Explore the Worlds"
-          description={`Explore ${visibleWorlds.length} currently revealed worlds, each filled with unique professions and handcrafted adventures.`}
+          description={`Explore ${visibleWorlds.length} discovered worlds, each filled with unique professions, handcrafted Explorers and stories waiting to be uncovered.`}
         />
 
         <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-7">
@@ -35,7 +36,7 @@ export default function Worlds() {
                   alt={world.name}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-110"
+                  className="object-cover object-[center_20%] transition duration-500 group-hover:scale-110"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -74,10 +75,15 @@ export default function Worlds() {
         </div>
 
         {visibleWorlds.length < collection.totalWorlds && (
-          <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-7 text-gray-500 sm:text-base">
-            The remaining worlds will unlock {collection.revealDelayHours} hours
-            after the official OpenSea launch.
-          </p>
+          <div className="mx-auto mt-12 max-w-3xl text-center">
+            <p className="text-base font-semibold leading-7 text-gray-300 sm:text-lg">
+              {revealedWorldCount} worlds have been discovered.
+            </p>
+
+            <p className="mt-2 text-sm leading-7 text-gray-500 sm:text-base">
+              {hiddenWorldCount} remain hidden, waiting for future explorers.
+            </p>
+          </div>
         )}
       </div>
     </section>

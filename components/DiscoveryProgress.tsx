@@ -10,7 +10,10 @@ export default function DiscoveryProgress() {
   const progress = (revealedWorlds / collection.totalWorlds) * 100;
 
   return (
-    <section className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-20">
+    <section
+      id="discovery"
+      className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-20"
+    >
       <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[120px] sm:h-96 sm:w-96 sm:blur-[150px]" />
 
       <div className="relative mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl backdrop-blur sm:p-8 md:p-12">
@@ -24,14 +27,14 @@ export default function DiscoveryProgress() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-300 sm:mt-6 sm:text-lg sm:leading-8">
-            {revealedWorlds} worlds are currently revealed. {hiddenWorlds} remain
-            hidden until the full BlobVerse unlock.
+            {revealedWorlds} worlds have been discovered, while {hiddenWorlds}{" "}
+            remain hidden, waiting for future explorers.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-5">
-          <div className="rounded-3xl border border-emerald-400/20 bg-emerald-400/[0.06] p-5 text-center sm:p-6">
-            <p className="text-4xl font-black text-emerald-400">
+          <div className="rounded-3xl border border-emerald-400/20 bg-emerald-400/[0.06] p-5 text-center transition duration-300 hover:border-emerald-400/40 sm:p-6">
+            <p className="text-4xl font-black text-emerald-400 sm:text-5xl">
               {revealedWorlds}
             </p>
 
@@ -40,8 +43,8 @@ export default function DiscoveryProgress() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-violet-400/20 bg-violet-400/[0.06] p-5 text-center sm:p-6">
-            <p className="text-4xl font-black text-violet-300">
+          <div className="rounded-3xl border border-violet-400/20 bg-violet-400/[0.06] p-5 text-center transition duration-300 hover:border-violet-400/40 sm:p-6">
+            <p className="text-4xl font-black text-violet-300 sm:text-5xl">
               {hiddenWorlds}
             </p>
 
@@ -50,20 +53,20 @@ export default function DiscoveryProgress() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/[0.06] p-5 text-center sm:p-6">
-            <p className="text-4xl font-black text-yellow-400">
+          <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/[0.06] p-5 text-center transition duration-300 hover:border-yellow-400/40 sm:p-6">
+            <p className="text-4xl font-black text-yellow-400 sm:text-5xl">
               {collection.totalWorlds}
             </p>
 
             <p className="mt-3 text-sm font-semibold text-gray-300 sm:text-base">
-              Planned Worlds
+              Total Worlds
             </p>
           </div>
         </div>
 
         <div className="mt-10 sm:mt-12">
           <div className="flex items-center justify-between gap-4 text-xs font-bold sm:text-sm">
-            <span className="text-gray-400">Discovery Progress</span>
+            <span className="text-gray-400">World Discovery</span>
 
             <span className="shrink-0 text-emerald-400">
               {revealedWorlds} / {collection.totalWorlds}
@@ -78,8 +81,8 @@ export default function DiscoveryProgress() {
           </div>
 
           <p className="mt-5 text-center text-xs leading-6 text-gray-500 sm:mt-6 sm:text-sm sm:leading-7">
-            The complete BlobVerse will unlock {collection.revealDelayHours}{" "}
-            hours after the official OpenSea launch.
+            Six worlds have been discovered. Seventy-two remain hidden,
+            waiting for future explorers.
           </p>
         </div>
       </div>

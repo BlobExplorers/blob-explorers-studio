@@ -16,6 +16,4 @@ export const collection = {
   nftsPerWorld: 100,
 
   creatorWorldSupply: 77,
-
-  revealDelayHours: 24,
 } as const;

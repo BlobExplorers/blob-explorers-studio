@@ -4,35 +4,35 @@ const roadmapItems = [
     title: "Genesis Worlds",
     status: "In Progress",
     description:
-      "Launch the first six revealed worlds and introduce the Blob Explorers journey to the community.",
+      "Introduce the first six discovered worlds and begin the Blob Explorers journey with the community.",
   },
   {
     phase: "Phase 02",
     title: "OpenSea Launch",
     status: "Upcoming",
     description:
-      "Publish the official collection on OpenSea and begin the public discovery of the BlobVerse.",
+      "Launch the official Blob Explorers collection on OpenSea and open the door to the BlobVerse.",
   },
   {
     phase: "Phase 03",
     title: "World Reveals",
     status: "Planned",
     description:
-      "Reveal new worlds over time through stories, artwork, community events and website updates.",
+      "Reveal additional worlds through new artwork, stories, community experiences and ongoing BlobVerse discoveries.",
   },
   {
     phase: "Phase 04",
     title: "BlobVerse Expansion",
     status: "Future",
     description:
-      "Expand into deeper lore, interactive experiences, collaborations and new ways to explore the universe.",
+      "Expand the universe through deeper lore, interactive experiences, collaborations and new ways to explore the BlobVerse.",
   },
   {
     phase: "Phase 05",
     title: "Creator World",
     status: "Final Destination",
     description:
-      "Unlock the final Creator World and complete the full journey across all 78 worlds.",
+      "Reveal the final Creator World and complete the journey across all 78 worlds of the BlobVerse.",
   },
 ];
 
@@ -55,8 +55,8 @@ export default function Roadmap() {
           </h2>
 
           <p className="mt-5 text-base leading-7 text-gray-300 sm:mt-6 sm:text-lg sm:leading-8">
-            From the first six discovered worlds to the final Creator World,
-            every phase expands the story of Blob Explorers.
+            From the first discovered worlds to the final Creator World,
+            each phase expands the story and universe of Blob Explorers.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function Roadmap() {
           {roadmapItems.map((item, index) => (
             <article
               key={item.phase}
-              className="premium-card grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition duration-300 hover:border-yellow-400/40 sm:p-7 md:grid-cols-[140px_1fr_180px] md:items-center"
+              className="premium-card grid gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition duration-300 hover:-translate-y-1 hover:border-yellow-400/40 sm:p-7 md:grid-cols-[140px_1fr_180px] md:items-center"
             >
               <div className="text-center md:text-left">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400 sm:text-sm sm:tracking-[0.25em]">

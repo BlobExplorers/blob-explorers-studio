@@ -52,9 +52,19 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg lg:mx-0 lg:mt-8 lg:text-xl lg:leading-9"
           >
-            Discover {collection.totalSupply.toLocaleString()} handcrafted Blob
-            Explorers travelling across magical worlds filled with adventure,
-            discovery and unforgettable stories.
+            Explore {collection.totalSupply.toLocaleString()} handcrafted
+            Explorers, each created with a unique profession, outfit, hero prop
+            and story across the ever-expanding BlobVerse.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base lg:mx-0"
+          >
+            Six worlds have been discovered. Seventy-two remain hidden,
+            waiting for future explorers.
           </motion.p>
 
           <motion.div
@@ -91,8 +101,8 @@ export default function Hero() {
             className="relative z-10 w-full max-w-[420px] sm:max-w-[520px] lg:max-w-none"
           >
             <Image
-              src="/images/hero/first-blob-explorer.png"
-              alt="First Blob Explorer"
+              src="/images/hero/first-blob-explorer-v2.png"
+              alt="Blob Explorers flagship character"
               width={650}
               height={650}
               priority

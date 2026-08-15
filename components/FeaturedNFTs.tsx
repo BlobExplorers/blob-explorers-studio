@@ -4,6 +4,10 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { explorers } from "@/data/explorers";
 
 export default function FeaturedNFTs() {
+  const genesisExplorers = explorers.filter(
+    (explorer) => explorer.rarity === "Genesis"
+  );
+
   return (
     <section
       id="collection"
@@ -16,7 +20,7 @@ export default function FeaturedNFTs() {
           <SectionHeading
             eyebrow="The Genesis Explorers"
             title="Featured Explorers"
-            description="Meet the first six explorers who opened the discovered worlds of the BlobVerse."
+            description="Meet six featured Explorers from the first six discovered worlds of the BlobVerse."
             center={false}
           />
 
@@ -29,7 +33,7 @@ export default function FeaturedNFTs() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-8">
-          {explorers.map((explorer) => (
+          {genesisExplorers.map((explorer) => (
             <article
               key={explorer.id}
               className="premium-card group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl transition duration-300 hover:-translate-y-2 hover:border-yellow-400/40"

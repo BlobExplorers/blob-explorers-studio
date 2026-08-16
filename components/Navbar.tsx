@@ -20,16 +20,16 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="group flex items-center gap-3"
           >
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-emerald-400/80 shadow-[0_0_28px_rgba(16,185,129,0.35)] transition duration-300 group-hover:scale-105 group-hover:shadow-[0_0_36px_rgba(16,185,129,0.55)]">
-              <Image
-                src="/images/hero/logo.png"
-                alt={`${siteConfig.name} Logo`}
-                fill
-                sizes="48px"
-                className="object-cover"
-                priority
-              />
-            </div>
+            <div className="relative h-14 w-14 shrink-0 transition duration-300 group-hover:scale-105">
+  <Image
+    src="/images/hero/bloblogo.png"
+    alt={`${siteConfig.name} Logo`}
+    fill
+    sizes="56px"
+    className="object-contain"
+    priority
+  />
+</div>
 
             <div>
               <span className="block text-lg font-black tracking-wide text-white sm:text-xl md:text-2xl">

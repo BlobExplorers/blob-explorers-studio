@@ -40,17 +40,23 @@ export default async function WorldPage({
     <>
       <Navbar />
 
-      <main className="min-h-screen px-5 pb-20 pt-12 sm:px-8 sm:pt-16 md:px-12 md:pb-24 lg:px-20">
+      <main className="min-h-screen bg-[#07110d] px-5 pb-20 pt-12 sm:px-8 sm:pt-16 md:px-12 md:pb-24 lg:px-20">
         <section className="mx-auto max-w-7xl">
+          {/* Back Link */}
+
           <Link
             href="/#worlds"
-            className={`inline-flex items-center gap-2 text-sm font-bold transition sm:text-base ${world.accent}`}
+            className={`inline-flex items-center gap-2 text-sm font-bold sm:text-base ${world.accent}`}
           >
             ← Back to Worlds
           </Link>
 
+          {/* Main World Area */}
+
           <div className="mt-8 grid items-start gap-10 lg:mt-10 lg:grid-cols-2 lg:items-center lg:gap-14">
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+            {/* World Image */}
+
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <Image
                 src={world.image}
                 alt={world.name}
@@ -60,8 +66,10 @@ export default async function WorldPage({
                 className="object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
+
+            {/* World Information */}
 
             <div className="text-center lg:text-left">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-yellow-400 sm:text-sm sm:tracking-[0.35em]">
@@ -87,6 +95,8 @@ export default async function WorldPage({
                 featuring a unique profession and one dominant hero prop.
               </p>
 
+              {/* World Details */}
+
               <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2">
                 {worldDetails.map((detail) => (
                   <div
@@ -104,17 +114,32 @@ export default async function WorldPage({
                 ))}
               </div>
 
+              {/* Buttons */}
+
               <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                 <Link
                   href={`/explorer/${world.genesisId}`}
-                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 px-7 py-4 font-bold text-black transition hover:-translate-y-1"
+                  className="
+                    inline-flex items-center justify-center
+                    rounded-full
+                    bg-gradient-to-r from-yellow-400 to-yellow-600
+                    px-7 py-4
+                    font-bold text-black
+                  "
                 >
                   View Genesis Explorer
                 </Link>
 
                 <Link
                   href="/collection"
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.04] px-7 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-white/[0.08]"
+                  className="
+                    inline-flex items-center justify-center
+                    rounded-full
+                    border border-white/20
+                    bg-white/[0.04]
+                    px-7 py-4
+                    font-bold text-white
+                  "
                 >
                   Explore Collection
                 </Link>

@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "Why are only six worlds visible?",
     answer:
-      "Six worlds have been discovered at launch, while seventy-two remain hidden, waiting for future explorers.",
+      "Six worlds are revealed at launch. The remaining seventy-two worlds will unlock within 24 hours after launch.",
   },
   {
     question: "Is every NFT handcrafted?",

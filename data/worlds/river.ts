@@ -12,4 +12,5 @@ export const riverWorld: World = {
   gradient: "from-cyan-500/30 via-blue-950/70 to-black",
   description:
     "River World is a flowing kingdom of crystal waterways, hidden waterfalls, ancient bridges and legendary river passages.",
+  status: "revealed",
 };

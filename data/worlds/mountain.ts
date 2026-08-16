@@ -12,4 +12,5 @@ export const mountainWorld: World = {
   gradient: "from-slate-400/30 via-slate-900/80 to-black",
   description:
     "Mountain World is a majestic realm of towering peaks, ancient bridges and daring expeditions high above the clouds.",
+  status: "revealed",
 };

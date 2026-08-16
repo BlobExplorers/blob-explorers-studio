@@ -17,12 +17,12 @@ export default function Footer() {
         >
           <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.35)]">
             <Image
-              src="/images/hero/logo.png"
-              alt={`${siteConfig.name} Logo`}
-              fill
-              sizes="56px"
-              className="object-cover"
-            />
+  src="/images/hero/bloblogo.png"
+  alt={`${siteConfig.name} Logo`}
+  fill
+  sizes="56px"
+  className="object-contain"
+/>
           </div>
 
           <div>

@@ -58,14 +58,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base lg:mx-0"
-          >
-            Six worlds have been discovered. Seventy-two remain hidden,
-            waiting for future explorers.
-          </motion.p>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base lg:mx-0"
+>
+  {collection.revealedWorlds} worlds have been discovered.{" "}
+  {collection.hiddenWorlds} remain hidden, waiting for future explorers.
+</motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 35 }}

@@ -81,9 +81,9 @@ export default function DiscoveryProgress() {
           </div>
 
           <p className="mt-5 text-center text-xs leading-6 text-gray-500 sm:mt-6 sm:text-sm sm:leading-7">
-            Six worlds have been discovered. Seventy-two remain hidden,
-            waiting for future explorers.
-          </p>
+  {revealedWorlds} worlds have been discovered. {hiddenWorlds} remain hidden,
+  waiting for future explorers.
+</p>
         </div>
       </div>
     </section>

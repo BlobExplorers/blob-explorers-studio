@@ -9,6 +9,8 @@ export type World = {
   accent: string;
   gradient: string;
   description: string;
+
+  status: "revealed" | "hidden";
 };
 
 export type Explorer = {

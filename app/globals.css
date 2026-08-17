@@ -2,9 +2,20 @@
 
 /* =========================================================
    BLOB EXPLORERS STUDIO
-   PREMIUM GLOBAL CSS
-   WORLD SECTION — FINAL
-   GOLD / IVORY / EMERALD
+   PREMIUM GLOBAL CSS — CLEAN FINAL
+   =========================================================
+   Palette:
+   Gold / Ivory / Emerald
+
+   IMPORTANT:
+   - Premium motion ENABLED
+   - World card hover ENABLED
+   - Image zoom ENABLED
+   - Moving sweep ENABLED
+   - Navbar/logo motion NOT globally disabled
+   - No destructive global animation reset
+   - No destructive global transform reset
+   - No destructive global filter reset
    ========================================================= */
 
 :root {
@@ -87,7 +98,7 @@ button {
 }
 
 /* =========================================================
-   GENERAL POSITIONING
+   PREMIUM HELPERS
    ========================================================= */
 
 .premium-card,
@@ -110,6 +121,45 @@ button {
       rgba(255, 255, 255, 0.035),
       rgba(255, 255, 255, 0.012)
     );
+
+  /*
+    Keep glass available for components that intentionally use it.
+    Do NOT globally disable backdrop-filter.
+  */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   NAVBAR
+   =========================================================
+   No global animation reset here.
+   Existing Navbar animations are allowed to work.
+   ========================================================= */
+
+.navbar-shell {
+  position: relative;
+}
+
+.navbar-logo-float {
+  position: relative;
+  will-change: transform;
+}
+
+.navbar-logo-float img {
+  position: absolute;
+  object-fit: contain;
+  will-change: transform;
+}
+
+/* =========================================================
+   OPTIONAL LOGO EFFECT HELPERS
+   ========================================================= */
+
+.blob-logo-motion,
+.blob-logo-float,
+.blob-logo-shimmer {
+  position: relative;
 }
 
 /* =========================================================
@@ -122,11 +172,12 @@ button {
 
 .hero-image-frame {
   position: relative;
-  width: 100%;
 
+  width: 100%;
   overflow: hidden;
 
   border-radius: 2rem;
+
   background: transparent;
 }
 
@@ -138,9 +189,6 @@ button {
 
   width: 100%;
   height: auto;
-
-  transform: none !important;
-  filter: none !important;
 }
 
 .hero-character-glow {
@@ -159,12 +207,13 @@ button {
 
   border-radius: 50%;
 
-  background: radial-gradient(
-    circle,
-    rgba(52, 211, 153, 0.07) 0%,
-    rgba(52, 211, 153, 0.025) 35%,
-    transparent 72%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(52, 211, 153, 0.07) 0%,
+      rgba(52, 211, 153, 0.025) 35%,
+      transparent 72%
+    );
 
   opacity: 0.5;
 }
@@ -184,51 +233,13 @@ button {
 
   border-radius: 2rem;
 
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.035);
 
   opacity: 0.7;
 }
 
 /* =========================================================
-   LOGO
-   ========================================================= */
-
-.blob-logo-motion {
-  transform: none !important;
-}
-
-.blob-logo-shimmer {
-  display: none !important;
-}
-
-/* =========================================================
-   FLOATING ELEMENTS
-   ========================================================= */
-
-.float-blob,
-.soft-pulse {
-  animation: none !important;
-  transform: none !important;
-}
-
-/* =========================================================
-   GENERAL CARDS
-   ========================================================= */
-
-.premium-card {
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-.world-card,
-.locked-world-card,
-.explorer-art {
-  filter: none !important;
-}
-
-/* =========================================================
-   HERO CHARACTER MOVEMENT
+   HERO CHARACTER MOTION
    ========================================================= */
 
 @keyframes hero-character-float {
@@ -256,6 +267,22 @@ button {
    HERO SHINE
    ========================================================= */
 
+.hero-shine-line {
+  opacity: 0;
+
+  transform: translateY(0);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.025) 25%,
+      rgba(255, 255, 255, 0.13) 50%,
+      rgba(255, 255, 255, 0.025) 75%,
+      transparent 100%
+    );
+}
+
 @keyframes hero-shine-sweep {
   0% {
     transform: translateY(0);
@@ -280,114 +307,230 @@ button {
   }
 }
 
-.hero-shine-line {
-  opacity: 0;
-
-  transform: translateY(0);
-
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.025) 25%,
-    rgba(255, 255, 255, 0.13) 50%,
-    rgba(255, 255, 255, 0.025) 75%,
-    transparent 100%
-  );
-}
-
 .hero-image-stage:hover .hero-shine-line {
   animation:
     hero-shine-sweep
     1.7s
     ease-in-out
     1;
-
-  will-change: transform, opacity;
 }
 
 /* =========================================================
-   =========================================================
-   WORLD SECTION
-   =========================================================
+   FLOATING ELEMENTS
    ========================================================= */
+
+.float-blob,
+.soft-pulse {
+  position: relative;
+}
 
 /* =========================================================
-   WORLD CARD
+   WORLD CARDS
    ========================================================= */
 
-.world-card,
-.locked-world-card {
-  position: relative;
+.world-card {
+  isolation: isolate;
 
+  position: relative;
   overflow: hidden;
 
-  border: 1px solid rgba(217, 179, 95, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: inherit;
 
   background:
     linear-gradient(
       145deg,
       #0c1812 0%,
-      #09140f 48%,
+      #09140f 50%,
       #08120e 100%
     );
 
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
-
   transition:
-    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 500ms ease,
     background-color 500ms ease;
 }
 
-/* =========================================================
-   WORLD CARD HOVER
-   ========================================================= */
-
 .world-card:hover {
-  transform: translateY(-5px);
+  transform: translate3d(0, -6px, 0);
 
-  border-color: rgba(217, 179, 95, 0.42);
+  border-color: rgba(217, 179, 95, 0.32);
 
   background:
     linear-gradient(
       145deg,
       #0d1a14 0%,
-      #0a1610 48%,
+      #0a1610 50%,
       #09140f 100%
     );
 }
 
 /* =========================================================
-   PREMIUM INNER FRAME
+   OUTER PREMIUM BORDER
    ========================================================= */
 
-.world-card::before,
-.locked-world-card::before {
-  content: "";
-
+.world-card-border {
   position: absolute;
-  z-index: 40;
 
-  inset: 8px;
+  inset: 0;
+
+  z-index: 45;
 
   pointer-events: none;
 
-  border: 1px solid rgba(247, 244, 234, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: inherit;
 
   transition:
-    inset 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 500ms ease;
+    border-color 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.world-card:hover::before {
-  inset: 7px;
-
-  border-color: rgba(217, 179, 95, 0.13);
+.world-card:hover .world-card-border {
+  border-color: rgba(217, 179, 95, 0.36);
 }
 
 /* =========================================================
-   WORLD IMAGE WRAPPER
+   PREMIUM TOP LINE
+   ========================================================= */
+
+.world-card::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 46;
+
+  top: 0;
+  left: 14%;
+  right: 14%;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(217, 179, 95, 0.32),
+      rgba(247, 244, 234, 0.42),
+      rgba(66, 184, 131, 0.28),
+      transparent
+    );
+
+  opacity: 0.6;
+
+  transition:
+    left 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    right 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms ease;
+}
+
+.world-card:hover::before {
+  left: 7%;
+  right: 7%;
+  opacity: 1;
+}
+
+/* =========================================================
+   PREMIUM BOTTOM LINE
+   ========================================================= */
+
+.world-card::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 46;
+
+  bottom: 0;
+  left: 14%;
+  right: 14%;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(66, 184, 131, 0.25),
+      rgba(217, 179, 95, 0.5),
+      rgba(247, 244, 234, 0.28),
+      rgba(66, 184, 131, 0.25),
+      transparent
+    );
+
+  opacity: 0.6;
+
+  transition:
+    left 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    right 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms ease;
+}
+
+.world-card:hover::after {
+  left: 7%;
+  right: 7%;
+  opacity: 1;
+}
+
+/* =========================================================
+   WORLD CARD CORNERS
+   ========================================================= */
+
+.world-card-corner {
+  position: absolute;
+
+  z-index: 47;
+
+  width: 26px;
+  height: 26px;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+
+  transition:
+    width 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease,
+    opacity 500ms ease;
+}
+
+.world-card-corner-tl {
+  top: 12px;
+  left: 12px;
+
+  border-top: 1px solid rgba(217, 179, 95, 0.34);
+  border-left: 1px solid rgba(217, 179, 95, 0.34);
+}
+
+.world-card-corner-br {
+  right: 12px;
+  bottom: 12px;
+
+  border-right: 1px solid rgba(217, 179, 95, 0.34);
+  border-bottom: 1px solid rgba(217, 179, 95, 0.34);
+}
+
+.world-card:hover .world-card-corner {
+  width: 38px;
+  height: 38px;
+
+  opacity: 0.95;
+}
+
+.world-card:hover .world-card-corner-tl,
+.world-card:hover .world-card-corner-br {
+  border-color: rgba(217, 179, 95, 0.7);
+}
+
+/* =========================================================
+   IMAGE AREA
    ========================================================= */
 
 .world-card-image-wrap {
@@ -398,66 +541,47 @@ button {
   overflow: hidden;
 
   background: #09130f;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world-card:hover .world-card-image-wrap {
+  transform: translate3d(0, -1px, 0);
 }
 
 /* =========================================================
    WORLD IMAGE
-   CONTROLLED CINEMATIC MOVEMENT
    ========================================================= */
 
 .world-card-image {
+  position: relative;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
   transform:
     scale(1.025)
     translate3d(0, 0, 0);
 
   transform-origin: center center;
 
-  animation:
-    world-image-drift
-    18s
-    ease-in-out
-    infinite
-    alternate;
-
   transition:
-    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 
   will-change: transform;
 }
 
-/* =========================================================
-   IMAGE MOVEMENT
-   VERY SUBTLE
-   ========================================================= */
-
-@keyframes world-image-drift {
-  0% {
-    transform:
-      scale(1.025)
-      translate3d(0%, 0%, 0);
-  }
-
-  50% {
-    transform:
-      scale(1.038)
-      translate3d(-0.25%, -0.15%, 0);
-  }
-
-  100% {
-    transform:
-      scale(1.05)
-      translate3d(0.3%, 0.2%, 0);
-  }
-}
-
-/* =========================================================
-   IMAGE HOVER
-   ========================================================= */
-
 .world-card:hover .world-card-image {
   transform:
     scale(1.055)
-    translate3d(0.35%, -0.2%, 0);
+    translate3d(0.25%, -0.15%, 0);
 }
 
 /* =========================================================
@@ -465,11 +589,13 @@ button {
    ========================================================= */
 
 .world-card-image-wrap > .z-10 {
+  z-index: 10;
+
   background:
     linear-gradient(
       to top,
-      rgba(7, 17, 13, 0.72) 0%,
-      rgba(7, 17, 13, 0.14) 48%,
+      rgba(7, 17, 13, 0.78) 0%,
+      rgba(7, 17, 13, 0.18) 48%,
       transparent 100%
     );
 }
@@ -482,11 +608,12 @@ button {
   content: "";
 
   position: absolute;
-  z-index: 16;
 
-  left: 8%;
-  right: 8%;
+  z-index: 18;
+
   top: 0;
+  left: 9%;
+  right: 9%;
 
   height: 1px;
 
@@ -495,14 +622,14 @@ button {
   background:
     linear-gradient(
       to right,
-      transparent 0%,
-      rgba(217, 179, 95, 0.18) 20%,
-      rgba(247, 244, 234, 0.68) 50%,
-      rgba(66, 184, 131, 0.18) 80%,
-      transparent 100%
+      transparent,
+      rgba(217, 179, 95, 0.25),
+      rgba(247, 244, 234, 0.65),
+      rgba(66, 184, 131, 0.25),
+      transparent
     );
 
-  opacity: 0.7;
+  opacity: 0.75;
 
   transition:
     left 600ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -513,199 +640,120 @@ button {
 .world-card:hover .world-card-image-wrap::after {
   left: 5%;
   right: 5%;
-
   opacity: 1;
 }
 
 /* =========================================================
-   GOLD / IVORY / EMERALD JUNCTION
-   FIXED AT IMAGE BOTTOM
-   ========================================================= */
-
-.world-card-junction-line {
-  position: absolute;
-
-  z-index: 26;
-
-  left: 7%;
-  right: 7%;
-  bottom: 0;
-
-  height: 1px;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      to right,
-
-      transparent 0%,
-
-      rgba(217, 179, 95, 0.12) 8%,
-
-      rgba(217, 179, 95, 0.72) 25%,
-
-      rgba(217, 179, 95, 1) 37%,
-
-      rgba(247, 244, 234, 1) 50%,
-
-      rgba(66, 184, 131, 1) 63%,
-
-      rgba(66, 184, 131, 0.72) 75%,
-
-      rgba(66, 184, 131, 0.12) 92%,
-
-      transparent 100%
-    );
-
-  opacity: 0.78;
-
-  transition:
-    left 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    right 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 500ms ease;
-}
-
-.world-card:hover .world-card-junction-line {
-  left: 4%;
-  right: 4%;
-
-  opacity: 1;
-}
-
-/* =========================================================
-   SWEEP LINE
+   PREMIUM IMAGE SWEEP
    ========================================================= */
 
 .world-card-sweep-line {
   position: absolute;
 
-  z-index: 27;
+  inset: 0;
 
-  left: 14%;
-  right: 14%;
-  top: 52%;
-
-  height: 1px;
+  z-index: 20;
 
   pointer-events: none;
 
-  transform-origin: center center;
-  transform: scaleX(0);
+  transform: translateX(-120%);
 
   background:
     linear-gradient(
-      to right,
-
-      transparent 0%,
-
-      rgba(217, 179, 95, 0.08) 14%,
-
-      rgba(217, 179, 95, 0.55) 30%,
-
-      rgba(247, 244, 234, 0.95) 47%,
-
-      rgba(217, 179, 95, 1) 50%,
-
-      rgba(247, 244, 234, 0.95) 53%,
-
-      rgba(66, 184, 131, 0.55) 70%,
-
-      rgba(66, 184, 131, 0.08) 86%,
-
-      transparent 100%
+      105deg,
+      transparent 34%,
+      transparent 43%,
+      rgba(255, 255, 255, 0.055) 48%,
+      rgba(217, 179, 95, 0.10) 51%,
+      rgba(255, 255, 255, 0.035) 54%,
+      transparent 61%,
+      transparent 67%
     );
 
-  opacity: 0;
-}
-
-/* =========================================================
-   SWEEP ANIMATION
-   ========================================================= */
-
-@keyframes world-card-sweep {
-  0% {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-
-  20% {
-    transform: scaleX(0.2);
-    opacity: 0.28;
-  }
-
-  45% {
-    transform: scaleX(0.7);
-    opacity: 0.7;
-  }
-
-  50% {
-    transform: scaleX(1);
-    opacity: 0.92;
-  }
-
-  55% {
-    transform: scaleX(0.7);
-    opacity: 0.7;
-  }
-
-  80% {
-    transform: scaleX(0.2);
-    opacity: 0.28;
-  }
-
-  100% {
-    transform: scaleX(0);
-    opacity: 0;
-  }
+  transition:
+    transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .world-card:hover .world-card-sweep-line {
-  animation:
-    world-card-sweep
-    1.6s
-    cubic-bezier(0.22, 0.61, 0.36, 1)
-    1;
+  transform: translateX(120%);
 }
 
 /* =========================================================
-   HIDE WORLD NUMBER OVER IMAGE
-   =========================================================
-
-   world.tsx mein ye element abhi class-less hai:
-
-   <div>
-     WORLD 01
-   </div>
-
-   Is selector se sirf IMAGE ke andar wala
-   WORLD number hide hota hai.
-
-   Content section ka:
-   WORLD 01 • range
-   bilkul visible rahega.
+   IMAGE / CONTENT JUNCTION
    ========================================================= */
 
-.world-card-image-wrap > div:nth-of-type(5) {
-  display: none !important;
+.world-card-junction-line {
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+  bottom: 0;
+
+  z-index: 25;
+
+  height: 2px;
+
+  pointer-events: none;
+
+  opacity: 0.6;
+
+  transform: scaleX(0.78);
+
+  transform-origin: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(217, 179, 95, 0.16) 15%,
+      rgba(217, 179, 95, 0.78) 34%,
+      rgba(247, 244, 234, 0.75) 50%,
+      rgba(66, 184, 131, 0.72) 66%,
+      rgba(66, 184, 131, 0.15) 85%,
+      transparent 100%
+    );
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 700ms ease;
+}
+
+.world-card:hover .world-card-junction-line {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* =========================================================
-   IMAGE CORNER DETAIL
+   IMAGE DETAIL CORNER
    ========================================================= */
 
-.world-card-image-wrap > div:nth-of-type(6) {
+.world-card-image-corner {
+  position: absolute;
+
+  z-index: 30;
+
+  right: 20px;
+  bottom: 16px;
+
+  width: 32px;
+  height: 32px;
+
+  pointer-events: none;
+
+  border-right: 1px solid rgba(217, 179, 95, 0.36);
+  border-bottom: 1px solid rgba(217, 179, 95, 0.36);
+
   transition:
     width 500ms cubic-bezier(0.22, 1, 0.36, 1),
     height 500ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 500ms ease;
 }
 
-.world-card:hover .world-card-image-wrap > div:nth-of-type(6) {
-  width: 2.5rem;
-  height: 2.5rem;
+.world-card:hover .world-card-image-corner {
+  width: 40px;
+  height: 40px;
 
-  border-color: rgba(217, 179, 95, 0.72);
+  border-color: rgba(217, 179, 95, 0.78);
 }
 
 /* =========================================================
@@ -715,244 +763,97 @@ button {
 .world-detail-line {
   position: absolute;
 
-  z-index: 30;
+  z-index: 26;
 
   pointer-events: none;
 
   opacity: 0;
 
-  will-change: transform, opacity;
+  transition:
+    opacity 650ms ease,
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =========================================================
-   DIAGONAL LINE
-   ========================================================= */
+.world-card:hover .world-detail-line {
+  opacity: 1;
+}
 
 .world-detail-line-diagonal {
-  left: -20%;
-  top: 100%;
-
-  width: 140%;
+  width: 100px;
   height: 1px;
 
-  transform-origin: center center;
+  right: -20px;
+  top: 32%;
 
   transform:
     rotate(-35deg)
-    scaleX(0.04);
+    translateX(25px);
 
   background:
     linear-gradient(
-      to right,
-
-      transparent 0%,
-
-      rgba(217, 179, 95, 0.04) 10%,
-
-      rgba(217, 179, 95, 0.16) 22%,
-
-      rgba(217, 179, 95, 0.38) 34%,
-
-      rgba(66, 184, 131, 0.62) 43%,
-
-      rgba(247, 244, 234, 0.9) 49%,
-
-      rgba(217, 179, 95, 1) 50%,
-
-      rgba(247, 244, 234, 0.9) 51%,
-
-      rgba(66, 184, 131, 0.62) 57%,
-
-      rgba(217, 179, 95, 0.38) 66%,
-
-      rgba(217, 179, 95, 0.16) 78%,
-
-      rgba(217, 179, 95, 0.04) 90%,
-
-      transparent 100%
+      90deg,
+      transparent,
+      rgba(217, 179, 95, 0.32),
+      rgba(247, 244, 234, 0.45),
+      transparent
     );
 }
 
-/* =========================================================
-   DIAGONAL ANIMATION
-   ========================================================= */
-
-@keyframes world-detail-corner-sweep {
-  0% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.04);
-
-    opacity: 0;
-  }
-
-  15% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.18);
-
-    opacity: 0.28;
-  }
-
-  35% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.48);
-
-    opacity: 0.62;
-  }
-
-  50% {
-    transform:
-      rotate(-35deg)
-      scaleX(1);
-
-    opacity: 0.9;
-  }
-
-  65% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.48);
-
-    opacity: 0.62;
-  }
-
-  85% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.18);
-
-    opacity: 0.28;
-  }
-
-  100% {
-    transform:
-      rotate(-35deg)
-      scaleX(0.04);
-
-    opacity: 0;
-  }
+.world-card:hover .world-detail-line-diagonal {
+  transform:
+    rotate(-35deg)
+    translateX(0);
 }
-
-.group:hover .world-detail-line-diagonal {
-  animation:
-    world-detail-corner-sweep
-    1.8s
-    cubic-bezier(0.22, 0.61, 0.36, 1)
-    1;
-}
-
-/* =========================================================
-   VERTICAL LINE
-   ========================================================= */
 
 .world-detail-line-vertical {
-  left: 12%;
-  top: 12%;
-
   width: 1px;
-  height: 76%;
+  height: 74px;
 
-  transform-origin: center center;
+  left: 22px;
+  top: -25px;
 
-  transform: scaleY(0.04);
+  transform: translateY(-20px);
 
   background:
     linear-gradient(
-      to bottom,
-
-      transparent 0%,
-
-      rgba(217, 179, 95, 0.04) 10%,
-
-      rgba(217, 179, 95, 0.16) 22%,
-
-      rgba(217, 179, 95, 0.38) 34%,
-
-      rgba(66, 184, 131, 0.62) 43%,
-
-      rgba(247, 244, 234, 0.9) 49%,
-
-      rgba(217, 179, 95, 1) 50%,
-
-      rgba(247, 244, 234, 0.9) 51%,
-
-      rgba(66, 184, 131, 0.62) 57%,
-
-      rgba(217, 179, 95, 0.38) 66%,
-
-      rgba(217, 179, 95, 0.16) 78%,
-
-      rgba(217, 179, 95, 0.04) 90%,
-
-      transparent 100%
+      180deg,
+      transparent,
+      rgba(247, 244, 234, 0.24),
+      rgba(217, 179, 95, 0.3),
+      transparent
     );
 }
 
-/* =========================================================
-   VERTICAL ANIMATION
-   ========================================================= */
-
-@keyframes world-detail-vertical-corner-sweep {
-  0% {
-    transform: scaleY(0.04);
-    opacity: 0;
-  }
-
-  15% {
-    transform: scaleY(0.18);
-    opacity: 0.25;
-  }
-
-  35% {
-    transform: scaleY(0.48);
-    opacity: 0.58;
-  }
-
-  50% {
-    transform: scaleY(1);
-    opacity: 0.88;
-  }
-
-  65% {
-    transform: scaleY(0.48);
-    opacity: 0.58;
-  }
-
-  85% {
-    transform: scaleY(0.18);
-    opacity: 0.25;
-  }
-
-  100% {
-    transform: scaleY(0.04);
-    opacity: 0;
-  }
-}
-
-.group:hover .world-detail-line-vertical {
-  animation:
-    world-detail-vertical-corner-sweep
-    1.8s
-    cubic-bezier(0.22, 0.61, 0.36, 1)
-    1;
+.world-card:hover .world-detail-line-vertical {
+  transform: translateY(0);
 }
 
 /* =========================================================
-   WORLD CONTENT
+   CONTENT
    ========================================================= */
 
 .world-card-content {
   position: relative;
+
   z-index: 35;
+
+  display: flex;
 
   background:
     linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.008),
-      transparent 25%
+      transparent 30%
     );
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+.world-card:hover .world-card-content {
+  transform: translate3d(0, -1px, 0);
 }
 
 /* =========================================================
@@ -976,13 +877,13 @@ button {
     linear-gradient(
       to right,
       transparent,
-      rgba(217, 179, 95, 0.24),
-      rgba(247, 244, 234, 0.45),
-      rgba(66, 184, 131, 0.24),
+      rgba(217, 179, 95, 0.28),
+      rgba(247, 244, 234, 0.38),
+      rgba(66, 184, 131, 0.22),
       transparent
     );
 
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 /* =========================================================
@@ -997,7 +898,6 @@ button {
 
 .world-card:hover h3 {
   transform: translateX(3px);
-
   color: #f7f0d5;
 }
 
@@ -1005,17 +905,27 @@ button {
    TITLE ACCENT
    ========================================================= */
 
-.world-card h3 + div {
+.world-card-title-accent {
   position: relative;
 
   overflow: hidden;
+
+  width: 40px;
+  height: 1px;
+
+  background: rgba(217, 179, 95, 0.6);
 
   transition:
     width 550ms cubic-bezier(0.22, 1, 0.36, 1),
     background-color 450ms ease;
 }
 
-.world-card h3 + div::after {
+.world-card:hover .world-card-title-accent {
+  width: 80px;
+  background: var(--gold);
+}
+
+.world-card-title-accent::after {
   content: "";
 
   position: absolute;
@@ -1026,7 +936,7 @@ button {
     linear-gradient(
       to right,
       transparent,
-      rgba(247, 244, 234, 0.7),
+      rgba(247, 244, 234, 0.75),
       transparent
     );
 
@@ -1036,13 +946,7 @@ button {
     transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.world-card:hover h3 + div {
-  width: 5rem;
-
-  background-color: var(--gold);
-}
-
-.world-card:hover h3 + div::after {
+.world-card:hover .world-card-title-accent::after {
   transform: translateX(100%);
 }
 
@@ -1080,32 +984,12 @@ button {
   width: fit-content;
 
   transition:
-    color 350ms ease,
-    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+    color 300ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .world-card:hover .discover-world {
-  transform: translateX(2px);
-}
-
-/* =========================================================
-   DISCOVER ARROW
-   ========================================================= */
-
-.discover-arrow {
-  display: inline-block;
-
-  transform: translateX(0);
-
-  transition:
-    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 300ms ease;
-}
-
-.world-card:hover .discover-arrow {
-  transform: translateX(7px);
-
-  color: var(--gold-light);
+  transform: translate3d(3px, 0, 0);
 }
 
 /* =========================================================
@@ -1130,7 +1014,7 @@ button {
     );
 
   transition:
-    width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    width 550ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .world-card:hover .discover-underline {
@@ -1138,11 +1022,34 @@ button {
 }
 
 /* =========================================================
-   LOCKED WORLDS
+   DISCOVER ARROW
+   ========================================================= */
+
+.discover-arrow {
+  display: inline-block;
+
+  transform: translate3d(0, 0, 0);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms ease;
+}
+
+.world-card:hover .discover-arrow {
+  transform: translate3d(6px, 0, 0);
+  color: var(--gold-light);
+}
+
+/* =========================================================
+   LOCKED WORLD CARDS
    ========================================================= */
 
 .locked-world-card {
-  border-color: rgba(255, 255, 255, 0.065);
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
 
   background:
     linear-gradient(
@@ -1152,22 +1059,32 @@ button {
     );
 
   transition:
-    border-color 500ms ease,
-    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
 }
 
 .locked-world-card:hover {
-  border-color: rgba(255, 255, 255, 0.13);
+  transform: translate3d(0, -3px, 0);
 
-  transform: translateY(-2px);
+  border-color: rgba(217, 179, 95, 0.16);
 }
 
 .locked-world-card::before {
-  border-color: rgba(255, 255, 255, 0.025);
+  content: "";
+
+  position: absolute;
+
+  z-index: 20;
+
+  inset: 8px;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.025);
 }
 
 /* =========================================================
-   LOCKED CARD TOP LINE
+   LOCKED TOP LINE
    ========================================================= */
 
 .locked-world-card > div:first-child::after {
@@ -1195,6 +1112,133 @@ button {
 }
 
 /* =========================================================
+   LOCKED CORNER
+   ========================================================= */
+
+.locked-world-card .border-b,
+.locked-world-card .border-r {
+  transition:
+    width 500ms ease,
+    height 500ms ease,
+    border-color 500ms ease;
+}
+
+.locked-world-card:hover .border-b.border-r {
+  border-color: rgba(217, 179, 95, 0.32);
+}
+
+/* =========================================================
+   WORLD DETAIL PAGE
+   ========================================================= */
+
+.world-detail-image-card {
+  position: relative;
+
+  overflow: hidden;
+
+  transform: translate3d(0, 0, 0);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
+}
+
+.world-detail-image-card:hover {
+  transform: translate3d(0, -4px, 0);
+
+  border-color: rgba(66, 184, 131, 0.28);
+}
+
+.world-detail-image {
+  display: block;
+
+  transform: scale(1);
+
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world-detail-image-card:hover .world-detail-image {
+  transform: scale(1.045);
+}
+
+.world-detail-stat {
+  transform: translate3d(0, 0, 0);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease,
+    background-color 500ms ease;
+}
+
+.world-detail-stat:hover {
+  transform: translate3d(0, -5px, 0);
+
+  border-color: rgba(217, 179, 95, 0.28);
+}
+
+/* =========================================================
+   EXPLORER ART
+   ========================================================= */
+
+.explorer-art {
+  overflow: hidden;
+
+  transform: translate3d(0, 0, 0);
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  background: #09130f;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
+}
+
+.explorer-art:hover {
+  transform: translate3d(0, -4px, 0);
+
+  border-color: rgba(66, 184, 131, 0.28);
+}
+
+.explorer-shine {
+  pointer-events: none;
+}
+
+/* =========================================================
+   PREMIUM CARD
+   ========================================================= */
+
+.premium-card {
+  position: relative;
+
+  transform: translate3d(0, 0, 0);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    );
+
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
+}
+
+.premium-card:hover {
+  transform: translate3d(0, -4px, 0);
+
+  border-color: rgba(66, 184, 131, 0.25);
+}
+
+/* =========================================================
    STATS GRID
    ========================================================= */
 
@@ -1211,13 +1255,6 @@ button {
   .stats-grid {
     grid-template-columns:
       repeat(4, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .stats-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
@@ -1258,16 +1295,22 @@ button {
     animation: none;
   }
 
-  .world-card {
+  .world-card,
+  .world-card:hover {
+    transform: none;
+  }
+
+  .world-card-image-wrap,
+  .world-card:hover .world-card-image-wrap {
     transform: none;
   }
 
   .world-card-image {
-    animation: none;
-
     transform:
       scale(1.025)
       translate3d(0, 0, 0);
+
+    transition: none;
   }
 
   .world-card:hover .world-card-image {
@@ -1276,11 +1319,11 @@ button {
       translate3d(0, 0, 0);
   }
 
-  .world-card:hover {
+  .world-card:hover h3 {
     transform: none;
   }
 
-  .world-card:hover h3 {
+  .world-card:hover .world-card-content {
     transform: none;
   }
 
@@ -1297,14 +1340,7 @@ button {
   }
 
   .world-card:hover .world-card-sweep-line {
-    animation: none;
-  }
-
-  .world-card:hover .world-card-junction-line {
-    left: 7%;
-    right: 7%;
-
-    opacity: 0.78;
+    transform: translateX(-120%);
   }
 
   .world-detail-line {
@@ -1314,6 +1350,9 @@ button {
 
 /* =========================================================
    REDUCED MOTION
+   =========================================================
+   Only applies when the user's operating system explicitly
+   requests reduced motion.
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1324,39 +1363,70 @@ button {
   *,
   *::before,
   *::after {
-    animation: none !important;
-    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
   .hero-character-motion {
     animation: none !important;
   }
 
-  .hero-image-stage:hover .hero-shine-line {
-    animation: none !important;
-  }
-
-  .world-card-image {
-    animation: none !important;
-
-    transform:
-      scale(1.025)
-      translate3d(0, 0, 0) !important;
-  }
-
   .world-card,
   .world-card:hover,
   .locked-world-card,
-  .locked-world-card:hover {
+  .locked-world-card:hover,
+  .world-detail-image-card,
+  .world-detail-image-card:hover,
+  .world-detail-stat,
+  .world-detail-stat:hover,
+  .premium-card,
+  .premium-card:hover,
+  .explorer-art,
+  .explorer-art:hover {
+    transform: none !important;
+  }
+
+  .world-card-image,
+  .world-card:hover .world-card-image,
+  .world-detail-image,
+  .world-detail-image-card:hover .world-detail-image {
+    transform: none !important;
+  }
+
+  .world-card-content,
+  .world-card:hover .world-card-content {
     transform: none !important;
   }
 
   .world-detail-line {
-    animation: none !important;
     opacity: 0 !important;
   }
 
   .world-card-sweep-line {
     display: none !important;
   }
+}
+
+/* =========================================================
+   FINAL SAFE BASE
+   =========================================================
+   IMPORTANT:
+   We intentionally DO NOT use:
+     animation: none !important
+     transform: none !important
+     filter: none !important
+     box-shadow: none !important
+     transition: none !important
+
+   globally.
+
+   This allows each component to control its own premium
+   visual behavior.
+   ========================================================= */
+
+html,
+body {
+  overflow-x: hidden;
 }

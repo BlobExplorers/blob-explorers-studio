@@ -88,6 +88,10 @@ export default function Hero() {
             explorers.
           </p>
 
+          {/* ========================================= */}
+          {/* HERO BUTTONS */}
+          {/* ========================================= */}
+
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:mt-10 lg:justify-start">
             <Button href="#worlds">Explore Worlds</Button>
 
@@ -102,6 +106,10 @@ export default function Hero() {
         {/* ========================================= */}
 
         <div className="relative flex justify-center">
+          {/* ========================================= */}
+          {/* FLOATING ANIMATION — KEPT */}
+          {/* ========================================= */}
+
           <div
             className="
               hero-character-motion
@@ -120,30 +128,13 @@ export default function Hero() {
             <div
               className="
                 hero-image-stage
+                group
                 relative
                 overflow-hidden
                 rounded-[2rem]
                 bg-[#07110d]
-                sm:rounded-[2rem]
               "
             >
-              {/* ========================================= */}
-              {/* HOVER SHINE */}
-              {/* ========================================= */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  hero-shine-line
-                  pointer-events-none
-                  absolute
-                  inset-x-0
-                  -top-[20%]
-                  z-20
-                  h-[20%]
-                "
-              />
-
               {/* ========================================= */}
               {/* HERO IMAGE */}
               {/* ========================================= */}
@@ -161,6 +152,8 @@ export default function Hero() {
                   650px
                 "
                 className="
+                  relative
+                  z-10
                   block
                   h-auto
                   w-full
@@ -169,7 +162,7 @@ export default function Hero() {
               />
 
               {/* ========================================= */}
-              {/* SIMPLE STATIC EDGE */}
+              {/* NORMAL SINGLE BORDER */}
               {/* ========================================= */}
 
               <div
@@ -181,7 +174,117 @@ export default function Hero() {
                   z-30
                   rounded-[2rem]
                   border
-                  border-white/[0.05]
+                  border-white/[0.08]
+                "
+              />
+
+              {/* ========================================= */}
+              {/* MOVING GREEN + GOLD BORDER */}
+              {/* ========================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-40
+                  rounded-[2rem]
+                  opacity-0
+                  transition-opacity
+                  duration-300
+                  group-hover:opacity-100
+                "
+              >
+                {/* TOP */}
+                <span
+                  className="
+                    absolute
+                    left-0
+                    top-0
+                    h-[2px]
+                    w-[28%]
+                    rounded-full
+                    bg-gradient-to-r
+                    from-transparent
+                    via-emerald-400
+                    to-[#f1d98a]
+                    shadow-[0_0_9px_rgba(217,179,95,.8)]
+                    animate-border-top
+                  "
+                />
+
+                {/* RIGHT */}
+                <span
+                  className="
+                    absolute
+                    right-0
+                    top-0
+                    h-[28%]
+                    w-[2px]
+                    rounded-full
+                    bg-gradient-to-b
+                    from-[#f1d98a]
+                    via-emerald-400
+                    to-transparent
+                    shadow-[0_0_9px_rgba(52,211,153,.7)]
+                    animate-border-right
+                  "
+                />
+
+                {/* BOTTOM */}
+                <span
+                  className="
+                    absolute
+                    bottom-0
+                    right-0
+                    h-[2px]
+                    w-[28%]
+                    rounded-full
+                    bg-gradient-to-l
+                    from-transparent
+                    via-emerald-400
+                    to-[#f1d98a]
+                    shadow-[0_0_9px_rgba(217,179,95,.8)]
+                    animate-border-bottom
+                  "
+                />
+
+                {/* LEFT */}
+                <span
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    h-[28%]
+                    w-[2px]
+                    rounded-full
+                    bg-gradient-to-t
+                    from-[#f1d98a]
+                    via-emerald-400
+                    to-transparent
+                    shadow-[0_0_9px_rgba(52,211,153,.7)]
+                    animate-border-left
+                  "
+                />
+              </div>
+
+              {/* ========================================= */}
+              {/* SUBTLE IMAGE OVERLAY */}
+              {/* ========================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-20
+                  rounded-[2rem]
+                  bg-gradient-to-t
+                  from-[#07110d]/15
+                  via-transparent
+                  to-transparent
                 "
               />
             </div>

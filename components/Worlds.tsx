@@ -77,128 +77,655 @@ export default function Worlds() {
                 relative
                 overflow-hidden
                 rounded-3xl
+                border
+                border-white/[0.07]
+                bg-[#0a1510]
               "
             >
 
               {/* =================================================
-                  IMAGE AREA
+                  PREMIUM OUTER BORDER
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-50
+                  rounded-3xl
+                  border
+                  border-white/[0.08]
+                  transition-colors
+                  duration-700
+                  group-hover:border-[#d9b35f]/25
+                "
+              />
+
+              {/* =================================================
+                  TOP CENTER GOLD LINE
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[14%]
+                  right-[14%]
+                  top-0
+                  z-[51]
+                  h-px
+                  bg-gradient-to-r
+                  from-transparent
+                  via-[#d9b35f]/45
+                  to-transparent
+                  transition-all
+                  duration-700
+                  group-hover:left-[7%]
+                  group-hover:right-[7%]
+                  group-hover:via-[#f7f4ea]/70
+                "
+              />
+
+              {/* =================================================
+                  TOP LEFT OUTER CORNER
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  left-3
+                  top-3
+                  z-[52]
+                  h-7
+                  w-7
+                  border-l
+                  border-t
+                  border-[#d9b35f]/45
+                  opacity-80
+                  transition-all
+                  duration-700
+                  group-hover:left-2
+                  group-hover:top-2
+                  group-hover:h-9
+                  group-hover:w-9
+                  group-hover:border-[#d9b35f]/80
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* =================================================
+                  TOP RIGHT OUTER CORNER
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  right-3
+                  top-3
+                  z-[52]
+                  h-7
+                  w-7
+                  border-r
+                  border-t
+                  border-[#42b883]/35
+                  opacity-70
+                  transition-all
+                  duration-700
+                  group-hover:right-2
+                  group-hover:top-2
+                  group-hover:h-9
+                  group-hover:w-9
+                  group-hover:border-[#42b883]/70
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* =================================================
+                  BOTTOM RIGHT OUTER CORNER
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-3
+                  right-3
+                  z-[52]
+                  h-7
+                  w-7
+                  border-b
+                  border-r
+                  border-[#d9b35f]/45
+                  opacity-80
+                  transition-all
+                  duration-700
+                  group-hover:bottom-2
+                  group-hover:right-2
+                  group-hover:h-9
+                  group-hover:w-9
+                  group-hover:border-[#d9b35f]/80
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* =================================================
+                  BOTTOM LEFT OUTER CORNER
+              ================================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-3
+                  left-3
+                  z-[52]
+                  h-7
+                  w-7
+                  border-b
+                  border-l
+                  border-[#42b883]/30
+                  opacity-65
+                  transition-all
+                  duration-700
+                  group-hover:bottom-2
+                  group-hover:left-2
+                  group-hover:h-9
+                  group-hover:w-9
+                  group-hover:border-[#42b883]/65
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* =================================================
+                  IMAGE FRAME
               ================================================= */}
 
               <div
                 className="
-                  world-card-image-wrap
+                  world-card-image-frame
                   relative
-                  h-56
+                  m-[1px]
                   overflow-hidden
-                  sm:h-64
+                  rounded-[23px]
+                  border
+                  border-white/[0.06]
+                  bg-[#07110d]
                 "
               >
 
-                {/* IMAGE */}
-
-                <Image
-                  src={world.image}
-                  alt={world.name}
-                  fill
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "lazy"}
-                  sizes="
-                    (max-width: 768px) 100vw,
-                    (max-width: 1024px) 50vw,
-                    33vw
-                  "
-                  className="
-                    world-card-image
-                    object-cover
-                    object-[center_20%]
-                  "
-                />
-
                 {/* =================================================
-                    CINEMATIC OVERLAY
+                    IMAGE AREA
                 ================================================= */}
 
                 <div
-                  aria-hidden="true"
                   className="
-                    pointer-events-none
-                    absolute
-                    inset-0
-                    z-10
-                    bg-gradient-to-t
-                    from-[#07110d]/75
-                    via-[#07110d]/05
-                    to-transparent
+                    world-card-image-wrap
+                    group/image
+                    relative
+                    h-56
+                    overflow-hidden
+                    sm:h-64
                   "
-                />
+                >
 
-                {/* =================================================
-                    PREMIUM IMAGE SWEEP
-                ================================================= */}
+                  {/* =================================================
+                      WORLD IMAGE
+                  ================================================= */}
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    world-card-sweep-line
-                  "
-                />
+                  <Image
+                    src={world.image}
+                    alt={world.name}
+                    fill
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
+                    sizes="
+                      (max-width: 768px) 100vw,
+                      (max-width: 1024px) 50vw,
+                      33vw
+                    "
+                    className="
+                      world-card-image
+                      object-cover
+                      object-[center_20%]
+                      transition-transform
+                      duration-[1400ms]
+                      ease-out
+                      group-hover:scale-[1.06]
+                    "
+                  />
 
-                {/* =================================================
-                    GOLD / IVORY / EMERALD JUNCTION
-                    IMAGE BOTTOM EDGE
-                ================================================= */}
+                  {/* =================================================
+                      CINEMATIC OVERLAY
+                  ================================================= */}
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    world-card-junction-line
-                  "
-                />
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      z-10
+                      bg-gradient-to-t
+                      from-[#07110d]/75
+                      via-[#07110d]/05
+                      to-transparent
+                    "
+                  />
 
-                {/* =================================================
-                    IMAGE CORNER DETAIL
-                ================================================= */}
+                  {/* =================================================
+                      WORLD NUMBER
+                  ================================================= */}
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    pointer-events-none
-                    absolute
-                    bottom-4
-                    right-5
-                    z-30
-                    h-8
-                    w-8
-                    border-b
-                    border-r
-                    border-[#d9b35f]/35
-                    transition-all
-                    duration-500
-                    group-hover:h-10
-                    group-hover:w-10
-                    group-hover:border-[#d9b35f]/75
-                  "
-                />
+                  <div
+                    className="
+                      absolute
+                      bottom-4
+                      left-4
+                      z-[60]
+                      rounded-lg
+                      border
+                      border-[#d9b35f]/40
+                      bg-[#07110d]/85
+                      px-3
+                      py-1.5
+                      text-[11px]
+                      font-black
+                      uppercase
+                      tracking-[0.18em]
+                      text-[#f7f0d5]
+                      backdrop-blur-sm
+                      transition-all
+                      duration-500
+                      group-hover:border-[#d9b35f]/75
+                      group-hover:bg-[#07110d]/95
+                      group-hover:text-[#ffe9a3]
+                    "
+                  >
+                    WORLD {world.number}
+                  </div>
 
-                {/* =================================================
-                    ARCHITECTURAL DETAIL LINES
-                ================================================= */}
+                  {/* =================================================
+                      PREMIUM GREEN OUTER IMAGE LINE
+                  ================================================= */}
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    world-detail-line
-                    world-detail-line-diagonal
-                  "
-                />
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-[5px]
+                      z-40
+                      rounded-[18px]
+                      border
+                      border-[#42b883]/20
+                      transition-all
+                      duration-700
+                      group-hover:border-[#42b883]/75
+                    "
+                  />
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    world-detail-line
-                    world-detail-line-vertical
-                  "
-                />
+                  {/* =================================================
+                      PREMIUM GOLD INNER IMAGE LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-[8px]
+                      z-40
+                      rounded-[15px]
+                      border
+                      border-[#d9b35f]/20
+                      transition-all
+                      duration-700
+                      group-hover:inset-[7px]
+                      group-hover:border-[#d9b35f]/80
+                    "
+                  />
+
+                  {/* =================================================
+                      SOFT IVORY INNER LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-[11px]
+                      z-40
+                      rounded-[12px]
+                      border
+                      border-white/[0.08]
+                      transition-all
+                      duration-700
+                      group-hover:border-white/[0.18]
+                    "
+                  />
+
+                  {/* =================================================
+                      TOP GOLD LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-[12%]
+                      right-[12%]
+                      top-[5px]
+                      z-50
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-[#d9b35f]/30
+                      to-transparent
+                      transition-all
+                      duration-700
+                      group-hover:left-[4%]
+                      group-hover:right-[4%]
+                      group-hover:via-[#d9b35f]
+                    "
+                  />
+
+                  {/* =================================================
+                      TOP GREEN LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-[25%]
+                      right-[25%]
+                      top-[8px]
+                      z-50
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-[#42b883]/25
+                      to-transparent
+                      transition-all
+                      duration-700
+                      group-hover:left-[12%]
+                      group-hover:right-[12%]
+                      group-hover:via-[#42b883]/85
+                    "
+                  />
+
+                  {/* =================================================
+                      BOTTOM GOLD LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-[5px]
+                      left-[12%]
+                      right-[12%]
+                      z-50
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-[#d9b35f]/30
+                      to-transparent
+                      transition-all
+                      duration-700
+                      group-hover:left-[4%]
+                      group-hover:right-[4%]
+                      group-hover:via-[#d9b35f]
+                    "
+                  />
+
+                  {/* =================================================
+                      BOTTOM GREEN LINE
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-[8px]
+                      left-[25%]
+                      right-[25%]
+                      z-50
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-[#42b883]/25
+                      to-transparent
+                      transition-all
+                      duration-700
+                      group-hover:left-[12%]
+                      group-hover:right-[12%]
+                      group-hover:via-[#42b883]/85
+                    "
+                  />
+
+                  {/* =================================================
+                      TOP LEFT GOLD CORNER
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-4
+                      top-4
+                      z-50
+                      h-8
+                      w-8
+                      border-l
+                      border-t
+                      border-[#d9b35f]/35
+                      transition-all
+                      duration-700
+                      group-hover:left-3
+                      group-hover:top-3
+                      group-hover:h-10
+                      group-hover:w-10
+                      group-hover:border-[#d9b35f]
+                    "
+                  />
+
+                  {/* =================================================
+                      TOP RIGHT GREEN CORNER
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      right-4
+                      top-4
+                      z-50
+                      h-8
+                      w-8
+                      border-r
+                      border-t
+                      border-[#42b883]/35
+                      transition-all
+                      duration-700
+                      group-hover:right-3
+                      group-hover:top-3
+                      group-hover:h-10
+                      group-hover:w-10
+                      group-hover:border-[#42b883]
+                    "
+                  />
+
+                  {/* =================================================
+                      BOTTOM LEFT GREEN CORNER
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-4
+                      left-4
+                      z-50
+                      h-8
+                      w-8
+                      border-b
+                      border-l
+                      border-[#42b883]/30
+                      transition-all
+                      duration-700
+                      group-hover:bottom-3
+                      group-hover:left-3
+                      group-hover:h-10
+                      group-hover:w-10
+                      group-hover:border-[#42b883]/90
+                    "
+                  />
+
+                  {/* =================================================
+                      BOTTOM RIGHT GOLD CORNER
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-4
+                      right-4
+                      z-50
+                      h-8
+                      w-8
+                      border-b
+                      border-r
+                      border-[#d9b35f]/35
+                      transition-all
+                      duration-700
+                      group-hover:bottom-3
+                      group-hover:right-3
+                      group-hover:h-10
+                      group-hover:w-10
+                      group-hover:border-[#d9b35f]
+                    "
+                  />
+
+                  {/* =================================================
+                      CENTER TOP DIAMOND
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-1/2
+                      top-[5px]
+                      z-50
+                      h-2
+                      w-2
+                      -translate-x-1/2
+                      rotate-45
+                      border
+                      border-[#d9b35f]/60
+                      bg-[#07110d]
+                      transition-all
+                      duration-700
+                      group-hover:border-[#42b883]
+                      group-hover:scale-125
+                    "
+                  />
+
+                  {/* =================================================
+                      PREMIUM MOVING SWEEP
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-y-0
+                      -left-1/2
+                      z-30
+                      w-1/3
+                      -skew-x-12
+                      bg-gradient-to-r
+                      from-transparent
+                      via-white/[0.10]
+                      to-transparent
+                      opacity-0
+                      transition-all
+                      duration-[1200ms]
+                      group-hover:left-[130%]
+                      group-hover:opacity-100
+                    "
+                  />
+
+                  {/* =================================================
+                      SUBTLE ARCHITECTURAL DETAIL
+                  ================================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      right-[12%]
+                      top-[25%]
+                      z-40
+                      h-16
+                      w-px
+                      rotate-[35deg]
+                      bg-gradient-to-b
+                      from-transparent
+                      via-[#d9b35f]/20
+                      to-transparent
+                      opacity-30
+                      transition-opacity
+                      duration-700
+                      group-hover:opacity-80
+                    "
+                  />
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-[18%]
+                      left-[10%]
+                      z-40
+                      h-12
+                      w-px
+                      bg-gradient-to-b
+                      from-transparent
+                      via-[#42b883]/20
+                      to-transparent
+                      opacity-30
+                      transition-opacity
+                      duration-700
+                      group-hover:opacity-75
+                    "
+                  />
+
+                </div>
               </div>
 
               {/* =================================================
@@ -209,6 +736,7 @@ export default function Worlds() {
                 className="
                   world-card-content
                   relative
+                  z-30
                   flex
                   min-h-[310px]
                   flex-col
@@ -218,88 +746,53 @@ export default function Worlds() {
                 "
               >
 
-                {/* =================================================
-                    CONTENT TOP LINE
-                ================================================= */}
+                {/* CONTENT TOP LINE */}
 
                 <div
                   aria-hidden="true"
                   className="
                     pointer-events-none
                     absolute
-                    left-6
-                    right-6
+                    left-8
+                    right-8
                     top-0
                     h-px
                     bg-gradient-to-r
                     from-transparent
-                    via-white/[0.08]
+                    via-[#d9b35f]/25
                     to-transparent
-                    sm:left-8
-                    sm:right-8
                   "
                 />
 
-                {/* =================================================
-                    WORLD RANGE
-                ================================================= */}
-
-                <p
-                  className="
-                    text-[11px]
-                    font-black
-                    uppercase
-                    tracking-[0.22em]
-                    text-[#d9b35f]
-                    sm:text-xs
-                  "
-                >
-                  WORLD {world.number}
-
-                  <span className="mx-2 text-white/20">
-                    •
-                  </span>
-
-                  <span className="text-white/45">
-                    {world.range}
-                  </span>
-                </p>
-
-                {/* =================================================
-                    WORLD NAME
-                ================================================= */}
+                {/* WORLD NAME */}
 
                 <h3
                   className="
-                    mt-3
                     text-2xl
                     font-black
                     leading-tight
                     tracking-tight
                     text-white
-                    sm:text-3xl
+                    transition-all
+                    duration-500
+                    group-hover:translate-x-1
+                    group-hover:text-[#f7f0d5]
                   "
                 >
                   {world.name}
                 </h3>
 
-                {/* =================================================
-                    TITLE ACCENT
-                ================================================= */}
+                {/* TITLE ACCENT */}
 
                 <div
                   aria-hidden="true"
                   className="
+                    world-card-title-accent
                     mt-4
-                    h-px
-                    w-10
-                    bg-[#d9b35f]/60
                   "
                 />
 
-                {/* =================================================
-                    DESCRIPTION
-                ================================================= */}
+                {/* DESCRIPTION */}
 
                 <p
                   className="
@@ -313,9 +806,7 @@ export default function Worlds() {
                   {world.description}
                 </p>
 
-                {/* =================================================
-                    NFT COUNT
-                ================================================= */}
+                {/* NFT COUNT */}
 
                 <div
                   className="
@@ -334,7 +825,8 @@ export default function Worlds() {
                     text-gray-300
                     transition-all
                     duration-500
-                    group-hover:border-[#d9b35f]/25
+                    group-hover:border-[#d9b35f]/30
+                    group-hover:bg-[#d9b35f]/[0.035]
                     group-hover:text-[#e7dcae]
                     sm:text-sm
                   "
@@ -342,9 +834,7 @@ export default function Worlds() {
                   {collection.nftsPerWorld} Handcrafted NFTs
                 </div>
 
-                {/* =================================================
-                    DISCOVER WORLD
-                ================================================= */}
+                {/* DISCOVER WORLD */}
 
                 <Link
                   href={`/worlds/${world.slug}`}
@@ -362,6 +852,8 @@ export default function Worlds() {
                     uppercase
                     tracking-[0.12em]
                     text-[#d9b35f]
+                    transition-all
+                    duration-500
                     hover:text-[#f0d889]
                     sm:pt-10
                   "
@@ -388,9 +880,7 @@ export default function Worlds() {
                   </span>
                 </Link>
 
-                {/* =================================================
-                    BOTTOM CORNER
-                ================================================= */}
+                {/* CONTENT BOTTOM CORNER */}
 
                 <div
                   aria-hidden="true"
@@ -405,13 +895,40 @@ export default function Worlds() {
                     border-r
                     border-white/[0.08]
                     transition-all
-                    duration-500
+                    duration-700
                     group-hover:h-7
                     group-hover:w-7
-                    group-hover:border-[#d9b35f]/40
+                    group-hover:border-[#d9b35f]/45
                   "
                 />
+
               </div>
+
+              {/* FINAL BOTTOM BORDER */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-0
+                  left-[12%]
+                  right-[12%]
+                  z-[51]
+                  h-px
+                  bg-gradient-to-r
+                  from-transparent
+                  via-[#d9b35f]/35
+                  to-transparent
+                  opacity-60
+                  transition-all
+                  duration-700
+                  group-hover:left-[6%]
+                  group-hover:right-[6%]
+                  group-hover:opacity-100
+                "
+              />
+
             </article>
           ))}
 
@@ -420,36 +937,72 @@ export default function Worlds() {
           ===================================================== */}
 
           {Array.from({ length: lockedWorldCount }).map((_, index) => {
-            const worldNumber = revealedWorlds.length + index + 1;
-
             return (
               <article
-                key={`locked-world-${worldNumber}`}
+                key={`locked-world-${index}`}
                 className="
                   locked-world-card
+                  group
                   relative
                   overflow-hidden
                   rounded-3xl
+                  border
+                  border-white/[0.065]
+                  bg-[#090f0c]
                 "
               >
 
-                {/* =================================================
-                    LOCKED IMAGE AREA
-                ================================================= */}
+                {/* LOCKED OUTER FRAME */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    z-40
+                    rounded-3xl
+                    border
+                    border-white/[0.045]
+                  "
+                />
+
+                {/* LOCKED TOP LINE */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-[14%]
+                    right-[14%]
+                    top-0
+                    z-50
+                    h-px
+                    bg-gradient-to-r
+                    from-transparent
+                    via-[#d9b35f]/20
+                    to-transparent
+                  "
+                />
+
+                {/* LOCKED IMAGE */}
 
                 <div
                   className="
                     relative
+                    m-[1px]
                     flex
                     h-56
                     items-center
                     justify-center
                     overflow-hidden
+                    rounded-[23px]
+                    border
+                    border-white/[0.045]
                     sm:h-64
                   "
                 >
-
-                  {/* BACKGROUND */}
 
                   <div
                     aria-hidden="true"
@@ -463,16 +1016,39 @@ export default function Worlds() {
                     "
                   />
 
-                  {/* TOP LINE */}
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-[8px]
+                      z-20
+                      border
+                      border-white/[0.05]
+                    "
+                  />
 
                   <div
                     aria-hidden="true"
                     className="
                       pointer-events-none
                       absolute
-                      left-8
-                      right-8
-                      top-0
+                      inset-[12px]
+                      z-20
+                      border
+                      border-[#d9b35f]/10
+                    "
+                  />
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-[10%]
+                      right-[10%]
+                      top-[9px]
+                      z-30
                       h-px
                       bg-gradient-to-r
                       from-transparent
@@ -481,9 +1057,7 @@ export default function Worlds() {
                     "
                   />
 
-                  {/* LOCK */}
-
-                  <div className="relative z-20 text-center">
+                  <div className="relative z-30 text-center">
 
                     <div
                       className="
@@ -503,28 +1077,16 @@ export default function Worlds() {
                       🔒
                     </div>
 
-                    <p
-                      className="
-                        mt-4
-                        text-xs
-                        font-black
-                        uppercase
-                        tracking-[0.3em]
-                        text-[#d9b35f]/50
-                      "
-                    >
-                      WORLD {String(worldNumber).padStart(2, "0")}
-                    </p>
                   </div>
-
-                  {/* CORNER */}
 
                   <div
                     aria-hidden="true"
                     className="
+                      pointer-events-none
                       absolute
                       bottom-5
                       right-5
+                      z-30
                       h-8
                       w-8
                       border-b
@@ -532,11 +1094,10 @@ export default function Worlds() {
                       border-white/[0.08]
                     "
                   />
+
                 </div>
 
-                {/* =================================================
-                    LOCKED CONTENT
-                ================================================= */}
+                {/* LOCKED CONTENT */}
 
                 <div
                   className="
@@ -549,8 +1110,6 @@ export default function Worlds() {
                     sm:p-8
                   "
                 >
-
-                  {/* BADGE */}
 
                   <div
                     className="
@@ -572,8 +1131,6 @@ export default function Worlds() {
                     🔒 Locked
                   </div>
 
-                  {/* TITLE */}
-
                   <h3
                     className="
                       mt-4
@@ -586,8 +1143,6 @@ export default function Worlds() {
                     Hidden World
                   </h3>
 
-                  {/* ACCENT */}
-
                   <div
                     aria-hidden="true"
                     className="
@@ -597,8 +1152,6 @@ export default function Worlds() {
                       bg-[#d9b35f]/20
                     "
                   />
-
-                  {/* DESCRIPTION */}
 
                   <p
                     className="
@@ -613,8 +1166,6 @@ export default function Worlds() {
                     identity, story and discoveries will be revealed to future
                     explorers.
                   </p>
-
-                  {/* NFT COUNT */}
 
                   <div
                     className="
@@ -636,8 +1187,6 @@ export default function Worlds() {
                     {collection.nftsPerWorld} Handcrafted NFTs
                   </div>
 
-                  {/* FOOTER */}
-
                   <div
                     className="
                       mt-auto
@@ -656,11 +1205,10 @@ export default function Worlds() {
                     🔒 Discovery Locked
                   </div>
 
-                  {/* CORNER */}
-
                   <div
                     aria-hidden="true"
                     className="
+                      pointer-events-none
                       absolute
                       bottom-5
                       right-5
@@ -671,10 +1219,32 @@ export default function Worlds() {
                       border-white/[0.06]
                     "
                   />
+
                 </div>
+
+                {/* FINAL LOCKED LINE */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    bottom-0
+                    left-[15%]
+                    right-[15%]
+                    z-50
+                    h-px
+                    bg-gradient-to-r
+                    from-transparent
+                    via-[#d9b35f]/15
+                    to-transparent
+                  "
+                />
+
               </article>
             );
           })}
+
         </div>
 
         {/* =====================================================
@@ -721,7 +1291,9 @@ export default function Worlds() {
             {collection.totalWorlds - revealedWorlds.length} remain hidden,
             waiting for future explorers.
           </p>
+
         </div>
+
       </div>
     </section>
   );

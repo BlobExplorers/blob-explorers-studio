@@ -20,9 +20,10 @@ export default function Stats() {
 
       <div className="relative mx-auto max-w-7xl">
         <div
-          className="
-            grid
-            grid-cols-2
+  className="
+    stats-grid
+    grid
+    grid-cols-2
             gap-3
             rounded-3xl
             border

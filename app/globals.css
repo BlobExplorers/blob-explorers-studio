@@ -2,7 +2,9 @@
 
 /* =========================================================
    BLOB EXPLORERS STUDIO
-   CLEAN GLOBAL CSS
+   PREMIUM GLOBAL CSS
+   WORLD SECTION — FINAL
+   GOLD / IVORY / EMERALD
    ========================================================= */
 
 :root {
@@ -13,12 +15,13 @@
   --forest-light: #42b883;
 
   --gold: #d9b35f;
-  --electric: #4da3ff;
+  --gold-light: #ead08a;
+  --ivory: #f7f4ea;
 
   --muted: #a9b4ae;
 
-  --card: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.12);
+  --card: #0a1510;
+  --border: rgba(217, 179, 95, 0.16);
 }
 
 @theme inline {
@@ -49,7 +52,14 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 
-  background: var(--background);
+  background:
+    linear-gradient(
+      180deg,
+      #07110d 0%,
+      #07120e 50%,
+      #06100c 100%
+    );
+
   color: var(--foreground);
 
   font-family: Arial, Helvetica, sans-serif;
@@ -77,13 +87,13 @@ button {
 }
 
 /* =========================================================
-   SAFE CARD BASE
+   GENERAL POSITIONING
    ========================================================= */
 
 .premium-card,
 .world-card,
-.explorer-art,
-.locked-world-card {
+.locked-world-card,
+.explorer-art {
   position: relative;
 }
 
@@ -92,8 +102,14 @@ button {
    ========================================================= */
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0a1510;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
 }
 
 /* =========================================================
@@ -107,6 +123,7 @@ button {
 .hero-image-frame {
   position: relative;
   width: 100%;
+
   overflow: hidden;
 
   border-radius: 2rem;
@@ -118,16 +135,13 @@ button {
   z-index: 10;
 
   display: block;
+
   width: 100%;
   height: auto;
 
   transform: none !important;
   filter: none !important;
 }
-
-/* =========================================================
-   HERO GLOW
-   ========================================================= */
 
 .hero-character-glow {
   position: absolute;
@@ -142,34 +156,28 @@ button {
   transform: translate(-50%, -50%);
 
   pointer-events: none;
+
   border-radius: 50%;
 
   background: radial-gradient(
     circle,
-    rgba(52, 211, 153, 0.08) 0%,
-    rgba(52, 211, 153, 0.03) 30%,
-    transparent 70%
+    rgba(52, 211, 153, 0.07) 0%,
+    rgba(52, 211, 153, 0.025) 35%,
+    transparent 72%
   );
 
   opacity: 0.5;
 }
-
-/* =========================================================
-   HERO LIGHT
-   ========================================================= */
 
 .hero-image-light,
 .hero-image-light-core {
   display: none !important;
 }
 
-/* =========================================================
-   HERO EDGE
-   ========================================================= */
-
 .hero-character-edge {
   position: absolute;
   z-index: 20;
+
   inset: 0;
 
   pointer-events: none;
@@ -177,7 +185,7 @@ button {
   border-radius: 2rem;
 
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
 
   opacity: 0.7;
 }
@@ -205,7 +213,7 @@ button {
 }
 
 /* =========================================================
-   CARDS
+   GENERAL CARDS
    ========================================================= */
 
 .premium-card {
@@ -220,21 +228,6 @@ button {
 }
 
 /* =========================================================
-   SCROLL PERFORMANCE
-   ========================================================= */
-
-.hero-image-frame,
-.hero-character-image,
-.hero-character-glow,
-.hero-character-edge,
-.premium-card,
-.world-card,
-.explorer-art,
-.locked-world-card {
-  filter: none !important;
-}
-
-/* =========================================================
    HERO CHARACTER MOVEMENT
    ========================================================= */
 
@@ -245,17 +238,22 @@ button {
   }
 
   50% {
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -7px, 0);
   }
 }
 
 .hero-character-motion {
-  animation: hero-character-float 5s ease-in-out infinite;
+  animation:
+    hero-character-float
+    5s
+    ease-in-out
+    infinite;
+
   will-change: transform;
 }
 
 /* =========================================================
-   HERO HOVER SHINE
+   HERO SHINE
    ========================================================= */
 
 @keyframes hero-shine-sweep {
@@ -264,16 +262,16 @@ button {
     opacity: 0;
   }
 
-  10% {
-    opacity: 0.3;
+  12% {
+    opacity: 0.25;
   }
 
   50% {
-    opacity: 0.22;
+    opacity: 0.18;
   }
 
-  90% {
-    opacity: 0.3;
+  88% {
+    opacity: 0.25;
   }
 
   100% {
@@ -290,16 +288,937 @@ button {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.18) 50%,
-    rgba(255, 255, 255, 0.04) 75%,
+    rgba(255, 255, 255, 0.025) 25%,
+    rgba(255, 255, 255, 0.13) 50%,
+    rgba(255, 255, 255, 0.025) 75%,
     transparent 100%
   );
 }
 
 .hero-image-stage:hover .hero-shine-line {
-  animation: hero-shine-sweep 1.6s ease-in-out 1;
+  animation:
+    hero-shine-sweep
+    1.7s
+    ease-in-out
+    1;
+
   will-change: transform, opacity;
+}
+
+/* =========================================================
+   =========================================================
+   WORLD SECTION
+   =========================================================
+   ========================================================= */
+
+/* =========================================================
+   WORLD CARD
+   ========================================================= */
+
+.world-card,
+.locked-world-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(217, 179, 95, 0.17);
+
+  background:
+    linear-gradient(
+      145deg,
+      #0c1812 0%,
+      #09140f 48%,
+      #08120e 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease,
+    background-color 500ms ease;
+}
+
+/* =========================================================
+   WORLD CARD HOVER
+   ========================================================= */
+
+.world-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(217, 179, 95, 0.42);
+
+  background:
+    linear-gradient(
+      145deg,
+      #0d1a14 0%,
+      #0a1610 48%,
+      #09140f 100%
+    );
+}
+
+/* =========================================================
+   PREMIUM INNER FRAME
+   ========================================================= */
+
+.world-card::before,
+.locked-world-card::before {
+  content: "";
+
+  position: absolute;
+  z-index: 40;
+
+  inset: 8px;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(247, 244, 234, 0.045);
+
+  transition:
+    inset 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
+}
+
+.world-card:hover::before {
+  inset: 7px;
+
+  border-color: rgba(217, 179, 95, 0.13);
+}
+
+/* =========================================================
+   WORLD IMAGE WRAPPER
+   ========================================================= */
+
+.world-card-image-wrap {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+
+  background: #09130f;
+}
+
+/* =========================================================
+   WORLD IMAGE
+   CONTROLLED CINEMATIC MOVEMENT
+   ========================================================= */
+
+.world-card-image {
+  transform:
+    scale(1.025)
+    translate3d(0, 0, 0);
+
+  transform-origin: center center;
+
+  animation:
+    world-image-drift
+    18s
+    ease-in-out
+    infinite
+    alternate;
+
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+/* =========================================================
+   IMAGE MOVEMENT
+   VERY SUBTLE
+   ========================================================= */
+
+@keyframes world-image-drift {
+  0% {
+    transform:
+      scale(1.025)
+      translate3d(0%, 0%, 0);
+  }
+
+  50% {
+    transform:
+      scale(1.038)
+      translate3d(-0.25%, -0.15%, 0);
+  }
+
+  100% {
+    transform:
+      scale(1.05)
+      translate3d(0.3%, 0.2%, 0);
+  }
+}
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+.world-card:hover .world-card-image {
+  transform:
+    scale(1.055)
+    translate3d(0.35%, -0.2%, 0);
+}
+
+/* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+.world-card-image-wrap > .z-10 {
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 17, 13, 0.72) 0%,
+      rgba(7, 17, 13, 0.14) 48%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   IMAGE TOP ARCHITECTURAL LINE
+   ========================================================= */
+
+.world-card-image-wrap::after {
+  content: "";
+
+  position: absolute;
+  z-index: 16;
+
+  left: 8%;
+  right: 8%;
+  top: 0;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(217, 179, 95, 0.18) 20%,
+      rgba(247, 244, 234, 0.68) 50%,
+      rgba(66, 184, 131, 0.18) 80%,
+      transparent 100%
+    );
+
+  opacity: 0.7;
+
+  transition:
+    left 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    right 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms ease;
+}
+
+.world-card:hover .world-card-image-wrap::after {
+  left: 5%;
+  right: 5%;
+
+  opacity: 1;
+}
+
+/* =========================================================
+   GOLD / IVORY / EMERALD JUNCTION
+   FIXED AT IMAGE BOTTOM
+   ========================================================= */
+
+.world-card-junction-line {
+  position: absolute;
+
+  z-index: 26;
+
+  left: 7%;
+  right: 7%;
+  bottom: 0;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+
+      transparent 0%,
+
+      rgba(217, 179, 95, 0.12) 8%,
+
+      rgba(217, 179, 95, 0.72) 25%,
+
+      rgba(217, 179, 95, 1) 37%,
+
+      rgba(247, 244, 234, 1) 50%,
+
+      rgba(66, 184, 131, 1) 63%,
+
+      rgba(66, 184, 131, 0.72) 75%,
+
+      rgba(66, 184, 131, 0.12) 92%,
+
+      transparent 100%
+    );
+
+  opacity: 0.78;
+
+  transition:
+    left 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    right 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms ease;
+}
+
+.world-card:hover .world-card-junction-line {
+  left: 4%;
+  right: 4%;
+
+  opacity: 1;
+}
+
+/* =========================================================
+   SWEEP LINE
+   ========================================================= */
+
+.world-card-sweep-line {
+  position: absolute;
+
+  z-index: 27;
+
+  left: 14%;
+  right: 14%;
+  top: 52%;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  transform-origin: center center;
+  transform: scaleX(0);
+
+  background:
+    linear-gradient(
+      to right,
+
+      transparent 0%,
+
+      rgba(217, 179, 95, 0.08) 14%,
+
+      rgba(217, 179, 95, 0.55) 30%,
+
+      rgba(247, 244, 234, 0.95) 47%,
+
+      rgba(217, 179, 95, 1) 50%,
+
+      rgba(247, 244, 234, 0.95) 53%,
+
+      rgba(66, 184, 131, 0.55) 70%,
+
+      rgba(66, 184, 131, 0.08) 86%,
+
+      transparent 100%
+    );
+
+  opacity: 0;
+}
+
+/* =========================================================
+   SWEEP ANIMATION
+   ========================================================= */
+
+@keyframes world-card-sweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  20% {
+    transform: scaleX(0.2);
+    opacity: 0.28;
+  }
+
+  45% {
+    transform: scaleX(0.7);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scaleX(1);
+    opacity: 0.92;
+  }
+
+  55% {
+    transform: scaleX(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: scaleX(0.2);
+    opacity: 0.28;
+  }
+
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+.world-card:hover .world-card-sweep-line {
+  animation:
+    world-card-sweep
+    1.6s
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    1;
+}
+
+/* =========================================================
+   HIDE WORLD NUMBER OVER IMAGE
+   =========================================================
+
+   world.tsx mein ye element abhi class-less hai:
+
+   <div>
+     WORLD 01
+   </div>
+
+   Is selector se sirf IMAGE ke andar wala
+   WORLD number hide hota hai.
+
+   Content section ka:
+   WORLD 01 • range
+   bilkul visible rahega.
+   ========================================================= */
+
+.world-card-image-wrap > div:nth-of-type(5) {
+  display: none !important;
+}
+
+/* =========================================================
+   IMAGE CORNER DETAIL
+   ========================================================= */
+
+.world-card-image-wrap > div:nth-of-type(6) {
+  transition:
+    width 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms ease;
+}
+
+.world-card:hover .world-card-image-wrap > div:nth-of-type(6) {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border-color: rgba(217, 179, 95, 0.72);
+}
+
+/* =========================================================
+   ARCHITECTURAL DETAIL LINES
+   ========================================================= */
+
+.world-detail-line {
+  position: absolute;
+
+  z-index: 30;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   DIAGONAL LINE
+   ========================================================= */
+
+.world-detail-line-diagonal {
+  left: -20%;
+  top: 100%;
+
+  width: 140%;
+  height: 1px;
+
+  transform-origin: center center;
+
+  transform:
+    rotate(-35deg)
+    scaleX(0.04);
+
+  background:
+    linear-gradient(
+      to right,
+
+      transparent 0%,
+
+      rgba(217, 179, 95, 0.04) 10%,
+
+      rgba(217, 179, 95, 0.16) 22%,
+
+      rgba(217, 179, 95, 0.38) 34%,
+
+      rgba(66, 184, 131, 0.62) 43%,
+
+      rgba(247, 244, 234, 0.9) 49%,
+
+      rgba(217, 179, 95, 1) 50%,
+
+      rgba(247, 244, 234, 0.9) 51%,
+
+      rgba(66, 184, 131, 0.62) 57%,
+
+      rgba(217, 179, 95, 0.38) 66%,
+
+      rgba(217, 179, 95, 0.16) 78%,
+
+      rgba(217, 179, 95, 0.04) 90%,
+
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   DIAGONAL ANIMATION
+   ========================================================= */
+
+@keyframes world-detail-corner-sweep {
+  0% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.04);
+
+    opacity: 0;
+  }
+
+  15% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.18);
+
+    opacity: 0.28;
+  }
+
+  35% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.48);
+
+    opacity: 0.62;
+  }
+
+  50% {
+    transform:
+      rotate(-35deg)
+      scaleX(1);
+
+    opacity: 0.9;
+  }
+
+  65% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.48);
+
+    opacity: 0.62;
+  }
+
+  85% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.18);
+
+    opacity: 0.28;
+  }
+
+  100% {
+    transform:
+      rotate(-35deg)
+      scaleX(0.04);
+
+    opacity: 0;
+  }
+}
+
+.group:hover .world-detail-line-diagonal {
+  animation:
+    world-detail-corner-sweep
+    1.8s
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    1;
+}
+
+/* =========================================================
+   VERTICAL LINE
+   ========================================================= */
+
+.world-detail-line-vertical {
+  left: 12%;
+  top: 12%;
+
+  width: 1px;
+  height: 76%;
+
+  transform-origin: center center;
+
+  transform: scaleY(0.04);
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      transparent 0%,
+
+      rgba(217, 179, 95, 0.04) 10%,
+
+      rgba(217, 179, 95, 0.16) 22%,
+
+      rgba(217, 179, 95, 0.38) 34%,
+
+      rgba(66, 184, 131, 0.62) 43%,
+
+      rgba(247, 244, 234, 0.9) 49%,
+
+      rgba(217, 179, 95, 1) 50%,
+
+      rgba(247, 244, 234, 0.9) 51%,
+
+      rgba(66, 184, 131, 0.62) 57%,
+
+      rgba(217, 179, 95, 0.38) 66%,
+
+      rgba(217, 179, 95, 0.16) 78%,
+
+      rgba(217, 179, 95, 0.04) 90%,
+
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   VERTICAL ANIMATION
+   ========================================================= */
+
+@keyframes world-detail-vertical-corner-sweep {
+  0% {
+    transform: scaleY(0.04);
+    opacity: 0;
+  }
+
+  15% {
+    transform: scaleY(0.18);
+    opacity: 0.25;
+  }
+
+  35% {
+    transform: scaleY(0.48);
+    opacity: 0.58;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 0.88;
+  }
+
+  65% {
+    transform: scaleY(0.48);
+    opacity: 0.58;
+  }
+
+  85% {
+    transform: scaleY(0.18);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: scaleY(0.04);
+    opacity: 0;
+  }
+}
+
+.group:hover .world-detail-line-vertical {
+  animation:
+    world-detail-vertical-corner-sweep
+    1.8s
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    1;
+}
+
+/* =========================================================
+   WORLD CONTENT
+   ========================================================= */
+
+.world-card-content {
+  position: relative;
+  z-index: 35;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.008),
+      transparent 25%
+    );
+}
+
+/* =========================================================
+   CONTENT TOP LINE
+   ========================================================= */
+
+.world-card-content::before {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  top: 0;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(217, 179, 95, 0.24),
+      rgba(247, 244, 234, 0.45),
+      rgba(66, 184, 131, 0.24),
+      transparent
+    );
+
+  opacity: 0.45;
+}
+
+/* =========================================================
+   WORLD TITLE
+   ========================================================= */
+
+.world-card h3 {
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 400ms ease;
+}
+
+.world-card:hover h3 {
+  transform: translateX(3px);
+
+  color: #f7f0d5;
+}
+
+/* =========================================================
+   TITLE ACCENT
+   ========================================================= */
+
+.world-card h3 + div {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    width 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 450ms ease;
+}
+
+.world-card h3 + div::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(247, 244, 234, 0.7),
+      transparent
+    );
+
+  transform: translateX(-100%);
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world-card:hover h3 + div {
+  width: 5rem;
+
+  background-color: var(--gold);
+}
+
+.world-card:hover h3 + div::after {
+  transform: translateX(100%);
+}
+
+/* =========================================================
+   NFT COUNT
+   ========================================================= */
+
+.world-card-content .inline-flex {
+  transition:
+    border-color 400ms ease,
+    background-color 400ms ease,
+    color 400ms ease;
+}
+
+.world-card:hover .world-card-content .inline-flex {
+  border-color: rgba(217, 179, 95, 0.28);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(217, 179, 95, 0.055),
+      rgba(66, 184, 131, 0.025)
+    );
+
+  color: #e7dcae;
+}
+
+/* =========================================================
+   DISCOVER WORLD
+   ========================================================= */
+
+.discover-world {
+  position: relative;
+
+  width: fit-content;
+
+  transition:
+    color 350ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world-card:hover .discover-world {
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   DISCOVER ARROW
+   ========================================================= */
+
+.discover-arrow {
+  display: inline-block;
+
+  transform: translateX(0);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 300ms ease;
+}
+
+.world-card:hover .discover-arrow {
+  transform: translateX(7px);
+
+  color: var(--gold-light);
+}
+
+/* =========================================================
+   DISCOVER UNDERLINE
+   ========================================================= */
+
+.discover-underline {
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--gold),
+      var(--ivory),
+      var(--forest-light)
+    );
+
+  transition:
+    width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world-card:hover .discover-underline {
+  width: 100%;
+}
+
+/* =========================================================
+   LOCKED WORLDS
+   ========================================================= */
+
+.locked-world-card {
+  border-color: rgba(255, 255, 255, 0.065);
+
+  background:
+    linear-gradient(
+      145deg,
+      #090f0c,
+      #070c0a
+    );
+
+  transition:
+    border-color 500ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.locked-world-card:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+
+  transform: translateY(-2px);
+}
+
+.locked-world-card::before {
+  border-color: rgba(255, 255, 255, 0.025);
+}
+
+/* =========================================================
+   LOCKED CARD TOP LINE
+   ========================================================= */
+
+.locked-world-card > div:first-child::after {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  bottom: 0;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(217, 179, 95, 0.22),
+      rgba(247, 244, 234, 0.16),
+      rgba(66, 184, 131, 0.22),
+      transparent
+    );
+}
+
+/* =========================================================
+   STATS GRID
+   ========================================================= */
+
+.stats-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr)) !important;
+
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 /* =========================================================
@@ -314,10 +1233,24 @@ button {
   .hero-image-frame {
     border-radius: 1.5rem;
   }
+
+  .world-card,
+  .locked-world-card {
+    border-radius: 1.5rem;
+  }
+
+  .world-card::before,
+  .locked-world-card::before {
+    inset: 6px;
+  }
+
+  .world-card-image-wrap {
+    min-height: 14rem;
+  }
 }
 
 /* =========================================================
-   TOUCH
+   TOUCH DEVICES
    ========================================================= */
 
 @media (hover: none) {
@@ -325,9 +1258,57 @@ button {
     animation: none;
   }
 
-  .hero-image-frame:hover .hero-character-image {
-    transform: none !important;
-    filter: none !important;
+  .world-card {
+    transform: none;
+  }
+
+  .world-card-image {
+    animation: none;
+
+    transform:
+      scale(1.025)
+      translate3d(0, 0, 0);
+  }
+
+  .world-card:hover .world-card-image {
+    transform:
+      scale(1.025)
+      translate3d(0, 0, 0);
+  }
+
+  .world-card:hover {
+    transform: none;
+  }
+
+  .world-card:hover h3 {
+    transform: none;
+  }
+
+  .world-card:hover .discover-world {
+    transform: none;
+  }
+
+  .world-card:hover .discover-arrow {
+    transform: none;
+  }
+
+  .world-card:hover .discover-underline {
+    width: 0;
+  }
+
+  .world-card:hover .world-card-sweep-line {
+    animation: none;
+  }
+
+  .world-card:hover .world-card-junction-line {
+    left: 7%;
+    right: 7%;
+
+    opacity: 0.78;
+  }
+
+  .world-detail-line {
+    display: none;
   }
 }
 
@@ -340,16 +1321,42 @@ button {
     scroll-behavior: auto;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
   }
 
   .hero-character-motion {
-    animation: none;
+    animation: none !important;
   }
 
   .hero-image-stage:hover .hero-shine-line {
-    animation: none;
+    animation: none !important;
+  }
+
+  .world-card-image {
+    animation: none !important;
+
+    transform:
+      scale(1.025)
+      translate3d(0, 0, 0) !important;
+  }
+
+  .world-card,
+  .world-card:hover,
+  .locked-world-card,
+  .locked-world-card:hover {
+    transform: none !important;
+  }
+
+  .world-detail-line {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .world-card-sweep-line {
+    display: none !important;
   }
 }

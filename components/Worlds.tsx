@@ -34,7 +34,10 @@ export default function Worlds() {
       "
     >
       <div className="relative mx-auto max-w-7xl">
-        {/* HEADING */}
+
+        {/* =====================================================
+            SECTION HEADING
+        ===================================================== */}
 
         <SectionHeading
           eyebrow="Enter the BlobVerse"
@@ -44,7 +47,9 @@ export default function Worlds() {
           } hidden worlds remain locked and waiting to be discovered.`}
         />
 
-        {/* WORLD GRID */}
+        {/* =====================================================
+            WORLD GRID
+        ===================================================== */}
 
         <div
           className="
@@ -58,7 +63,10 @@ export default function Worlds() {
             lg:gap-7
           "
         >
-          {/* REVEALED WORLDS */}
+
+          {/* ===================================================
+              REVEALED WORLDS
+          =================================================== */}
 
           {revealedWorlds.map((world, index) => (
             <article
@@ -69,17 +77,25 @@ export default function Worlds() {
                 relative
                 overflow-hidden
                 rounded-3xl
-                border
-                border-white/[0.09]
-                bg-[#0a1510]
-                transition-colors
-                duration-300
-                hover:border-emerald-400/35
               "
             >
-              {/* IMAGE */}
 
-              <div className="relative h-56 overflow-hidden sm:h-64">
+              {/* =================================================
+                  IMAGE AREA
+              ================================================= */}
+
+              <div
+                className="
+                  world-card-image-wrap
+                  relative
+                  h-56
+                  overflow-hidden
+                  sm:h-64
+                "
+              >
+
+                {/* IMAGE */}
+
                 <Image
                   src={world.image}
                   alt={world.name}
@@ -92,16 +108,15 @@ export default function Worlds() {
                     33vw
                   "
                   className="
+                    world-card-image
                     object-cover
                     object-[center_20%]
-                    transition-transform
-                    duration-500
-                    ease-out
-                    group-hover:scale-[1.025]
                   "
                 />
 
-                {/* IMAGE GRADIENT */}
+                {/* =================================================
+                    CINEMATIC OVERLAY
+                ================================================= */}
 
                 <div
                   aria-hidden="true"
@@ -109,68 +124,150 @@ export default function Worlds() {
                     pointer-events-none
                     absolute
                     inset-0
+                    z-10
                     bg-gradient-to-t
-                    from-black/70
-                    via-transparent
+                    from-[#07110d]/75
+                    via-[#07110d]/05
                     to-transparent
                   "
                 />
 
-                {/* UNLOCKED BADGE */}
+                {/* =================================================
+                    PREMIUM IMAGE SWEEP
+                ================================================= */}
 
                 <div
+                  aria-hidden="true"
                   className="
-                    absolute
-                    left-4
-                    top-4
-                    z-20
-                    rounded-full
-                    border
-                    border-emerald-400/30
-                    bg-[#07110d]
-                    px-3
-                    py-1.5
-                    text-xs
-                    font-black
-                    uppercase
-                    tracking-wider
-                    text-emerald-300
-                    sm:text-sm
+                    world-card-sweep-line
                   "
-                >
-                  🔓 Unlocked
-                </div>
+                />
+
+                {/* =================================================
+                    GOLD / IVORY / EMERALD JUNCTION
+                    IMAGE BOTTOM EDGE
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    world-card-junction-line
+                  "
+                />
+
+                {/* =================================================
+                    IMAGE CORNER DETAIL
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    bottom-4
+                    right-5
+                    z-30
+                    h-8
+                    w-8
+                    border-b
+                    border-r
+                    border-[#d9b35f]/35
+                    transition-all
+                    duration-500
+                    group-hover:h-10
+                    group-hover:w-10
+                    group-hover:border-[#d9b35f]/75
+                  "
+                />
+
+                {/* =================================================
+                    ARCHITECTURAL DETAIL LINES
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    world-detail-line
+                    world-detail-line-diagonal
+                  "
+                />
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    world-detail-line
+                    world-detail-line-vertical
+                  "
+                />
               </div>
 
-              {/* CONTENT */}
+              {/* =================================================
+                  CONTENT
+              ================================================= */}
 
               <div
                 className="
+                  world-card-content
                   relative
                   flex
-                  min-h-[300px]
+                  min-h-[310px]
                   flex-col
                   p-6
-                  sm:min-h-[320px]
+                  sm:min-h-[330px]
                   sm:p-8
                 "
               >
-                {/* WORLD NUMBER */}
+
+                {/* =================================================
+                    CONTENT TOP LINE
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-6
+                    right-6
+                    top-0
+                    h-px
+                    bg-gradient-to-r
+                    from-transparent
+                    via-white/[0.08]
+                    to-transparent
+                    sm:left-8
+                    sm:right-8
+                  "
+                />
+
+                {/* =================================================
+                    WORLD RANGE
+                ================================================= */}
 
                 <p
                   className="
-                    text-xs
-                    font-bold
+                    text-[11px]
+                    font-black
                     uppercase
-                    tracking-[0.2em]
-                    text-yellow-400
-                    sm:text-sm
+                    tracking-[0.22em]
+                    text-[#d9b35f]
+                    sm:text-xs
                   "
                 >
-                  WORLD {world.number} • {world.range}
+                  WORLD {world.number}
+
+                  <span className="mx-2 text-white/20">
+                    •
+                  </span>
+
+                  <span className="text-white/45">
+                    {world.range}
+                  </span>
                 </p>
 
-                {/* WORLD NAME */}
+                {/* =================================================
+                    WORLD NAME
+                ================================================= */}
 
                 <h3
                   className="
@@ -178,6 +275,7 @@ export default function Worlds() {
                     text-2xl
                     font-black
                     leading-tight
+                    tracking-tight
                     text-white
                     sm:text-3xl
                   "
@@ -185,79 +283,141 @@ export default function Worlds() {
                   {world.name}
                 </h3>
 
-                {/* DESCRIPTION */}
+                {/* =================================================
+                    TITLE ACCENT
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    mt-4
+                    h-px
+                    w-10
+                    bg-[#d9b35f]/60
+                  "
+                />
+
+                {/* =================================================
+                    DESCRIPTION
+                ================================================= */}
 
                 <p
                   className="
-                    mt-4
+                    mt-5
                     text-sm
                     leading-7
-                    text-gray-300
+                    text-gray-300/90
                     sm:text-base
                   "
                 >
                   {world.description}
                 </p>
 
-                {/* NFT COUNT */}
+                {/* =================================================
+                    NFT COUNT
+                ================================================= */}
 
                 <div
                   className="
                     mt-5
                     inline-flex
                     w-fit
+                    items-center
                     rounded-full
                     border
-                    border-white/10
-                    bg-white/[0.035]
+                    border-white/[0.10]
+                    bg-white/[0.025]
                     px-4
                     py-2
                     text-xs
                     font-semibold
-                    text-gray-200
+                    text-gray-300
+                    transition-all
+                    duration-500
+                    group-hover:border-[#d9b35f]/25
+                    group-hover:text-[#e7dcae]
                     sm:text-sm
                   "
                 >
                   {collection.nftsPerWorld} Handcrafted NFTs
                 </div>
 
-                {/* DISCOVER */}
+                {/* =================================================
+                    DISCOVER WORLD
+                ================================================= */}
 
                 <Link
                   href={`/worlds/${world.slug}`}
                   prefetch
                   className="
+                    discover-world
                     mt-auto
                     inline-flex
+                    w-fit
                     items-center
-                    gap-2
+                    gap-3
                     pt-8
-                    font-bold
-                    text-emerald-400
-                    transition-colors
-                    duration-300
-                    hover:text-emerald-300
+                    text-sm
+                    font-black
+                    uppercase
+                    tracking-[0.12em]
+                    text-[#d9b35f]
+                    hover:text-[#f0d889]
                     sm:pt-10
                   "
                 >
-                  Discover World
+                  <span className="relative">
+                    Discover World
+
+                    <span
+                      aria-hidden="true"
+                      className="
+                        discover-underline
+                      "
+                    />
+                  </span>
 
                   <span
                     aria-hidden="true"
                     className="
-                      transition-transform
-                      duration-300
-                      group-hover:translate-x-1
+                      discover-arrow
+                      text-base
                     "
                   >
                     →
                   </span>
                 </Link>
+
+                {/* =================================================
+                    BOTTOM CORNER
+                ================================================= */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    bottom-5
+                    right-5
+                    h-5
+                    w-5
+                    border-b
+                    border-r
+                    border-white/[0.08]
+                    transition-all
+                    duration-500
+                    group-hover:h-7
+                    group-hover:w-7
+                    group-hover:border-[#d9b35f]/40
+                  "
+                />
               </div>
             </article>
           ))}
 
-          {/* LOCKED WORLDS */}
+          {/* =====================================================
+              LOCKED WORLDS
+          ===================================================== */}
 
           {Array.from({ length: lockedWorldCount }).map((_, index) => {
             const worldNumber = revealedWorlds.length + index + 1;
@@ -270,12 +430,12 @@ export default function Worlds() {
                   relative
                   overflow-hidden
                   rounded-3xl
-                  border
-                  border-white/[0.07]
-                  bg-[#080d0b]
                 "
               >
-                {/* LOCKED VISUAL */}
+
+                {/* =================================================
+                    LOCKED IMAGE AREA
+                ================================================= */}
 
                 <div
                   className="
@@ -288,19 +448,43 @@ export default function Worlds() {
                     sm:h-64
                   "
                 >
+
+                  {/* BACKGROUND */}
+
                   <div
                     aria-hidden="true"
                     className="
                       pointer-events-none
                       absolute
                       inset-0
-                      bg-[#080d0b]
+                      bg-gradient-to-b
+                      from-[#0b1510]
+                      to-[#060a08]
                     "
                   />
 
-                  {/* LOCK ICON */}
+                  {/* TOP LINE */}
 
-                  <div className="relative z-10 text-center">
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-8
+                      right-8
+                      top-0
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-[#d9b35f]/20
+                      to-transparent
+                    "
+                  />
+
+                  {/* LOCK */}
+
+                  <div className="relative z-20 text-center">
+
                     <div
                       className="
                         mx-auto
@@ -322,31 +506,51 @@ export default function Worlds() {
                     <p
                       className="
                         mt-4
-                        text-sm
+                        text-xs
                         font-black
                         uppercase
                         tracking-[0.3em]
-                        text-emerald-400/65
+                        text-[#d9b35f]/50
                       "
                     >
                       WORLD {String(worldNumber).padStart(2, "0")}
                     </p>
                   </div>
+
+                  {/* CORNER */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      bottom-5
+                      right-5
+                      h-8
+                      w-8
+                      border-b
+                      border-r
+                      border-white/[0.08]
+                    "
+                  />
                 </div>
 
-                {/* LOCKED CONTENT */}
+                {/* =================================================
+                    LOCKED CONTENT
+                ================================================= */}
 
                 <div
                   className="
+                    relative
                     flex
-                    min-h-[300px]
+                    min-h-[310px]
                     flex-col
                     p-6
-                    sm:min-h-[320px]
+                    sm:min-h-[330px]
                     sm:p-8
                   "
                 >
-                  {/* LOCKED BADGE */}
+
+                  {/* BADGE */}
 
                   <div
                     className="
@@ -355,7 +559,7 @@ export default function Worlds() {
                       rounded-full
                       border
                       border-white/[0.08]
-                      bg-white/[0.03]
+                      bg-white/[0.02]
                       px-3
                       py-1.5
                       text-xs
@@ -375,18 +579,30 @@ export default function Worlds() {
                       mt-4
                       text-2xl
                       font-black
-                      text-white/75
+                      text-white/70
                       sm:text-3xl
                     "
                   >
                     Hidden World
                   </h3>
 
+                  {/* ACCENT */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      mt-4
+                      h-px
+                      w-8
+                      bg-[#d9b35f]/20
+                    "
+                  />
+
                   {/* DESCRIPTION */}
 
                   <p
                     className="
-                      mt-4
+                      mt-5
                       text-sm
                       leading-7
                       text-gray-500
@@ -420,7 +636,7 @@ export default function Worlds() {
                     {collection.nftsPerWorld} Handcrafted NFTs
                   </div>
 
-                  {/* LOCKED FOOTER */}
+                  {/* FOOTER */}
 
                   <div
                     className="
@@ -429,33 +645,55 @@ export default function Worlds() {
                       items-center
                       gap-2
                       pt-8
-                      text-sm
+                      text-xs
                       font-black
                       uppercase
-                      tracking-wider
+                      tracking-[0.16em]
                       text-gray-600
                       sm:pt-10
                     "
                   >
                     🔒 Discovery Locked
                   </div>
+
+                  {/* CORNER */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      bottom-5
+                      right-5
+                      h-5
+                      w-5
+                      border-b
+                      border-r
+                      border-white/[0.06]
+                    "
+                  />
                 </div>
               </article>
             );
           })}
         </div>
 
-        {/* BOTTOM SUMMARY */}
+        {/* =====================================================
+            BOTTOM SUMMARY
+        ===================================================== */}
 
         <div className="mx-auto mt-14 max-w-3xl text-center">
+
           <div
             aria-hidden="true"
             className="
               mx-auto
               mb-5
               h-px
-              w-20
-              bg-emerald-400/30
+              w-16
+              bg-gradient-to-r
+              from-transparent
+              via-[#d9b35f]/50
+              to-transparent
             "
           />
 

@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
+/* =========================================================
+   BLOB EXPLORERS STUDIO
+   CLEAN GLOBAL CSS
+   ========================================================= */
+
 :root {
   --background: #07110d;
   --foreground: #f7f4ea;
+
   --forest: #1f6b45;
   --forest-light: #42b883;
+
   --gold: #d9b35f;
   --electric: #4da3ff;
+
   --muted: #a9b4ae;
+
   --card: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.12);
 }
@@ -15,20 +24,22 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* ========================================= */
-/* BASE */
-/* ========================================= */
+/* =========================================================
+   BASE
+   ========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  background: #07110d;
+  background: var(--background);
+  color: var(--foreground);
   color-scheme: dark;
   scroll-behavior: smooth;
 }
@@ -37,16 +48,15 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #07110d;
+
+  background: var(--background);
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
-/* ========================================= */
-/* LINKS / IMAGES */
-/* ========================================= */
 
 a {
   color: inherit;
@@ -55,127 +65,291 @@ a {
 
 img {
   display: block;
-  user-select: none;
   max-width: 100%;
-}
+  height: auto;
 
-/* ========================================= */
-/* BUTTON */
-/* ========================================= */
+  user-select: none;
+  -webkit-user-drag: none;
+}
 
 button {
   cursor: pointer;
 }
 
-/* ========================================= */
-/* PREMIUM CARD */
-/* ========================================= */
+/* =========================================================
+   SAFE CARD BASE
+   ========================================================= */
 
-.premium-card {
+.premium-card,
+.world-card,
+.explorer-art,
+.locked-world-card {
   position: relative;
-  overflow: hidden;
 }
 
-.premium-card::after {
-  content: none;
-}
-
-/* ========================================= */
-/* GLASS PANEL */
-/* ========================================= */
+/* =========================================================
+   GLASS PANEL
+   ========================================================= */
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background: #0a1510;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-character-stage {
+  position: relative;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  border-radius: 2rem;
+  background: transparent;
+}
+
+.hero-character-image {
+  position: relative;
+  z-index: 10;
+
+  display: block;
+  width: 100%;
+  height: auto;
+
+  transform: none !important;
+  filter: none !important;
+}
+
+/* =========================================================
+   HERO GLOW
+   ========================================================= */
+
+.hero-character-glow {
+  position: absolute;
+  z-index: 0;
+
+  left: 50%;
+  top: 50%;
+
+  width: 68%;
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(52, 211, 153, 0.08) 0%,
+    rgba(52, 211, 153, 0.03) 30%,
+    transparent 70%
+  );
+
+  opacity: 0.5;
+}
+
+/* =========================================================
+   HERO LIGHT
+   ========================================================= */
+
+.hero-image-light,
+.hero-image-light-core {
+  display: none !important;
+}
+
+/* =========================================================
+   HERO EDGE
+   ========================================================= */
+
+.hero-character-edge {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+
+  pointer-events: none;
+
+  border-radius: 2rem;
+
   box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  opacity: 0.7;
 }
 
-/* ========================================= */
-/* WORLD CARDS */
-/* ========================================= */
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-.world-card {
-  contain: layout paint;
+.blob-logo-motion {
+  transform: none !important;
 }
 
-/* ========================================= */
-/* LIGHTWEIGHT ANIMATIONS */
-/* ========================================= */
-
-@keyframes floatBlob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-12px);
-  }
+.blob-logo-shimmer {
+  display: none !important;
 }
 
-@keyframes softPulse {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
+/* =========================================================
+   FLOATING ELEMENTS
+   ========================================================= */
 
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.float-blob {
-  animation: floatBlob 6s ease-in-out infinite;
-}
-
+.float-blob,
 .soft-pulse {
-  animation: softPulse 5s ease-in-out infinite;
+  animation: none !important;
+  transform: none !important;
 }
 
-/* ========================================= */
-/* FAST SCROLL SAFETY */
-/* ========================================= */
+/* =========================================================
+   CARDS
+   ========================================================= */
 
-html,
-body {
-  background-color: #07110d;
+.premium-card {
+  box-shadow: none !important;
+  filter: none !important;
 }
 
-img {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.world-card,
+.locked-world-card,
+.explorer-art {
+  filter: none !important;
 }
 
-/*
- * Do not force GPU layers.
- * Do not use transform-gpu here.
- * Do not use overflow: clip globally.
- */
+/* =========================================================
+   SCROLL PERFORMANCE
+   ========================================================= */
 
-section,
-header,
-main,
-footer {
-  filter: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+.hero-image-frame,
+.hero-character-image,
+.hero-character-glow,
+.hero-character-edge,
+.premium-card,
+.world-card,
+.explorer-art,
+.locked-world-card {
+  filter: none !important;
 }
 
-/* ========================================= */
-/* REDUCED MOTION */
-/* ========================================= */
+/* =========================================================
+   HERO CHARACTER MOVEMENT
+   ========================================================= */
+
+@keyframes hero-character-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+.hero-character-motion {
+  animation: hero-character-float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* =========================================================
+   HERO HOVER SHINE
+   ========================================================= */
+
+@keyframes hero-shine-sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.22;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(600%);
+    opacity: 0;
+  }
+}
+
+.hero-shine-line {
+  opacity: 0;
+
+  transform: translateY(0);
+
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.04) 75%,
+    transparent 100%
+  );
+}
+
+.hero-image-stage:hover .hero-shine-line {
+  animation: hero-shine-sweep 1.6s ease-in-out 1;
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .hero-character-glow {
+    width: 76%;
+  }
+
+  .hero-image-frame {
+    border-radius: 1.5rem;
+  }
+}
+
+/* =========================================================
+   TOUCH
+   ========================================================= */
+
+@media (hover: none) {
+  .hero-image-stage:hover .hero-shine-line {
+    animation: none;
+  }
+
+  .hero-image-frame:hover .hero-character-image {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
+  * {
     animation: none !important;
     transition: none !important;
+  }
+
+  .hero-character-motion {
+    animation: none;
+  }
+
+  .hero-image-stage:hover .hero-shine-line {
+    animation: none;
   }
 }

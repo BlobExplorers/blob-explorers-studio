@@ -14,9 +14,12 @@ export default function DiscoveryProgress() {
       id="discovery"
       className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-20"
     >
-      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[120px] sm:h-96 sm:w-96 sm:blur-[150px]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/[0.02] sm:h-96 sm:w-96"
+      />
 
-      <div className="relative mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl backdrop-blur sm:p-8 md:p-12">
+      <div className="relative mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 sm:p-8 md:p-12">
         <div className="text-center">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-yellow-400 sm:text-sm sm:tracking-[0.35em]">
             BlobVerse Discovery
@@ -75,15 +78,15 @@ export default function DiscoveryProgress() {
 
           <div className="mt-4 h-3 overflow-hidden rounded-full border border-white/10 bg-black/30 sm:h-4">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-green-400 to-yellow-400 shadow-[0_0_25px_rgba(52,211,153,0.45)]"
+              className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-green-400 to-yellow-400"
               style={{ width: `${progress}%` }}
             />
           </div>
 
           <p className="mt-5 text-center text-xs leading-6 text-gray-500 sm:mt-6 sm:text-sm sm:leading-7">
-  {revealedWorlds} worlds have been discovered. {hiddenWorlds} remain hidden,
-  waiting for future explorers.
-</p>
+            {revealedWorlds} worlds have been discovered. {hiddenWorlds} remain
+            hidden, waiting for future explorers.
+          </p>
         </div>
       </div>
     </section>

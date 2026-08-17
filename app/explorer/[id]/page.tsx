@@ -72,7 +72,7 @@ export default async function ExplorerPage({
 
           <Link
             href="/collection"
-            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 sm:text-base"
+            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 transition-colors duration-300 hover:text-emerald-300 sm:text-base"
           >
             ← Back to Collection
           </Link>
@@ -87,14 +87,146 @@ export default async function ExplorerPage({
             {/* EXPLORER IMAGE */}
             {/* =============================== */}
 
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-[#0a1510]">
+            <div
+              className="
+                explorer-art
+                group
+                relative
+                aspect-square
+                overflow-hidden
+                rounded-3xl
+                border
+                border-white/10
+                bg-[#0a1510]
+                shadow-2xl
+                transition-all
+                duration-500
+                ease-out
+                hover:-translate-y-1
+                hover:scale-[1.008]
+                hover:border-emerald-400/30
+              "
+            >
+
+              {/* ================================= */}
+              {/* DIAGONAL MOVING SHINE */}
+              {/* ================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  explorer-shine
+                  pointer-events-none
+                  absolute
+                  -inset-y-[40%]
+                  -left-[75%]
+                  z-30
+                  w-[24%]
+                  rotate-[25deg]
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/60
+                  to-transparent
+                  opacity-0
+                  blur-[1px]
+                "
+              />
+
+              {/* ================================= */}
+              {/* PREMIUM BORDER GLOW */}
+              {/* ================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-20
+                  rounded-3xl
+                  border
+                  border-transparent
+                  opacity-0
+                  transition-opacity
+                  duration-300
+                  group-hover:opacity-100
+                "
+                style={{
+                  background:
+                    "linear-gradient(120deg, rgba(52,211,153,0.85), rgba(250,204,21,0.95), rgba(52,211,153,0.85)) border-box",
+                  WebkitMask:
+                    "linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                }}
+              />
+
+              {/* ================================= */}
+              {/* IMAGE */}
+              {/* ================================= */}
+
               <Image
                 src={explorer.image}
                 alt={`#${explorer.id} ${explorer.name}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="
+                  object-cover
+                  transition-transform
+                  duration-700
+                  ease-out
+                  group-hover:scale-[1.025]
+                "
+              />
+
+              {/* ================================= */}
+              {/* IMAGE OVERLAY */}
+              {/* ================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-10
+                  bg-gradient-to-t
+                  from-black/20
+                  via-transparent
+                  to-transparent
+                  opacity-60
+                  transition-opacity
+                  duration-500
+                  group-hover:opacity-40
+                "
+              />
+
+              {/* ================================= */}
+              {/* CORNER LIGHT */}
+              {/* ================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  left-6
+                  top-6
+                  z-40
+                  h-1
+                  w-16
+                  rounded-full
+                  bg-gradient-to-r
+                  from-emerald-400
+                  to-yellow-400
+                  opacity-0
+                  shadow-[0_0_14px_rgba(52,211,153,0.8)]
+                  transition-all
+                  duration-500
+                  group-hover:w-24
+                  group-hover:opacity-100
+                "
               />
             </div>
 
@@ -130,10 +262,16 @@ export default async function ExplorerPage({
                     key={detail.label}
                     className="
                       rounded-2xl
-                      border border-white/10
+                      border
+                      border-white/10
                       bg-[#0a1510]
                       p-5
                       text-center
+                      transition-all
+                      duration-300
+                      hover:-translate-y-0.5
+                      hover:border-emerald-400/30
+                      hover:bg-[#0b1711]
                       lg:text-left
                     "
                   >
@@ -164,9 +302,14 @@ export default async function ExplorerPage({
                     bg-gradient-to-r
                     from-yellow-400
                     to-yellow-600
-                    px-7 py-4
+                    px-7
+                    py-4
                     font-bold
                     text-black
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:shadow-[0_8px_30px_rgba(250,204,21,0.18)]
                   "
                 >
                   Explore Collection
@@ -179,12 +322,19 @@ export default async function ExplorerPage({
                     items-center
                     justify-center
                     rounded-full
-                    border border-white/20
+                    border
+                    border-white/20
                     bg-[#0a1510]
-                    px-7 py-4
+                    px-7
+                    py-4
                     text-center
                     font-bold
                     text-white
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:border-emerald-400/40
+                    hover:text-emerald-300
                   "
                 >
                   Discover {explorer.worldName}
@@ -206,16 +356,22 @@ export default async function ExplorerPage({
               <Link
                 href={`/explorer/${previousExplorer.id}`}
                 className="
+                  group
                   rounded-3xl
-                  border border-white/10
+                  border
+                  border-white/10
                   bg-[#0a1510]
                   p-5
                   text-left
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:border-emerald-400/40
+                  hover:bg-[#0b1711]
                   sm:p-6
                 "
               >
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500 sm:text-sm sm:tracking-[0.2em]">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500 transition-colors duration-300 group-hover:text-emerald-400 sm:text-sm sm:tracking-[0.2em]">
                   ← Previous Explorer
                 </p>
 
@@ -245,17 +401,23 @@ export default async function ExplorerPage({
               <Link
                 href={`/explorer/${nextExplorer.id}`}
                 className="
+                  group
                   rounded-3xl
-                  border border-white/10
+                  border
+                  border-white/10
                   bg-[#0a1510]
                   p-5
                   text-left
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:border-yellow-400/40
+                  hover:bg-[#0b1711]
                   sm:p-6
                   sm:text-right
                 "
               >
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500 sm:text-sm sm:tracking-[0.2em]">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500 transition-colors duration-300 group-hover:text-yellow-400 sm:text-sm sm:tracking-[0.2em]">
                   Next Explorer →
                 </p>
 

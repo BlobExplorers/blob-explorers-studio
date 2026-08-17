@@ -6,7 +6,59 @@ import { siteConfig } from "@/config/site";
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-[#07110d] py-16 sm:py-20 lg:py-0">
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+      {/* ========================================= */}
+      {/* LIGHTWEIGHT BACKGROUND ATMOSPHERE */}
+      {/* ========================================= */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          right-[-120px]
+          top-1/2
+          h-[420px]
+          w-[420px]
+          -translate-y-1/2
+          rounded-full
+          bg-emerald-400/[0.045]
+        "
+      />
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-[-120px]
+          top-1/3
+          h-[320px]
+          w-[320px]
+          rounded-full
+          bg-yellow-400/[0.018]
+        "
+      />
+
+      {/* ========================================= */}
+      {/* MAIN HERO CONTAINER */}
+      {/* ========================================= */}
+
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          grid
+          w-full
+          max-w-7xl
+          items-center
+          gap-12
+          px-5
+          sm:px-8
+          lg:grid-cols-2
+          lg:gap-16
+        "
+      >
         {/* ========================================= */}
         {/* HERO TEXT */}
         {/* ========================================= */}
@@ -50,16 +102,89 @@ export default function Hero() {
         {/* ========================================= */}
 
         <div className="relative flex justify-center">
-          <div className="relative z-10 w-full max-w-[420px] sm:max-w-[520px] lg:max-w-none">
-            <Image
-              src="/images/hero/first-blob-explorer-v2.png"
-              alt="Blob Explorers flagship character"
-              width={650}
-              height={650}
-              priority
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 520px, 650px"
-              className="block h-auto w-full"
-            />
+          <div
+            className="
+              hero-character-motion
+              relative
+              z-10
+              w-full
+              max-w-[420px]
+              sm:max-w-[520px]
+              lg:max-w-[650px]
+            "
+          >
+            {/* ========================================= */}
+            {/* IMAGE STAGE */}
+            {/* ========================================= */}
+
+            <div
+              className="
+                hero-image-stage
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                bg-[#07110d]
+                sm:rounded-[2rem]
+              "
+            >
+              {/* ========================================= */}
+              {/* HOVER SHINE */}
+              {/* ========================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  hero-shine-line
+                  pointer-events-none
+                  absolute
+                  inset-x-0
+                  -top-[20%]
+                  z-20
+                  h-[20%]
+                "
+              />
+
+              {/* ========================================= */}
+              {/* HERO IMAGE */}
+              {/* ========================================= */}
+
+              <Image
+                src="/images/hero/first-blob-explorer-v2.png"
+                alt="Blob Explorers flagship character"
+                width={650}
+                height={650}
+                priority
+                quality={85}
+                sizes="
+                  (max-width: 640px) 90vw,
+                  (max-width: 1024px) 520px,
+                  650px
+                "
+                className="
+                  block
+                  h-auto
+                  w-full
+                  object-contain
+                "
+              />
+
+              {/* ========================================= */}
+              {/* SIMPLE STATIC EDGE */}
+              {/* ========================================= */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  z-30
+                  rounded-[2rem]
+                  border
+                  border-white/[0.05]
+                "
+              />
+            </div>
           </div>
         </div>
       </div>

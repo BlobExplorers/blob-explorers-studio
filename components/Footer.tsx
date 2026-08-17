@@ -17,15 +17,19 @@ export default function Footer() {
           <a
             href="/"
             aria-label="Go to Blob Explorers homepage"
-            className="group relative z-50 block h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-full border-2 border-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.35)] transition hover:scale-105"
+            className="blob-logo-wrap group relative z-50 block h-14 w-14 shrink-0 cursor-pointer overflow-hidden rounded-full"
           >
-            <Image
-              src="/images/hero/bloblogo.png"
-              alt={`${siteConfig.name} Logo`}
-              fill
-              sizes="56px"
-              className="pointer-events-none object-contain"
-            />
+            <div className="blob-logo-shimmer absolute inset-0 rounded-full" />
+
+            <div className="blob-logo-motion relative h-full w-full">
+              <Image
+                src="/images/hero/bloblogo.png"
+                alt={`${siteConfig.name} Logo`}
+                fill
+                sizes="56px"
+                className="pointer-events-none object-contain"
+              />
+            </div>
           </a>
 
           {/* Footer Brand Text */}

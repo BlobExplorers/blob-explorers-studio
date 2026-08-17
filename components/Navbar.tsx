@@ -13,15 +13,8 @@ export default function Navbar() {
 
   return (
     <header className="relative z-50 px-4 pt-4 md:px-6">
-      <div
-        className="
-          mx-auto max-w-7xl rounded-2xl
-          border border-white/10
-          bg-[#07110d]
-        "
-      >
+      <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-[#07110d]">
         <div className="flex items-center justify-between px-5 py-3 md:px-7">
-
           {/* LOGO + BRAND */}
 
           <Link
@@ -29,16 +22,20 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="group flex items-center gap-3"
           >
-            <div className="relative h-14 w-14 shrink-0">
-              <Image
-                src="/images/hero/bloblogo.png"
-                alt={`${siteConfig.name} Logo`}
-                fill
-                sizes="56px"
-                className="object-contain"
-                priority
-              />
-            </div>
+            <div className="blob-logo-wrap relative h-14 w-14 shrink-0">
+  <div className="blob-logo-shimmer absolute inset-0 rounded-full" />
+
+  <div className="blob-logo-motion relative h-full w-full">
+    <Image
+      src="/images/hero/bloblogo.png"
+      alt={`${siteConfig.name} Logo`}
+      fill
+      sizes="56px"
+      className="object-contain"
+      priority
+    />
+  </div>
+</div>
 
             <div>
               <span className="block text-lg font-black tracking-wide text-white sm:text-xl md:text-2xl">
@@ -58,25 +55,11 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="
-                  group relative py-2
-                  text-sm font-bold text-gray-300
-                  hover:text-white
-                "
+                className="group relative py-2 text-sm font-bold text-gray-300 hover:text-white"
               >
                 {link.label}
 
-                <span
-                  className="
-                    absolute bottom-0 left-0
-                    h-0.5 w-0 rounded-full
-                    bg-gradient-to-r
-                    from-emerald-400 to-yellow-400
-                    transition-[width]
-                    duration-300
-                    group-hover:w-full
-                  "
-                />
+                <span className="absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-emerald-400 to-yellow-400 transition-[width] duration-300 group-hover:w-full" />
               </Link>
             ))}
 
@@ -86,25 +69,11 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${siteConfig.name} on X`}
-                className="
-                  group relative py-2
-                  text-sm font-bold text-gray-300
-                  hover:text-white
-                "
+                className="group relative py-2 text-sm font-bold text-gray-300 hover:text-white"
               >
                 X
 
-                <span
-                  className="
-                    absolute bottom-0 left-0
-                    h-0.5 w-0 rounded-full
-                    bg-gradient-to-r
-                    from-emerald-400 to-yellow-400
-                    transition-[width]
-                    duration-300
-                    group-hover:w-full
-                  "
-                />
+                <span className="absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-emerald-400 to-yellow-400 transition-[width] duration-300 group-hover:w-full" />
               </a>
             )}
           </nav>
@@ -114,14 +83,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/collection"
-              className="
-                hidden rounded-full
-                bg-gradient-to-r
-                from-yellow-400 to-yellow-600
-                px-5 py-3
-                text-sm font-black text-black
-                sm:inline-flex
-              "
+              className="hidden rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 px-5 py-3 text-sm font-black text-black sm:inline-flex"
             >
               Explore Collection
             </Link>
@@ -137,15 +99,7 @@ export default function Navbar() {
                   : "Open navigation menu"
               }
               aria-expanded={menuOpen}
-              className="
-                flex h-11 w-11
-                items-center justify-center
-                rounded-full
-                border border-white/10
-                bg-white/[0.05]
-                text-xl text-white
-                md:hidden
-              "
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-xl text-white md:hidden"
             >
               {menuOpen ? "×" : "☰"}
             </button>
@@ -162,12 +116,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="
-                    rounded-xl px-4 py-3
-                    font-bold text-gray-300
-                    hover:bg-white/[0.06]
-                    hover:text-white
-                  "
+                  className="rounded-xl px-4 py-3 font-bold text-gray-300 hover:bg-white/[0.06] hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -179,12 +128,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="
-                    rounded-xl px-4 py-3
-                    font-bold text-gray-300
-                    hover:bg-white/[0.06]
-                    hover:text-white
-                  "
+                  className="rounded-xl px-4 py-3 font-bold text-gray-300 hover:bg-white/[0.06] hover:text-white"
                 >
                   X
                 </a>
@@ -193,14 +137,7 @@ export default function Navbar() {
               <Link
                 href="/collection"
                 onClick={() => setMenuOpen(false)}
-                className="
-                  mt-2 rounded-full
-                  bg-gradient-to-r
-                  from-yellow-400 to-yellow-600
-                  px-5 py-3
-                  text-center
-                  font-black text-black
-                "
+                className="mt-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 px-5 py-3 text-center font-black text-black"
               >
                 Explore Collection
               </Link>

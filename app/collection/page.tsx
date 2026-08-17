@@ -56,9 +56,9 @@ export default function CollectionPage() {
       <main className="min-h-screen bg-[#07110d] px-5 pb-20 pt-12 sm:px-8 sm:pt-16 md:px-12 md:pb-24 lg:px-20">
         <section className="mx-auto max-w-7xl">
 
-          {/* =============================== */}
+          {/* ========================================= */}
           {/* PAGE HEADER */}
-          {/* =============================== */}
+          {/* ========================================= */}
 
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-yellow-400 sm:text-sm sm:tracking-[0.35em]">
@@ -75,9 +75,9 @@ export default function CollectionPage() {
             </p>
           </div>
 
-          {/* =============================== */}
+          {/* ========================================= */}
           {/* SEARCH */}
-          {/* =============================== */}
+          {/* ========================================= */}
 
           <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
             <label htmlFor="explorer-search" className="sr-only">
@@ -100,7 +100,11 @@ export default function CollectionPage() {
                   text-sm text-white
                   outline-none
                   placeholder:text-gray-500
+                  transition-all
+                  duration-300
                   focus:border-emerald-400/60
+                  focus:ring-2
+                  focus:ring-emerald-400/10
                   sm:px-6 sm:pr-14 sm:text-base
                 "
               />
@@ -120,9 +124,9 @@ export default function CollectionPage() {
             </div>
           </div>
 
-          {/* =============================== */}
+          {/* ========================================= */}
           {/* FILTERS */}
-          {/* =============================== */}
+          {/* ========================================= */}
 
           <div className="mt-7 flex gap-3 overflow-x-auto pb-2 sm:mt-8 sm:flex-wrap sm:justify-center sm:overflow-visible">
             {filters.map((filter) => {
@@ -139,11 +143,13 @@ export default function CollectionPage() {
                     border
                     px-4 py-2.5
                     text-sm font-bold
+                    transition-all
+                    duration-300
                     sm:px-5 sm:py-3
                     ${
                       isActive
-                        ? "border-yellow-400 bg-yellow-400 text-black"
-                        : "border-white/10 bg-[#0a1510] text-gray-300 hover:border-emerald-400/40 hover:text-white"
+                        ? "border-yellow-400 bg-yellow-400 text-black shadow-[0_0_25px_rgba(250,204,21,0.12)]"
+                        : "border-white/10 bg-[#0a1510] text-gray-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:text-white"
                     }
                   `}
                 >
@@ -153,9 +159,9 @@ export default function CollectionPage() {
             })}
           </div>
 
-          {/* =============================== */}
+          {/* ========================================= */}
           {/* RESULTS INFO */}
-          {/* =============================== */}
+          {/* ========================================= */}
 
           <div className="mt-7 flex flex-col gap-2 border-b border-white/10 pb-5 text-center sm:mt-8 sm:flex-row sm:items-center sm:justify-between sm:text-left">
             <p className="text-sm font-semibold text-gray-400">
@@ -173,9 +179,9 @@ export default function CollectionPage() {
             </p>
           </div>
 
-          {/* =============================== */}
+          {/* ========================================= */}
           {/* EXPLORER GRID */}
-          {/* =============================== */}
+          {/* ========================================= */}
 
           {filteredExplorers.length > 0 ? (
             <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
@@ -183,57 +189,230 @@ export default function CollectionPage() {
                 <article
                   key={explorer.id}
                   className="
+                    premium-card
+                    group
+                    relative
                     overflow-hidden
                     rounded-3xl
-                    border border-white/10
+                    border
+                    border-white/[0.10]
                     bg-[#0a1510]
+                    shadow-[0_18px_55px_rgba(0,0,0,0.28)]
+                    transition-all
+                    duration-500
+                    ease-out
+                    hover:-translate-y-2
+                    hover:scale-[1.012]
+                    hover:border-yellow-400/30
+                    hover:shadow-[0_25px_75px_rgba(0,0,0,0.45)]
                   "
                 >
+                  {/* ========================================= */}
+                  {/* MOVING PREMIUM SHINE */}
+                  {/* ========================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="explorer-shine"
+                  />
+
+                  {/* ========================================= */}
+                  {/* INNER PREMIUM GLOW */}
+                  {/* ========================================= */}
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      z-[5]
+                      rounded-3xl
+                      bg-gradient-to-br
+                      from-emerald-400/[0.045]
+                      via-transparent
+                      to-yellow-400/[0.045]
+                      opacity-0
+                      transition-opacity
+                      duration-500
+                      group-hover:opacity-100
+                    "
+                  />
+
+                  {/* ========================================= */}
                   {/* IMAGE */}
+                  {/* ========================================= */}
 
                   <div className="relative aspect-square overflow-hidden">
+
                     <Image
                       src={explorer.image}
                       alt={`#${explorer.id} ${explorer.name}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
-                      className="object-cover"
+                      className="
+                        object-cover
+                        transition-transform
+                        duration-700
+                        ease-out
+                        group-hover:scale-[1.045]
+                      "
                     />
 
-                    {/* Simple dark overlay */}
+                    {/* ========================================= */}
+                    {/* CINEMATIC OVERLAY */}
+                    {/* ========================================= */}
+
                     <div
                       aria-hidden="true"
-                      className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent"
+                      className="
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        z-10
+                        bg-gradient-to-t
+                        from-black/80
+                        via-black/10
+                        to-transparent
+                        opacity-90
+                        transition-opacity
+                        duration-500
+                        group-hover:opacity-75
+                      "
                     />
 
+                    {/* ========================================= */}
+                    {/* TOP LIGHT */}
+                    {/* ========================================= */}
+
+                    <div
+                      aria-hidden="true"
+                      className="
+                        pointer-events-none
+                        absolute
+                        left-1/2
+                        top-0
+                        z-10
+                        h-32
+                        w-3/4
+                        -translate-x-1/2
+                        rounded-full
+                        bg-white/[0.025]
+                        blur-3xl
+                        opacity-0
+                        transition-opacity
+                        duration-500
+                        group-hover:opacity-100
+                      "
+                    />
+
+                    {/* ========================================= */}
                     {/* NFT ID */}
-                    <p className="
-                      absolute
-                      bottom-4 left-4
-                      rounded-full
-                      border border-white/15
-                      bg-[#07110d]
-                      px-3 py-2
-                      text-xs font-bold
-                      text-yellow-400
-                      sm:bottom-5 sm:left-5
-                      sm:px-4 sm:text-sm
-                    ">
+                    {/* ========================================= */}
+
+                    <p
+                      className="
+                        absolute
+                        bottom-4
+                        left-4
+                        z-20
+                        rounded-full
+                        border
+                        border-white/[0.16]
+                        bg-black/50
+                        px-3
+                        py-2
+                        text-xs
+                        font-bold
+                        text-yellow-400
+                        shadow-[0_5px_20px_rgba(0,0,0,0.25)]
+                        backdrop-blur-md
+                        transition-all
+                        duration-300
+                        group-hover:border-yellow-400/50
+                        group-hover:bg-black/65
+                        group-hover:shadow-[0_0_22px_rgba(250,204,21,0.12)]
+                        sm:bottom-5
+                        sm:left-5
+                        sm:px-4
+                        sm:text-sm
+                      "
+                    >
                       #{explorer.id}
                     </p>
+
+                    {/* ========================================= */}
+                    {/* CORNER LIGHT */}
+                    {/* ========================================= */}
+
+                    <div
+                      aria-hidden="true"
+                      className="
+                        pointer-events-none
+                        absolute
+                        right-5
+                        top-5
+                        z-20
+                        h-[2px]
+                        w-10
+                        rounded-full
+                        bg-gradient-to-r
+                        from-emerald-400
+                        to-yellow-400
+                        opacity-0
+                        shadow-[0_0_14px_rgba(52,211,153,0.65)]
+                        transition-all
+                        duration-500
+                        group-hover:w-16
+                        group-hover:opacity-100
+                      "
+                    />
                   </div>
 
-                  {/* CONTENT */}
+                  {/* ========================================= */}
+                  {/* CARD CONTENT */}
+                  {/* ========================================= */}
 
-                  <div className="p-6 sm:p-7">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-400 sm:text-sm sm:tracking-[0.2em]">
+                  <div className="relative z-10 p-6 sm:p-7">
+
+                    {/* WORLD */}
+
+                    <p
+                      className="
+                        text-xs
+                        font-bold
+                        uppercase
+                        tracking-[0.18em]
+                        text-emerald-400
+                        transition-colors
+                        duration-300
+                        group-hover:text-emerald-300
+                        sm:text-sm
+                        sm:tracking-[0.2em]
+                      "
+                    >
                       {explorer.worldName}
                     </p>
 
-                    <h2 className="mt-3 text-xl font-black text-white sm:text-2xl">
+                    {/* NAME */}
+
+                    <h2
+                      className="
+                        mt-3
+                        text-xl
+                        font-black
+                        text-white
+                        transition-colors
+                        duration-300
+                        group-hover:text-yellow-300
+                        sm:text-2xl
+                      "
+                    >
                       {explorer.name}
                     </h2>
+
+                    {/* VIEW BUTTON */}
 
                     <Link
                       href={`/explorer/${explorer.id}`}
@@ -244,22 +423,35 @@ export default function CollectionPage() {
                         gap-2
                         font-bold
                         text-yellow-400
+                        transition-all
+                        duration-300
+                        hover:text-yellow-300
                         sm:mt-7
                       "
                     >
                       View Explorer
-                      <span>→</span>
+
+                      <span
+                        className="
+                          transition-transform
+                          duration-300
+                          group-hover:translate-x-2
+                        "
+                      >
+                        →
+                      </span>
                     </Link>
                   </div>
                 </article>
               ))}
             </div>
           ) : (
-            /* =============================== */
-            /* EMPTY STATE */
-            /* =============================== */
 
-            <div className="mt-10 rounded-3xl border border-white/10 bg-[#0a1510] px-5 py-12 text-center sm:mt-12 sm:px-6 sm:py-16">
+            /* ========================================= */
+            /* EMPTY STATE */
+            /* ========================================= */
+
+            <div className="mt-10 rounded-3xl border border-white/10 bg-[#0a1510] px-5 py-12 text-center shadow-[0_15px_50px_rgba(0,0,0,0.25)] sm:mt-12 sm:px-6 sm:py-16">
               <h2 className="text-2xl font-black text-white">
                 No Explorer Found
               </h2>
@@ -278,9 +470,15 @@ export default function CollectionPage() {
                   mt-7
                   rounded-full
                   bg-yellow-400
-                  px-6 py-3
+                  px-6
+                  py-3
                   font-bold
                   text-black
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  hover:bg-yellow-300
+                  hover:shadow-[0_10px_30px_rgba(250,204,21,0.15)]
                 "
               >
                 Clear Search

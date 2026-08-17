@@ -40,23 +40,68 @@ export default async function WorldPage({
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#07110d] px-5 pb-20 pt-12 sm:px-8 sm:pt-16 md:px-12 md:pb-24 lg:px-20">
+      <main
+        className="
+          min-h-screen
+          overflow-hidden
+          bg-[#07110d]
+          px-5
+          pb-20
+          pt-12
+          sm:px-8
+          sm:pt-16
+          md:px-12
+          md:pb-24
+          lg:px-20
+        "
+      >
         <section className="mx-auto max-w-7xl">
-          {/* Back Link */}
+
+          {/* BACK LINK */}
 
           <Link
             href="/#worlds"
-            className={`inline-flex items-center gap-2 text-sm font-bold sm:text-base ${world.accent}`}
+            className={`
+              inline-flex
+              items-center
+              gap-2
+              text-sm
+              font-bold
+              sm:text-base
+              ${world.accent}
+            `}
           >
             ← Back to Worlds
           </Link>
 
-          {/* Main World Area */}
+          {/* MAIN WORLD AREA */}
 
-          <div className="mt-8 grid items-start gap-10 lg:mt-10 lg:grid-cols-2 lg:items-center lg:gap-14">
-            {/* World Image */}
+          <div
+            className="
+              mt-8
+              grid
+              items-start
+              gap-10
+              lg:mt-10
+              lg:grid-cols-2
+              lg:items-center
+              lg:gap-14
+            "
+          >
 
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
+            {/* WORLD IMAGE */}
+
+            <div
+              className="
+                relative
+                aspect-square
+                overflow-hidden
+                rounded-3xl
+                border
+                border-white/[0.10]
+                bg-[#0a1510]
+              "
+            >
               <Image
                 src={world.image}
                 alt={world.name}
@@ -66,25 +111,76 @@ export default async function WorldPage({
                 className="object-cover"
               />
 
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* WORLD NUMBER */}
+
+              <div
+                className="
+                  absolute
+                  bottom-5
+                  left-5
+                  z-20
+                  rounded-full
+                  border
+                  border-white/[0.16]
+                  bg-black/60
+                  px-4
+                  py-2
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-yellow-400
+                  sm:text-sm
+                "
+              >
+                World {world.number}
+              </div>
             </div>
 
-            {/* World Information */}
+            {/* WORLD INFORMATION */}
 
             <div className="text-center lg:text-left">
+
+              {/* EYEBROW */}
+
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-yellow-400 sm:text-sm sm:tracking-[0.35em]">
                 World {world.number} · Revealed
               </p>
 
-              <h1 className="mt-5 text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              {/* TITLE */}
+
+              <h1
+                className="
+                  mt-5
+                  text-4xl
+                  font-black
+                  leading-tight
+                  text-white
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:text-7xl
+                "
+              >
                 {world.name}
               </h1>
 
+              {/* SUBTITLE */}
+
               <p
-                className={`mt-5 text-xl font-bold leading-snug sm:mt-6 sm:text-2xl ${world.accent}`}
+                className={`
+                  mt-5
+                  text-xl
+                  font-bold
+                  leading-snug
+                  sm:mt-6
+                  sm:text-2xl
+                  ${world.accent}
+                `}
               >
                 {world.subtitle}
               </p>
+
+              {/* DESCRIPTION */}
 
               <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:mt-7 sm:text-lg lg:mx-0">
                 {world.description}
@@ -95,13 +191,21 @@ export default async function WorldPage({
                 featuring a unique profession and one dominant hero prop.
               </p>
 
-              {/* World Details */}
+              {/* WORLD DETAILS */}
 
               <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2">
                 {worldDetails.map((detail) => (
                   <div
                     key={detail.label}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 text-center lg:text-left"
+                    className="
+                      rounded-2xl
+                      border
+                      border-white/[0.10]
+                      bg-white/[0.035]
+                      p-5
+                      text-center
+                      lg:text-left
+                    "
                   >
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500 sm:text-sm sm:tracking-[0.2em]">
                       {detail.label}
@@ -114,35 +218,50 @@ export default async function WorldPage({
                 ))}
               </div>
 
-              {/* Buttons */}
+              {/* ACTION BUTTONS */}
 
               <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+
                 <Link
                   href={`/explorer/${world.genesisId}`}
                   className="
-                    inline-flex items-center justify-center
+                    inline-flex
+                    items-center
+                    justify-center
+                    gap-2
                     rounded-full
-                    bg-gradient-to-r from-yellow-400 to-yellow-600
-                    px-7 py-4
-                    font-bold text-black
+                    bg-gradient-to-r
+                    from-yellow-400
+                    to-yellow-600
+                    px-7
+                    py-4
+                    font-bold
+                    text-black
                   "
                 >
                   View Genesis Explorer
+                  <span>→</span>
                 </Link>
 
                 <Link
                   href="/collection"
                   className="
-                    inline-flex items-center justify-center
+                    inline-flex
+                    items-center
+                    justify-center
                     rounded-full
-                    border border-white/20
+                    border
+                    border-white/[0.16]
                     bg-white/[0.04]
-                    px-7 py-4
-                    font-bold text-white
+                    px-7
+                    py-4
+                    font-bold
+                    text-white
                   "
                 >
                   Explore Collection
                 </Link>
+
               </div>
             </div>
           </div>

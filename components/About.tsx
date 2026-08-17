@@ -28,7 +28,10 @@ export default function About() {
       id="story"
       className="relative scroll-mt-28 overflow-hidden px-5 py-20 sm:px-8 md:px-12 md:py-24 lg:px-20"
     >
-      <div className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-emerald-500/10 blur-[110px] sm:h-80 sm:w-80 sm:blur-[130px]" />
+      <div
+  aria-hidden="true"
+  className="pointer-events-none absolute left-0 top-1/3 h-64 w-64 rounded-full bg-emerald-500/[0.02] sm:h-80 sm:w-80"
+/>
 
       <div className="relative mx-auto max-w-7xl">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">

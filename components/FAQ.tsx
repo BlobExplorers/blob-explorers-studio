@@ -2,7 +2,7 @@ const faqs = [
   {
     question: "What is Blob Explorers?",
     answer:
-      "Blob Explorers is a premium handcrafted Ethereum NFT collection where every Explorer becomes a unique story through different worlds, professions, outfits and signature hero props while preserving the recognizable Blob Explorers identity.",
+      "Blob Explorers is a premium handcrafted Ethereum NFT collection where every Explorer becomes a distinct character through different worlds, professions, outfits, environments and signature hero props — each with a story of its own.",
   },
   {
     question: "How many NFTs are in the collection?",

@@ -14,8 +14,8 @@ const features = [
     text: "A premium 7,777-piece NFT collection created for the Ethereum blockchain using the ERC-721 standard.",
   },
   {
-    title: "One Recognizable Identity",
-    text: "Every Explorer carries the recognizable Blob Explorers identity while becoming unique through its world, profession, outfit, hero prop and story.",
+    title: "World of Unique Explorers",
+    text: "Each Explorer is handcrafted to become a distinct character, shaped by its world, profession, outfit, hero prop and story.",
   },
 ];
 
@@ -41,17 +41,16 @@ export default function About() {
             </p>
 
             <h2 className="mt-5 text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl">
-              One Explorer.
-              <br />
-              <span className="text-emerald-400">Infinite Stories.</span>
-            </h2>
+  Every World.
+  <br />
+  <span className="text-emerald-400">A New Explorer.</span>
+</h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:mt-7 sm:text-lg lg:mx-0">
-              Blob Explorers follows one recognizable Explorer identity across
-              the BlobVerse, where every NFT becomes a unique handcrafted
-              story through a different world, profession, outfit, signature
-              hero prop and adventure.
-            </p>
+<p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:mt-7 sm:text-lg lg:mx-0">
+  Each handcrafted Explorer is shaped by a different world, profession,
+  outfit, signature hero prop and story — creating a new chapter in the
+  ever-expanding BlobVerse.
+</p>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0">
               {revealedWorlds} worlds have been discovered. {hiddenWorlds}{" "}

@@ -4,17 +4,6 @@ import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { supabase } from "@/lib/supabase";
 
-/*
-  =========================================================
-  TEMPORARY DATABASE TEST MODE
-  =========================================================
-
-  true  = Real X post is NOT required.
-  false = Normal live X-post requirement is enabled.
-
-  IMPORTANT:
-  Set this back to false before the real public launch.
-*/
 const TEST_MODE = true;
 
 const tasks = [
@@ -70,11 +59,6 @@ export default function ClaimSpot() {
   const canShowExplorerCard =
     allTasksCompleted && walletLooksValid;
 
-  /*
-    In TEST_MODE:
-    - shared is not required
-    - post link is not required
-  */
   const shareRequirementPassed = TEST_MODE ? true : shared;
 
   const postRequirementPassed = TEST_MODE
@@ -101,9 +85,9 @@ export default function ClaimSpot() {
     const shareText =
       "I just secured my Blob Explorers spot. 🌍✨ #BlobExplorers #BlobVerse";
 
-    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      shareText
-    )}`;
+    const shareUrl =
+      "https://twitter.com/intent/tweet?text=" +
+      encodeURIComponent(shareText);
 
     window.open(
       shareUrl,
@@ -129,34 +113,23 @@ export default function ClaimSpot() {
       return;
     }
 
-    /*
-      Only require X sharing in live mode.
-    */
     if (!TEST_MODE && !shared) {
       setError("Please share your Explorer on X first.");
       return;
     }
 
-    /*
-      Only require X post URL in live mode.
-    */
     if (!TEST_MODE && !postLinkLooksValid) {
       setError("Please enter a valid X post link.");
       return;
     }
 
-    if (saving) return;
+    if (saving) {
+      return;
+    }
 
     try {
       setSaving(true);
 
-      /*
-        In TEST_MODE we store NULL for x_post_url.
-        This avoids inserting a fake X URL.
-
-        IMPORTANT:
-        The x_post_url column must allow NULL.
-      */
       const xPostValue = TEST_MODE
         ? null
         : postLink.trim();
@@ -466,93 +439,437 @@ export default function ClaimSpot() {
             )}
           </div>
 
-          {/* STEP 03 */}
+          {/* =====================================================
+              STEP 03 — PREMIUM GENESIS EXPLORER CARD
+              ===================================================== */}
 
           {canShowExplorerCard && (
             <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
                 Step 03
               </p>
 
               <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
-                Your Explorer Card
+                Genesis Explorer Card
               </h3>
 
               <p className="mt-3 text-sm leading-6 text-gray-500">
-                Your community tasks are complete. Your Explorer card is now
-                ready to share.
+                Your community tasks are complete. Your Genesis Explorer
+                identity is ready to share.
               </p>
+
+              {/* PREMIUM GENESIS CARD */}
 
               <div
                 className="
-                  mt-6
+                  relative
+                  mt-8
                   overflow-hidden
-                  rounded-3xl
+                  rounded-[2rem]
                   border
                   border-yellow-400/20
                   bg-[#07110d]
                 "
               >
-                <div className="p-7 text-center sm:p-9">
+
+                {/* OUTER FRAME */}
+
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-[2rem]
+                    border
+                    border-white/[0.06]
+                  "
+                />
+
+                {/* PREMIUM TOP LIGHT */}
+
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-10
+                    right-10
+                    top-0
+                    h-px
+                    bg-gradient-to-r
+                    from-transparent
+                    via-yellow-300/70
+                    to-transparent
+                  "
+                />
+
+                {/* SECOND ACCENT */}
+
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-16
+                    right-16
+                    top-3
+                    h-px
+                    bg-gradient-to-r
+                    from-transparent
+                    via-emerald-400/25
+                    to-transparent
+                  "
+                />
+
+                {/* CARD CONTENT */}
+
+                <div className="relative p-6 sm:p-8 md:p-10">
+
+                  {/* HEADER */}
+
+                  <div className="flex items-start justify-between gap-5">
+
+                    <div>
+                      <p
+                        className="
+                          text-[10px]
+                          font-bold
+                          uppercase
+                          tracking-[0.34em]
+                          text-yellow-400
+                        "
+                      >
+                        Blob Explorers
+                      </p>
+
+                      <p
+                        className="
+                          mt-2
+                          text-[9px]
+                          font-semibold
+                          uppercase
+                          tracking-[0.24em]
+                          text-white/35
+                        "
+                      >
+                        Genesis Collection
+                      </p>
+                    </div>
+
+                    <div
+                      className="
+                        flex
+                        h-12
+                        w-12
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-yellow-400/25
+                        bg-yellow-400/[0.06]
+                        text-xl
+                      "
+                    >
+                      <img
+  src="/images/hero/bloblogo.png"
+  alt="Blob Explorers"
+  className="h-12 w-12 object-contain"
+/>
+                    </div>
+                  </div>
+
+                  {/* MAIN GENESIS IDENTITY */}
+
+                  <div className="mt-10 text-center">
+
+                    {/* ORBIT RING */}
+
+                    <div
+                      className="
+                        relative
+                        mx-auto
+                        flex
+                        h-24
+                        w-24
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-yellow-300/30
+                        bg-gradient-to-br
+                        from-yellow-300/[0.14]
+                        via-white/[0.035]
+                        to-emerald-400/[0.08]
+                      "
+                    >
+
+                      <div
+                        className="
+                          absolute
+                          inset-2
+                          rounded-full
+                          border
+                          border-white/[0.06]
+                        "
+                      />
+
+                      <img
+  src="/images/hero/bloblogo.png"
+  alt="Blob Explorers"
+  className="relative h-24 w-24 object-contain"
+/>
+                    </div>
+
+                    <p
+                      className="
+                        mt-7
+                        text-[10px]
+                        font-bold
+                        uppercase
+                        tracking-[0.38em]
+                        text-yellow-400
+                      "
+                    >
+                      Blob Explorers
+                    </p>
+
+                    <h3
+                      className="
+                        mt-3
+                        text-3xl
+                        font-black
+                        uppercase
+                        tracking-tight
+                        text-white
+                        sm:text-4xl
+                        md:text-5xl
+                      "
+                    >
+                      GENESIS EXPLORER
+                    </h3>
+
+                    <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+
+                      <span className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-400/50" />
+
+                      <span
+                        className="
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.3em]
+                          text-white/35
+                        "
+                      >
+                        The BlobVerse
+                      </span>
+
+                      <span className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-400/50" />
+
+                    </div>
+
+                    <p
+                      className="
+                        mx-auto
+                        mt-5
+                        max-w-md
+                        text-sm
+                        leading-6
+                        text-gray-400
+                      "
+                    >
+                      Your place in the BlobVerse is secured. The journey begins here.
+                    </p>
+                  </div>
+
+                  {/* GENESIS STATUS */}
 
                   <div
                     className="
-                      mx-auto
-                      flex
-                      h-16
-                      w-16
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-yellow-400/30
-                      bg-yellow-400/[0.06]
-                      text-2xl
+                      mt-8
+                      grid
+                      gap-3
+                      sm:grid-cols-2
                     "
                   >
-                    🌍
+
+                    <div
+                      className="
+                        rounded-2xl
+                        border
+                        border-yellow-400/[0.12]
+                        bg-yellow-400/[0.025]
+                        p-5
+                      "
+                    >
+                      <p
+                        className="
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.2em]
+                          text-gray-500
+                        "
+                      >
+                        Explorer Status
+                      </p>
+
+                      <p className="mt-2 text-sm font-bold text-yellow-300">
+                        Genesis Access
+                      </p>
+                    </div>
+
+                    <div
+                      className="
+                        rounded-2xl
+                        border
+                        border-emerald-400/[0.12]
+                        bg-emerald-400/[0.025]
+                        p-5
+                      "
+                    >
+                      <p
+                        className="
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.2em]
+                          text-gray-500
+                        "
+                      >
+                        Collection
+                      </p>
+
+                      <p className="mt-2 text-sm font-bold text-emerald-300">
+                        BlobVerse
+                      </p>
+                    </div>
+
                   </div>
 
-                  <p
+                  {/* WALLET PANEL */}
+
+                  <div
                     className="
+                      relative
                       mt-5
-                      text-xs
-                      font-bold
-                      uppercase
-                      tracking-[0.22em]
-                      text-yellow-400
+                      overflow-hidden
+                      rounded-2xl
+                      border
+                      border-white/[0.08]
+                      bg-white/[0.025]
                     "
                   >
-                    Blob Explorers
-                  </p>
 
-                  <h3 className="mt-3 text-2xl font-black text-white sm:text-3xl">
-                    Explorer Spot
-                  </h3>
+                    <div
+                      className="
+                        pointer-events-none
+                        absolute
+                        left-0
+                        top-0
+                        h-px
+                        w-full
+                        bg-gradient-to-r
+                        from-transparent
+                        via-yellow-400/30
+                        to-transparent
+                      "
+                    />
 
-                  <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-gray-400">
-                    Your Explorer card is ready to share with the BlobVerse
-                    community.
-                  </p>
+                    <div className="p-5 sm:p-6">
+
+                      <div className="flex items-center justify-between gap-4">
+
+                        <p
+                          className="
+                            text-[10px]
+                            font-bold
+                            uppercase
+                            tracking-[0.2em]
+                            text-gray-500
+                          "
+                        >
+                          Explorer Wallet
+                        </p>
+
+                        <span
+                          className="
+                            rounded-full
+                            border
+                            border-emerald-400/15
+                            bg-emerald-400/[0.04]
+                            px-3
+                            py-1
+                            text-[9px]
+                            font-bold
+                            uppercase
+                            tracking-[0.16em]
+                            text-emerald-400
+                          "
+                        >
+                          Verified
+                        </span>
+
+                      </div>
+
+                      <p
+                        className="
+                          mt-3
+                          break-all
+                          font-mono
+                          text-xs
+                          leading-6
+                          text-gray-300
+                        "
+                      >
+                        {wallet}
+                      </p>
+
+                    </div>
+                  </div>
+
+                  {/* CARD FOOTER */}
 
                   <div
                     className="
                       mt-6
-                      rounded-2xl
-                      border
-                      border-white/10
-                      bg-white/[0.02]
-                      p-4
+                      flex
+                      flex-col
+                      gap-3
+                      border-t
+                      border-white/[0.06]
+                      pt-5
+                      sm:flex-row
+                      sm:items-center
+                      sm:justify-between
                     "
                   >
-                    <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
-                      Wallet
+
+                    <p
+                      className="
+                        text-[9px]
+                        font-bold
+                        uppercase
+                        tracking-[0.2em]
+                        text-white/25
+                      "
+                    >
+                      Every Blob Has a Story
                     </p>
 
-                    <p className="mt-2 break-all font-mono text-xs text-gray-300">
-                      {wallet}
+                    <p
+                      className="
+                        text-[9px]
+                        font-bold
+                        uppercase
+                        tracking-[0.2em]
+                        text-yellow-400/55
+                      "
+                    >
                     </p>
+
                   </div>
+
                 </div>
               </div>
             </div>
@@ -562,6 +879,7 @@ export default function ClaimSpot() {
 
           {canShowExplorerCard && (
             <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
                 Step 04
               </p>
@@ -634,6 +952,7 @@ export default function ClaimSpot() {
 
           {canShowExplorerCard && (
             <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
                 Step 05
               </p>
@@ -765,7 +1084,7 @@ export default function ClaimSpot() {
                       : "Submit & Confirm Spot"}
               </button>
 
-              {/* FINAL SUCCESS */}
+              {/* SUCCESS */}
 
               {submitted && (
                 <div
@@ -780,6 +1099,7 @@ export default function ClaimSpot() {
                     sm:p-8
                   "
                 >
+
                   <div
                     className="
                       mx-auto
@@ -813,6 +1133,7 @@ export default function ClaimSpot() {
                   </p>
 
                   <div className="mt-6 rounded-2xl border border-white/10 bg-[#07110d] p-4">
+
                     <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
                       Submitted Wallet
                     </p>
@@ -820,10 +1141,12 @@ export default function ClaimSpot() {
                     <p className="mt-2 break-all font-mono text-xs text-gray-300">
                       {wallet}
                     </p>
+
                   </div>
 
                   {!TEST_MODE && (
                     <div className="mt-4 rounded-2xl border border-white/10 bg-[#07110d] p-4">
+
                       <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
                         X Post
                       </p>
@@ -831,11 +1154,13 @@ export default function ClaimSpot() {
                       <p className="mt-2 break-all text-xs text-gray-400">
                         {postLink}
                       </p>
+
                     </div>
                   )}
 
                   {TEST_MODE && (
                     <div className="mt-4 rounded-2xl border border-yellow-400/20 bg-yellow-400/[0.04] p-4">
+
                       <p className="text-xs uppercase tracking-[0.15em] text-yellow-400">
                         Test Mode
                       </p>
@@ -843,10 +1168,13 @@ export default function ClaimSpot() {
                       <p className="mt-2 text-xs leading-5 text-gray-500">
                         No public X post was submitted.
                       </p>
+
                     </div>
                   )}
+
                 </div>
               )}
+
             </div>
           )}
 
@@ -854,15 +1182,22 @@ export default function ClaimSpot() {
 
           {finalComplete && (
             <div className="border-t border-white/10 px-6 py-5 sm:px-8 md:px-10">
+
               <div className="flex items-center justify-center gap-3 text-center">
-                <span className="text-emerald-400">✓</span>
+
+                <span className="text-emerald-400">
+                  ✓
+                </span>
 
                 <p className="text-sm font-bold text-emerald-400">
                   Your Blob Explorer spot is confirmed.
                 </p>
+
               </div>
+
             </div>
           )}
+
         </div>
 
         {/* NOTE */}
@@ -871,6 +1206,7 @@ export default function ClaimSpot() {
           Your wallet address is entered manually. No wallet connection or
           transaction is required.
         </p>
+
       </div>
     </section>
   );

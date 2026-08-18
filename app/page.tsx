@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import ClaimSpot from "@/components/ClaimSpot";
 import CreatorWorld from "@/components/CreatorWorld";
 import DiscoveryProgress from "@/components/DiscoveryProgress";
 import FAQ from "@/components/FAQ";
@@ -24,6 +25,7 @@ export default function Home() {
         <DiscoveryProgress />
         <CreatorWorld />
         <Roadmap />
+        <ClaimSpot />
         <FAQ />
       </main>
 

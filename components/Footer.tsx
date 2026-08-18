@@ -20,7 +20,10 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-4 sm:flex-row md:items-center">
 
+          {/* ================================================= */}
           {/* FOOTER LOGO */}
+          {/* ================================================= */}
+
           <a
             href="/"
             aria-label="Go to Blob Explorers homepage"
@@ -34,16 +37,33 @@ export default function Footer() {
               shrink-0
               cursor-pointer
               rounded-full
+              shadow-none
+              [box-shadow:none!important]
+              [filter:none!important]
             "
           >
-            {/* LOGO — NO TRANSFORM / NO SHADOW */}
+            {/* LOGO — HOVER MOVEMENT ONLY */}
+
             <div
               className="
                 footer-logo-float
                 relative
                 h-full
                 w-full
+                shadow-none
+                [box-shadow:none!important]
+                [filter:none!important]
+                transition-transform
+                duration-700
+                ease-out
+                group-hover:scale-[1.06]
+                group-hover:rotate-[3deg]
               "
+              style={{
+                filter: "none",
+                boxShadow: "none",
+                willChange: "transform",
+              }}
             >
               <Image
                 src="/images/hero/bloblogo.png"
@@ -54,7 +74,15 @@ export default function Footer() {
                 className="
                   pointer-events-none
                   object-contain
+                  shadow-none
+                  [box-shadow:none!important]
+                  [filter:none!important]
                 "
+                style={{
+                  filter: "none",
+                  boxShadow: "none",
+                  willChange: "transform",
+                }}
               />
             </div>
           </a>

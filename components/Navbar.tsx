@@ -71,13 +71,16 @@ export default function Navbar() {
                   shadow-none
                   [box-shadow:none!important]
                   [filter:none!important]
+                  transition-transform
+                  duration-700
+                  ease-out
+                  group-hover:scale-[1.06]
+                  group-hover:rotate-[3deg]
                 "
                 style={{
-                  animation: "none",
-                  transform: "none",
                   filter: "none",
                   boxShadow: "none",
-                  willChange: "auto",
+                  willChange: "transform",
                 }}
               >
                 <Image
@@ -96,9 +99,7 @@ export default function Navbar() {
                   style={{
                     filter: "none",
                     boxShadow: "none",
-                    transform: "none",
-                    animation: "none",
-                    willChange: "auto",
+                    willChange: "transform",
                   }}
                 />
               </div>

@@ -48,7 +48,9 @@ export default function ClaimSpot() {
 
   const xLinkAvailable = siteConfig.social.x.trim() !== "";
 
-  const allTasksCompleted = Object.values(completed).every(Boolean);
+  const completedCount = Object.values(completed).filter(Boolean).length;
+
+  const allTasksCompleted = completedCount === tasks.length;
 
   const walletLooksValid = /^0x[a-fA-F0-9]{40}$/.test(wallet.trim());
 
@@ -182,6 +184,7 @@ export default function ClaimSpot() {
       id="claim"
       className="
         relative
+        overflow-hidden
         px-5
         py-20
         sm:px-8
@@ -190,37 +193,126 @@ export default function ClaimSpot() {
         lg:px-20
       "
     >
-      <div className="mx-auto max-w-5xl">
+      {/* =====================================================
+          LIGHTWEIGHT PREMIUM ATMOSPHERE
+          No blur / backdrop-filter / heavy shadow
+      ===================================================== */}
 
-        {/* HEADER */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-32
+          h-72
+          w-72
+          -translate-x-1/2
+          rounded-full
+          bg-emerald-500/[0.018]
+          sm:h-96
+          sm:w-96
+        "
+      />
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          bottom-20
+          left-1/2
+          h-56
+          w-56
+          -translate-x-1/2
+          rounded-full
+          bg-yellow-400/[0.012]
+        "
+      />
+
+      <div className="relative mx-auto max-w-5xl">
+
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
 
         <div className="mx-auto max-w-3xl text-center">
-          <p
+
+          <div
             className="
-              text-xs
-              font-bold
-              uppercase
-              tracking-[0.24em]
-              text-emerald-400
-              sm:text-sm
+              mx-auto
+              inline-flex
+              items-center
+              gap-3
+              rounded-full
+              border
+              border-emerald-400/15
+              bg-emerald-400/[0.035]
+              px-4
+              py-2
             "
           >
-            Blob Explorer Access
-          </p>
+            <span
+              className="
+                h-1.5
+                w-1.5
+                rounded-full
+                bg-emerald-400
+              "
+            />
+
+            <p
+              className="
+                text-[10px]
+                font-black
+                uppercase
+                tracking-[0.28em]
+                text-emerald-400
+                sm:text-xs
+              "
+            >
+              Blob Explorer Access
+            </p>
+
+            <span
+              className="
+                h-1.5
+                w-1.5
+                rounded-full
+                bg-yellow-400/70
+              "
+            />
+          </div>
 
           <h2
             className="
-              mt-4
-              text-3xl
+              mt-6
+              text-4xl
               font-black
+              leading-tight
               tracking-tight
               text-white
-              sm:text-4xl
-              md:text-5xl
+              sm:text-5xl
+              md:text-6xl
             "
           >
-            Claim Your Spot
+            Claim Your
+            <span className="text-emerald-400"> Spot</span>
           </h2>
+
+          <div
+            aria-hidden="true"
+            className="
+              mx-auto
+              mt-5
+              h-px
+              w-20
+              bg-gradient-to-r
+              from-transparent
+              via-yellow-400/60
+              to-transparent
+            "
+          />
 
           <p
             className="
@@ -231,65 +323,198 @@ export default function ClaimSpot() {
               leading-7
               text-gray-400
               sm:text-base
+              sm:leading-8
             "
           >
             Complete the community tasks, enter your wallet address,
-            share your Explorer card and confirm your spot.
+            share your Explorer card and confirm your place in the
+            BlobVerse.
           </p>
 
           {TEST_MODE && (
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-yellow-400/80">
-              Database Test Mode
-            </p>
+            <div
+              className="
+                mx-auto
+                mt-5
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-yellow-400/15
+                bg-yellow-400/[0.025]
+                px-4
+                py-2
+              "
+            >
+              <span className="text-[10px] text-yellow-400">
+                ●
+              </span>
+
+              <span
+                className="
+                  text-[9px]
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-yellow-400/80
+                  sm:text-[10px]
+                "
+              >
+                Database Test Mode
+              </span>
+            </div>
           )}
         </div>
 
-        {/* MAIN CARD */}
+        {/* =====================================================
+            MAIN FRAME
+        ===================================================== */}
 
         <div
           className="
             relative
             mt-12
             overflow-hidden
-            rounded-3xl
+            rounded-[2rem]
             border
-            border-white/10
+            border-white/[0.09]
             bg-[#0a1510]
           "
         >
 
-          {/* STEP 01 */}
+          {/* TOP FRAME LINE */}
 
-          <div className="p-6 sm:p-8 md:p-10">
-            <div className="flex items-center justify-between gap-4">
+          <div
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              left-[12%]
+              right-[12%]
+              top-0
+              z-20
+              h-px
+              bg-gradient-to-r
+              from-transparent
+              via-[#d9b35f]/60
+              to-transparent
+            "
+          />
+
+          {/* =====================================================
+              STEP 01
+          ===================================================== */}
+
+          <div className="relative p-6 sm:p-8 md:p-10">
+
+            <div className="flex items-start justify-between gap-5">
+
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                  Step 01
-                </p>
 
-                <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+                <div className="flex items-center gap-3">
+
+                  <span
+                    className="
+                      text-[10px]
+                      font-black
+                      uppercase
+                      tracking-[0.24em]
+                      text-emerald-400
+                    "
+                  >
+                    Step 01
+                  </span>
+
+                  <span className="h-px w-8 bg-emerald-400/25" />
+
+                  <span
+                    className="
+                      text-[9px]
+                      font-bold
+                      uppercase
+                      tracking-[0.18em]
+                      text-white/25
+                    "
+                  >
+                    Community
+                  </span>
+
+                </div>
+
+                <h3
+                  className="
+                    mt-3
+                    text-2xl
+                    font-black
+                    text-white
+                    sm:text-3xl
+                  "
+                >
                   Complete X Tasks
                 </h3>
+
+                <p className="mt-2 text-sm text-gray-500">
+                  Unlock your Genesis Explorer identity.
+                </p>
+
               </div>
 
               <div
-                className="
+                className={`
+                  shrink-0
                   rounded-full
                   border
-                  border-white/10
                   px-4
                   py-2
                   text-xs
-                  font-bold
-                  text-gray-400
-                "
+                  font-black
+                  transition-colors
+                  duration-300
+                  ${
+                    allTasksCompleted
+                      ? "border-emerald-400/30 bg-emerald-400/[0.07] text-emerald-400"
+                      : "border-white/10 bg-white/[0.025] text-gray-400"
+                  }
+                `}
               >
-                {Object.values(completed).filter(Boolean).length}/4
+                {completedCount}/4
               </div>
+
+            </div>
+
+            {/* PROGRESS LINE */}
+
+            <div
+              className="
+                mt-7
+                h-1
+                overflow-hidden
+                rounded-full
+                bg-white/[0.05]
+              "
+            >
+              <div
+                className="
+                  h-full
+                  rounded-full
+                  bg-gradient-to-r
+                  from-emerald-500
+                  via-emerald-400
+                  to-yellow-400
+                  transition-all
+                  duration-500
+                "
+                style={{
+                  width: `${(completedCount / 4) * 100}%`,
+                }}
+              />
             </div>
 
             <div className="mt-7 grid gap-3">
-              {tasks.map((task) => {
+
+              {tasks.map((task, index) => {
+
                 const isComplete = completed[task.id];
 
                 return (
@@ -298,57 +523,128 @@ export default function ClaimSpot() {
                     type="button"
                     onClick={() => toggleTask(task.id)}
                     className={`
+                      group
+                      relative
                       flex
                       w-full
                       items-center
                       gap-4
+                      overflow-hidden
                       rounded-2xl
                       border
                       p-4
                       text-left
-                      transition-colors
+                      transition-all
                       duration-300
                       ${
                         isComplete
-                          ? "border-emerald-400/30 bg-emerald-400/[0.06]"
-                          : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]"
+                          ? "border-emerald-400/25 bg-emerald-400/[0.055]"
+                          : "border-white/[0.08] bg-white/[0.018] hover:-translate-y-0.5 hover:border-white/[0.16] hover:bg-white/[0.035]"
                       }
                     `}
                   >
+
+                    {/* subtle top accent */}
+
+                    <span
+                      aria-hidden="true"
+                      className={`
+                        pointer-events-none
+                        absolute
+                        left-0
+                        top-0
+                        h-px
+                        w-full
+                        bg-gradient-to-r
+                        from-transparent
+                        ${
+                          isComplete
+                            ? "via-emerald-400/50"
+                            : "via-white/10"
+                        }
+                        to-transparent
+                      `}
+                    />
+
                     <span
                       className={`
                         flex
-                        h-10
-                        w-10
+                        h-11
+                        w-11
                         shrink-0
                         items-center
                         justify-center
-                        rounded-full
+                        rounded-xl
                         border
                         text-sm
                         font-black
+                        transition-all
+                        duration-300
                         ${
                           isComplete
-                            ? "border-emerald-400 bg-emerald-400 text-[#07110d]"
-                            : "border-white/15 text-gray-400"
+                            ? "border-emerald-400/40 bg-emerald-400 text-[#07110d]"
+                            : "border-white/[0.12] bg-white/[0.025] text-gray-500 group-hover:border-emerald-400/25 group-hover:text-emerald-400"
                         }
                       `}
                     >
-                      {isComplete ? "✓" : ""}
+                      {isComplete ? "✓" : `0${index + 1}`}
                     </span>
 
                     <span className="min-w-0 flex-1">
-                      <span className="block font-bold text-white">
+
+                      <span
+                        className={`
+                          block
+                          font-bold
+                          transition-colors
+                          duration-300
+                          ${
+                            isComplete
+                              ? "text-emerald-100"
+                              : "text-white"
+                          }
+                        `}
+                      >
                         {task.title}
                       </span>
 
-                      <span className="mt-1 block text-xs leading-5 text-gray-500 sm:text-sm">
+                      <span
+                        className="
+                          mt-1
+                          block
+                          text-xs
+                          leading-5
+                          text-gray-500
+                          sm:text-sm
+                        "
+                      >
                         {task.description}
                       </span>
+
                     </span>
+
+                    <span
+                      className={`
+                        hidden
+                        text-[9px]
+                        font-black
+                        uppercase
+                        tracking-[0.16em]
+                        sm:block
+                        ${
+                          isComplete
+                            ? "text-emerald-400"
+                            : "text-white/15"
+                        }
+                      `}
+                    >
+                      {isComplete ? "Done" : "Open"}
+                    </span>
+
                   </button>
                 );
               })}
+
             </div>
 
             {xLinkAvailable && (
@@ -363,68 +659,148 @@ export default function ClaimSpot() {
                   justify-center
                   rounded-full
                   border
-                  border-white/10
+                  border-white/[0.10]
+                  bg-white/[0.025]
                   px-5
                   py-3
                   text-sm
                   font-bold
                   text-white
-                  transition-colors
+                  transition-all
                   duration-300
+                  hover:-translate-y-0.5
                   hover:border-emerald-400/30
                   hover:text-emerald-400
                 "
               >
-                Open Blob Explorers on X →
+                Open Blob Explorers on X
+                <span className="ml-2 text-emerald-400">
+                  →
+                </span>
               </a>
             )}
+
           </div>
 
-          {/* STEP 02 */}
+          {/* =====================================================
+              STEP 02
+          ===================================================== */}
 
-          <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Step 02
-            </p>
+          <div
+            className="
+              relative
+              border-t
+              border-white/[0.07]
+              p-6
+              sm:p-8
+              md:p-10
+            "
+          >
 
-            <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+            <div className="flex items-center gap-3">
+
+              <span
+                className="
+                  text-[10px]
+                  font-black
+                  uppercase
+                  tracking-[0.24em]
+                  text-emerald-400
+                "
+              >
+                Step 02
+              </span>
+
+              <span className="h-px w-8 bg-emerald-400/25" />
+
+              <span
+                className="
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  text-white/25
+                "
+              >
+                Identity
+              </span>
+
+            </div>
+
+            <h3
+              className="
+                mt-3
+                text-2xl
+                font-black
+                text-white
+                sm:text-3xl
+              "
+            >
               Enter Wallet Address
             </h3>
 
-            <p className="mt-3 text-sm leading-6 text-gray-500">
-              No wallet connection is required. Enter the Ethereum wallet
-              address where your Explorer will be associated.
+            <p
+              className="
+                mt-3
+                max-w-2xl
+                text-sm
+                leading-6
+                text-gray-500
+              "
+            >
+              No wallet connection is required. Enter the Ethereum
+              wallet address where your Explorer will be associated.
             </p>
 
-            <input
-              type="text"
-              value={wallet}
-              onChange={(event) => {
-                setWallet(event.target.value);
-                setSubmitted(false);
-                setError("");
-              }}
-              placeholder="0x..."
-              autoComplete="off"
-              spellCheck={false}
-              className="
-                mt-6
-                w-full
-                rounded-2xl
-                border
-                border-white/10
-                bg-[#07110d]
-                px-5
-                py-4
-                text-sm
-                text-white
-                outline-none
-                transition-colors
-                duration-300
-                placeholder:text-gray-600
-                focus:border-emerald-400/40
-              "
-            />
+            <div className="relative mt-6">
+
+              <div
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  left-5
+                  top-1/2
+                  h-2
+                  w-2
+                  -translate-y-1/2
+                  rounded-full
+                  bg-emerald-400/50
+                "
+              />
+
+              <input
+                type="text"
+                value={wallet}
+                onChange={(event) => {
+                  setWallet(event.target.value);
+                  setSubmitted(false);
+                  setError("");
+                }}
+                placeholder="0x..."
+                autoComplete="off"
+                spellCheck={false}
+                className="
+                  w-full
+                  rounded-2xl
+                  border
+                  border-white/[0.09]
+                  bg-[#07110d]
+                  py-4
+                  pl-10
+                  pr-5
+                  text-sm
+                  text-white
+                  outline-none
+                  transition-all
+                  duration-300
+                  placeholder:text-gray-600
+                  focus:border-emerald-400/40
+                  focus:bg-[#08140f]
+                "
+              />
+
+            </div>
 
             {wallet.length > 0 && !walletLooksValid && (
               <p className="mt-3 text-xs text-yellow-400">
@@ -433,33 +809,95 @@ export default function ClaimSpot() {
             )}
 
             {walletLooksValid && (
-              <p className="mt-3 text-xs text-emerald-400">
-                Wallet address accepted ✓
-              </p>
+              <div
+                className="
+                  mt-3
+                  flex
+                  items-center
+                  gap-2
+                  text-xs
+                  font-semibold
+                  text-emerald-400
+                "
+              >
+                <span>✓</span>
+                <span>Wallet address accepted</span>
+              </div>
             )}
+
           </div>
 
           {/* =====================================================
-              STEP 03 — PREMIUM GENESIS EXPLORER CARD
-              ===================================================== */}
+              STEP 03 — GENESIS CARD
+          ===================================================== */}
 
           {canShowExplorerCard && (
-            <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+            <div
+              className="
+                relative
+                border-t
+                border-white/[0.07]
+                p-6
+                sm:p-8
+                md:p-10
+              "
+            >
 
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Step 03
-              </p>
+              <div className="flex items-center gap-3">
 
-              <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+                <span
+                  className="
+                    text-[10px]
+                    font-black
+                    uppercase
+                    tracking-[0.24em]
+                    text-emerald-400
+                  "
+                >
+                  Step 03
+                </span>
+
+                <span className="h-px w-8 bg-emerald-400/25" />
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.18em]
+                    text-white/25
+                  "
+                >
+                  Your Identity
+                </span>
+
+              </div>
+
+              <h3
+                className="
+                  mt-3
+                  text-2xl
+                  font-black
+                  text-white
+                  sm:text-3xl
+                "
+              >
                 Genesis Explorer Card
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-500">
-                Your community tasks are complete. Your Genesis Explorer
-                identity is ready to share.
+              <p
+                className="
+                  mt-3
+                  text-sm
+                  leading-6
+                  text-gray-500
+                "
+              >
+                Your community tasks are complete. Your Genesis
+                Explorer identity is ready to share.
               </p>
 
-              {/* PREMIUM GENESIS CARD */}
+              {/* GENESIS CARD */}
 
               <div
                 className="
@@ -473,27 +911,29 @@ export default function ClaimSpot() {
                 "
               >
 
-                {/* OUTER FRAME */}
+                {/* FRAME */}
 
                 <div
+                  aria-hidden="true"
                   className="
                     pointer-events-none
                     absolute
-                    inset-0
-                    rounded-[2rem]
+                    inset-2
+                    rounded-[1.75rem]
                     border
-                    border-white/[0.06]
+                    border-white/[0.035]
                   "
                 />
 
-                {/* PREMIUM TOP LIGHT */}
+                {/* TOP GOLD LINE */}
 
                 <div
+                  aria-hidden="true"
                   className="
                     pointer-events-none
                     absolute
-                    left-10
-                    right-10
+                    left-[12%]
+                    right-[12%]
                     top-0
                     h-px
                     bg-gradient-to-r
@@ -503,14 +943,15 @@ export default function ClaimSpot() {
                   "
                 />
 
-                {/* SECOND ACCENT */}
+                {/* SECOND LINE */}
 
                 <div
+                  aria-hidden="true"
                   className="
                     pointer-events-none
                     absolute
-                    left-16
-                    right-16
+                    left-[22%]
+                    right-[22%]
                     top-3
                     h-px
                     bg-gradient-to-r
@@ -520,19 +961,25 @@ export default function ClaimSpot() {
                   "
                 />
 
-                {/* CARD CONTENT */}
-
                 <div className="relative p-6 sm:p-8 md:p-10">
 
-                  {/* HEADER */}
+                  {/* CARD HEADER */}
 
-                  <div className="flex items-start justify-between gap-5">
+                  <div
+                    className="
+                      flex
+                      items-start
+                      justify-between
+                      gap-5
+                    "
+                  >
 
                     <div>
+
                       <p
                         className="
                           text-[10px]
-                          font-bold
+                          font-black
                           uppercase
                           tracking-[0.34em]
                           text-yellow-400
@@ -548,11 +995,12 @@ export default function ClaimSpot() {
                           font-semibold
                           uppercase
                           tracking-[0.24em]
-                          text-white/35
+                          text-white/30
                         "
                       >
                         Genesis Collection
                       </p>
+
                     </div>
 
                     <div
@@ -566,23 +1014,21 @@ export default function ClaimSpot() {
                         rounded-full
                         border
                         border-yellow-400/25
-                        bg-yellow-400/[0.06]
-                        text-xl
+                        bg-yellow-400/[0.045]
                       "
                     >
                       <img
-  src="/images/hero/bloblogo.png"
-  alt="Blob Explorers"
-  className="h-12 w-12 object-contain"
-/>
+                        src="/images/hero/bloblogo.png"
+                        alt="Blob Explorers"
+                        className="h-10 w-10 object-contain"
+                      />
                     </div>
+
                   </div>
 
-                  {/* MAIN GENESIS IDENTITY */}
+                  {/* MAIN IDENTITY */}
 
                   <div className="mt-10 text-center">
-
-                    {/* ORBIT RING */}
 
                     <div
                       className="
@@ -597,14 +1043,16 @@ export default function ClaimSpot() {
                         border
                         border-yellow-300/30
                         bg-gradient-to-br
-                        from-yellow-300/[0.14]
-                        via-white/[0.035]
-                        to-emerald-400/[0.08]
+                        from-yellow-300/[0.12]
+                        via-white/[0.025]
+                        to-emerald-400/[0.07]
                       "
                     >
 
                       <div
+                        aria-hidden="true"
                         className="
+                          pointer-events-none
                           absolute
                           inset-2
                           rounded-full
@@ -614,17 +1062,23 @@ export default function ClaimSpot() {
                       />
 
                       <img
-  src="/images/hero/bloblogo.png"
-  alt="Blob Explorers"
-  className="relative h-24 w-24 object-contain"
-/>
+                        src="/images/hero/bloblogo.png"
+                        alt="Blob Explorers"
+                        className="
+                          relative
+                          h-20
+                          w-20
+                          object-contain
+                        "
+                      />
+
                     </div>
 
                     <p
                       className="
                         mt-7
                         text-[10px]
-                        font-bold
+                        font-black
                         uppercase
                         tracking-[0.38em]
                         text-yellow-400
@@ -645,12 +1099,29 @@ export default function ClaimSpot() {
                         md:text-5xl
                       "
                     >
-                      GENESIS EXPLORER
+                      Genesis Explorer
                     </h3>
 
-                    <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+                    <div
+                      className="
+                        mx-auto
+                        mt-5
+                        flex
+                        items-center
+                        justify-center
+                        gap-3
+                      "
+                    >
 
-                      <span className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-400/50" />
+                      <span
+                        className="
+                          h-px
+                          w-12
+                          bg-gradient-to-r
+                          from-transparent
+                          to-yellow-400/50
+                        "
+                      />
 
                       <span
                         className="
@@ -658,13 +1129,21 @@ export default function ClaimSpot() {
                           font-bold
                           uppercase
                           tracking-[0.3em]
-                          text-white/35
+                          text-white/30
                         "
                       >
                         The BlobVerse
                       </span>
 
-                      <span className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-400/50" />
+                      <span
+                        className="
+                          h-px
+                          w-12
+                          bg-gradient-to-l
+                          from-transparent
+                          to-yellow-400/50
+                        "
+                      />
 
                     </div>
 
@@ -678,11 +1157,13 @@ export default function ClaimSpot() {
                         text-gray-400
                       "
                     >
-                      Your place in the BlobVerse is secured. The journey begins here.
+                      Your place in the BlobVerse is secured.
+                      The journey begins here.
                     </p>
+
                   </div>
 
-                  {/* GENESIS STATUS */}
+                  {/* STATUS */}
 
                   <div
                     className="
@@ -702,10 +1183,11 @@ export default function ClaimSpot() {
                         p-5
                       "
                     >
+
                       <p
                         className="
                           text-[9px]
-                          font-bold
+                          font-black
                           uppercase
                           tracking-[0.2em]
                           text-gray-500
@@ -717,6 +1199,7 @@ export default function ClaimSpot() {
                       <p className="mt-2 text-sm font-bold text-yellow-300">
                         Genesis Access
                       </p>
+
                     </div>
 
                     <div
@@ -728,10 +1211,11 @@ export default function ClaimSpot() {
                         p-5
                       "
                     >
+
                       <p
                         className="
                           text-[9px]
-                          font-bold
+                          font-black
                           uppercase
                           tracking-[0.2em]
                           text-gray-500
@@ -743,11 +1227,12 @@ export default function ClaimSpot() {
                       <p className="mt-2 text-sm font-bold text-emerald-300">
                         BlobVerse
                       </p>
+
                     </div>
 
                   </div>
 
-                  {/* WALLET PANEL */}
+                  {/* WALLET */}
 
                   <div
                     className="
@@ -757,18 +1242,19 @@ export default function ClaimSpot() {
                       rounded-2xl
                       border
                       border-white/[0.08]
-                      bg-white/[0.025]
+                      bg-white/[0.02]
                     "
                   >
 
                     <div
+                      aria-hidden="true"
                       className="
                         pointer-events-none
                         absolute
-                        left-0
+                        left-[10%]
+                        right-[10%]
                         top-0
                         h-px
-                        w-full
                         bg-gradient-to-r
                         from-transparent
                         via-yellow-400/30
@@ -778,12 +1264,19 @@ export default function ClaimSpot() {
 
                     <div className="p-5 sm:p-6">
 
-                      <div className="flex items-center justify-between gap-4">
+                      <div
+                        className="
+                          flex
+                          items-center
+                          justify-between
+                          gap-4
+                        "
+                      >
 
                         <p
                           className="
                             text-[10px]
-                            font-bold
+                            font-black
                             uppercase
                             tracking-[0.2em]
                             text-gray-500
@@ -801,7 +1294,7 @@ export default function ClaimSpot() {
                             px-3
                             py-1
                             text-[9px]
-                            font-bold
+                            font-black
                             uppercase
                             tracking-[0.16em]
                             text-emerald-400
@@ -826,9 +1319,10 @@ export default function ClaimSpot() {
                       </p>
 
                     </div>
+
                   </div>
 
-                  {/* CARD FOOTER */}
+                  {/* FOOTER */}
 
                   <div
                     className="
@@ -848,7 +1342,7 @@ export default function ClaimSpot() {
                     <p
                       className="
                         text-[9px]
-                        font-bold
+                        font-black
                         uppercase
                         tracking-[0.2em]
                         text-white/25
@@ -860,12 +1354,13 @@ export default function ClaimSpot() {
                     <p
                       className="
                         text-[9px]
-                        font-bold
+                        font-black
                         uppercase
                         tracking-[0.2em]
-                        text-yellow-400/55
+                        text-yellow-400/50
                       "
                     >
+                      Genesis Access
                     </p>
 
                   </div>
@@ -875,20 +1370,72 @@ export default function ClaimSpot() {
             </div>
           )}
 
-          {/* STEP 04 */}
+          {/* =====================================================
+              STEP 04
+          ===================================================== */}
 
           {canShowExplorerCard && (
-            <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+            <div
+              className="
+                relative
+                border-t
+                border-white/[0.07]
+                p-6
+                sm:p-8
+                md:p-10
+              "
+            >
 
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Step 04
-              </p>
+              <div className="flex items-center gap-3">
 
-              <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+                <span
+                  className="
+                    text-[10px]
+                    font-black
+                    uppercase
+                    tracking-[0.24em]
+                    text-emerald-400
+                  "
+                >
+                  Step 04
+                </span>
+
+                <span className="h-px w-8 bg-emerald-400/25" />
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.18em]
+                    text-white/25
+                  "
+                >
+                  Share
+                </span>
+
+              </div>
+
+              <h3
+                className="
+                  mt-3
+                  text-2xl
+                  font-black
+                  text-white
+                  sm:text-3xl
+                "
+              >
                 Share Your Explorer
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-500">
+              <p
+                className="
+                  mt-3
+                  text-sm
+                  leading-6
+                  text-gray-500
+                "
+              >
                 {TEST_MODE
                   ? "Database test mode is active. You do not need to publish a real X post."
                   : "Share your completed Explorer card on X, then return here and submit the link to your post."}
@@ -897,21 +1444,69 @@ export default function ClaimSpot() {
               {TEST_MODE ? (
                 <div
                   className="
+                    relative
                     mt-6
+                    overflow-hidden
                     rounded-2xl
                     border
-                    border-yellow-400/20
-                    bg-yellow-400/[0.04]
+                    border-yellow-400/15
+                    bg-yellow-400/[0.025]
                     p-5
                   "
                 >
-                  <p className="text-sm font-semibold text-yellow-300">
-                    Test Mode Active
-                  </p>
 
-                  <p className="mt-2 text-xs leading-5 text-gray-500">
-                    No public X post is required for this database test.
-                  </p>
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-0
+                      top-0
+                      h-px
+                      w-full
+                      bg-gradient-to-r
+                      from-transparent
+                      via-yellow-400/40
+                      to-transparent
+                    "
+                  />
+
+                  <div className="flex items-start gap-3">
+
+                    <span
+                      className="
+                        mt-0.5
+                        flex
+                        h-7
+                        w-7
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-yellow-400/20
+                        bg-yellow-400/[0.05]
+                        text-xs
+                        text-yellow-400
+                      "
+                    >
+                      !
+                    </span>
+
+                    <div>
+
+                      <p className="text-sm font-bold text-yellow-300">
+                        Test Mode Active
+                      </p>
+
+                      <p className="mt-1 text-xs leading-5 text-gray-500">
+                        No public X post is required for this database test.
+                      </p>
+
+                    </div>
+
+                  </div>
+
                 </div>
               ) : (
                 <button
@@ -934,9 +1529,10 @@ export default function ClaimSpot() {
                     text-sm
                     font-black
                     text-black
-                    transition-transform
+                    transition-all
                     duration-300
                     hover:-translate-y-0.5
+                    hover:border-yellow-200/40
                     sm:w-auto
                   "
                 >
@@ -945,25 +1541,78 @@ export default function ClaimSpot() {
                     : "Share Your Explorer on X"}
                 </button>
               )}
+
             </div>
           )}
 
-          {/* STEP 05 */}
+          {/* =====================================================
+              STEP 05
+          ===================================================== */}
 
           {canShowExplorerCard && (
-            <div className="border-t border-white/10 p-6 sm:p-8 md:p-10">
+            <div
+              className="
+                relative
+                border-t
+                border-white/[0.07]
+                p-6
+                sm:p-8
+                md:p-10
+              "
+            >
 
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Step 05
-              </p>
+              <div className="flex items-center gap-3">
 
-              <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+                <span
+                  className="
+                    text-[10px]
+                    font-black
+                    uppercase
+                    tracking-[0.24em]
+                    text-emerald-400
+                  "
+                >
+                  Step 05
+                </span>
+
+                <span className="h-px w-8 bg-emerald-400/25" />
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.18em]
+                    text-white/25
+                  "
+                >
+                  Confirm
+                </span>
+
+              </div>
+
+              <h3
+                className="
+                  mt-3
+                  text-2xl
+                  font-black
+                  text-white
+                  sm:text-3xl
+                "
+              >
                 {TEST_MODE
                   ? "Confirm Database Test"
                   : "Submit Your X Post"}
               </h3>
 
-              <p className="mt-3 text-sm leading-6 text-gray-500">
+              <p
+                className="
+                  mt-3
+                  text-sm
+                  leading-6
+                  text-gray-500
+                "
+              >
                 {TEST_MODE
                   ? "You can now test whether your submission is correctly saved to Supabase."
                   : "Paste the X post link you just shared."}
@@ -985,14 +1634,14 @@ export default function ClaimSpot() {
                       w-full
                       rounded-2xl
                       border
-                      border-white/10
+                      border-white/[0.09]
                       bg-[#07110d]
                       px-5
                       py-4
                       text-sm
                       text-white
                       outline-none
-                      transition-colors
+                      transition-all
                       duration-300
                       placeholder:text-gray-600
                       focus:border-emerald-400/40
@@ -1010,21 +1659,49 @@ export default function ClaimSpot() {
               {TEST_MODE && (
                 <div
                   className="
+                    relative
                     mt-6
+                    overflow-hidden
                     rounded-2xl
                     border
-                    border-white/10
+                    border-white/[0.08]
                     bg-[#07110d]
                     p-5
                   "
                 >
-                  <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-[15%]
+                      right-[15%]
+                      top-0
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-white/10
+                      to-transparent
+                    "
+                  />
+
+                  <p
+                    className="
+                      text-[9px]
+                      font-black
+                      uppercase
+                      tracking-[0.2em]
+                      text-gray-500
+                    "
+                  >
                     X Post
                   </p>
 
                   <p className="mt-2 text-sm text-gray-500">
                     Not required during database testing.
                   </p>
+
                 </div>
               )}
 
@@ -1035,7 +1712,7 @@ export default function ClaimSpot() {
                     rounded-2xl
                     border
                     border-red-400/20
-                    bg-red-400/[0.05]
+                    bg-red-400/[0.04]
                     p-4
                     text-center
                     text-sm
@@ -1058,7 +1735,7 @@ export default function ClaimSpot() {
                   (!TEST_MODE && !shared)
                 }
                 className="
-                  mt-4
+                  mt-5
                   w-full
                   rounded-full
                   border
@@ -1069,10 +1746,13 @@ export default function ClaimSpot() {
                   text-sm
                   font-black
                   text-[#07110d]
-                  transition-opacity
+                  transition-all
                   duration-300
+                  hover:-translate-y-0.5
+                  hover:bg-emerald-400
                   disabled:cursor-not-allowed
                   disabled:opacity-40
+                  disabled:hover:translate-y-0
                 "
               >
                 {saving
@@ -1084,21 +1764,41 @@ export default function ClaimSpot() {
                       : "Submit & Confirm Spot"}
               </button>
 
-              {/* SUCCESS */}
+              {/* =====================================================
+                  SUCCESS
+              ===================================================== */}
 
               {submitted && (
                 <div
                   className="
+                    relative
                     mt-6
+                    overflow-hidden
                     rounded-3xl
                     border
                     border-emerald-400/20
-                    bg-emerald-400/[0.06]
+                    bg-emerald-400/[0.045]
                     p-6
                     text-center
                     sm:p-8
                   "
                 >
+
+                  <div
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-[15%]
+                      right-[15%]
+                      top-0
+                      h-px
+                      bg-gradient-to-r
+                      from-transparent
+                      via-emerald-400/50
+                      to-transparent
+                    "
+                  />
 
                   <div
                     className="
@@ -1113,41 +1813,111 @@ export default function ClaimSpot() {
                       border-emerald-400/30
                       bg-emerald-400/[0.08]
                       text-2xl
+                      text-emerald-400
                     "
                   >
                     ✓
                   </div>
 
-                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-emerald-400">
+                  <p
+                    className="
+                      mt-5
+                      text-[10px]
+                      font-black
+                      uppercase
+                      tracking-[0.24em]
+                      text-emerald-400
+                    "
+                  >
                     Blob Explorers
                   </p>
 
-                  <h3 className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                  <h3
+                    className="
+                      mt-3
+                      text-2xl
+                      font-black
+                      text-white
+                      sm:text-3xl
+                    "
+                  >
                     {TEST_MODE
                       ? "Database Submission Saved"
                       : "Spot Confirmed"}
                   </h3>
 
-                  <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-gray-400">
+                  <p
+                    className="
+                      mx-auto
+                      mt-3
+                      max-w-md
+                      text-sm
+                      leading-6
+                      text-gray-400
+                    "
+                  >
                     🎉 Your submission has been received successfully.
                   </p>
 
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-[#07110d] p-4">
+                  <div
+                    className="
+                      mt-6
+                      rounded-2xl
+                      border
+                      border-white/[0.08]
+                      bg-[#07110d]
+                      p-4
+                    "
+                  >
 
-                    <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
+                    <p
+                      className="
+                        text-[9px]
+                        font-black
+                        uppercase
+                        tracking-[0.18em]
+                        text-gray-500
+                      "
+                    >
                       Submitted Wallet
                     </p>
 
-                    <p className="mt-2 break-all font-mono text-xs text-gray-300">
+                    <p
+                      className="
+                        mt-2
+                        break-all
+                        font-mono
+                        text-xs
+                        leading-6
+                        text-gray-300
+                      "
+                    >
                       {wallet}
                     </p>
 
                   </div>
 
                   {!TEST_MODE && (
-                    <div className="mt-4 rounded-2xl border border-white/10 bg-[#07110d] p-4">
+                    <div
+                      className="
+                        mt-4
+                        rounded-2xl
+                        border
+                        border-white/[0.08]
+                        bg-[#07110d]
+                        p-4
+                      "
+                    >
 
-                      <p className="text-xs uppercase tracking-[0.15em] text-gray-500">
+                      <p
+                        className="
+                          text-[9px]
+                          font-black
+                          uppercase
+                          tracking-[0.18em]
+                          text-gray-500
+                        "
+                      >
                         X Post
                       </p>
 
@@ -1159,9 +1929,26 @@ export default function ClaimSpot() {
                   )}
 
                   {TEST_MODE && (
-                    <div className="mt-4 rounded-2xl border border-yellow-400/20 bg-yellow-400/[0.04] p-4">
+                    <div
+                      className="
+                        mt-4
+                        rounded-2xl
+                        border
+                        border-yellow-400/15
+                        bg-yellow-400/[0.025]
+                        p-4
+                      "
+                    >
 
-                      <p className="text-xs uppercase tracking-[0.15em] text-yellow-400">
+                      <p
+                        className="
+                          text-[9px]
+                          font-black
+                          uppercase
+                          tracking-[0.18em]
+                          text-yellow-400
+                        "
+                      >
                         Test Mode
                       </p>
 
@@ -1178,18 +1965,58 @@ export default function ClaimSpot() {
             </div>
           )}
 
-          {/* FINAL STATUS */}
+          {/* =====================================================
+              FINAL STATUS
+          ===================================================== */}
 
           {finalComplete && (
-            <div className="border-t border-white/10 px-6 py-5 sm:px-8 md:px-10">
+            <div
+              className="
+                relative
+                border-t
+                border-white/[0.07]
+                px-6
+                py-6
+                sm:px-8
+                md:px-10
+              "
+            >
 
-              <div className="flex items-center justify-center gap-3 text-center">
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-3
+                  text-center
+                "
+              >
 
-                <span className="text-emerald-400">
+                <span
+                  className="
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-emerald-400/25
+                    bg-emerald-400/[0.06]
+                    text-sm
+                    text-emerald-400
+                  "
+                >
                   ✓
                 </span>
 
-                <p className="text-sm font-bold text-emerald-400">
+                <p
+                  className="
+                    text-sm
+                    font-black
+                    text-emerald-400
+                  "
+                >
                   Your Blob Explorer spot is confirmed.
                 </p>
 
@@ -1200,12 +2027,53 @@ export default function ClaimSpot() {
 
         </div>
 
-        {/* NOTE */}
+        {/* =====================================================
+            NOTE
+        ===================================================== */}
 
-        <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-6 text-gray-600">
-          Your wallet address is entered manually. No wallet connection or
-          transaction is required.
-        </p>
+        <div
+          className="
+            mx-auto
+            mt-6
+            flex
+            max-w-2xl
+            items-center
+            justify-center
+            gap-2
+            text-center
+          "
+        >
+
+          <span
+            className="
+              h-1
+              w-1
+              rounded-full
+              bg-emerald-400/40
+            "
+          />
+
+          <p
+            className="
+              text-xs
+              leading-6
+              text-gray-600
+            "
+          >
+            Your wallet address is entered manually. No wallet connection
+            or transaction is required.
+          </p>
+
+          <span
+            className="
+              h-1
+              w-1
+              rounded-full
+              bg-yellow-400/30
+            "
+          />
+
+        </div>
 
       </div>
     </section>

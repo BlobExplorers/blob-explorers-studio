@@ -173,15 +173,14 @@ export default function Worlds() {
                       33vw
                     "
                     className="
-                      world-card-image
-                      object-cover
-                      object-[center_20%]
-                      transition-transform
-                      duration-[1400ms]
-                      ease-out
-                      transform-gpu
-                      group-hover:scale-[1.06]
-                    "
+  world-card-image
+  object-cover
+  object-[center_20%]
+  transition-transform
+  duration-[1400ms]
+  ease-out
+  group-hover:scale-[1.06]
+"
                   />
 
                   {/* =================================================

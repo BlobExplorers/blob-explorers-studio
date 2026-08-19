@@ -11,180 +11,313 @@ export default function Footer() {
   const xLinkAvailable = siteConfig.social.x.trim() !== "";
 
   return (
-    <footer className="border-t border-white/10 px-5 py-10 sm:px-8 md:px-12 md:py-12 lg:px-20">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center md:flex-row md:items-center md:justify-between md:text-left">
+    <footer className="relative overflow-hidden border-t border-white/10 px-5 py-12 sm:px-8 md:px-12 md:py-16 lg:px-20">
+      {/* =========================================================
+          PREMIUM TOP ACCENT
+          ========================================================= */}
 
-        {/* ================================================= */}
-        {/* FOOTER LOGO + BRAND */}
-        {/* ================================================= */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-0
+          h-px
+          w-[45%]
+          -translate-x-1/2
+          bg-gradient-to-r
+          from-transparent
+          via-yellow-400/45
+          to-transparent
+        "
+      />
 
-        <div className="flex flex-col items-center gap-4 sm:flex-row md:items-center">
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-0
+          h-40
+          w-72
+          -translate-x-1/2
+          bg-emerald-500/[0.025]
+        "
+      />
 
-          {/* ================================================= */}
-          {/* FOOTER LOGO */}
-          {/* ================================================= */}
+      <div className="relative mx-auto max-w-7xl">
+        {/* =====================================================
+            MAIN FOOTER
+            ===================================================== */}
 
-          <a
-            href="/"
-            aria-label="Go to Blob Explorers homepage"
-            className="
-              group
-              relative
-              z-50
-              block
-              h-14
-              w-14
-              shrink-0
-              cursor-pointer
-              rounded-full
-              shadow-none
-              [box-shadow:none!important]
-              [filter:none!important]
-            "
-          >
-            {/* LOGO — HOVER MOVEMENT ONLY */}
+        <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center md:gap-16">
+          {/* =================================================
+              BRAND
+              ================================================= */}
 
-            <div
+          <div className="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left">
+            {/* LOGO */}
+
+            <Link
+              href="/"
+              aria-label="Go to Blob Explorers homepage"
               className="
-                footer-logo-float
+                group
                 relative
-                h-full
-                w-full
-                shadow-none
-                [box-shadow:none!important]
-                [filter:none!important]
-                transition-transform
-                duration-700
-                ease-out
-                group-hover:scale-[1.06]
-                group-hover:rotate-[3deg]
+                block
+                h-16
+                w-16
+                shrink-0
+                rounded-full
               "
-              style={{
-                filter: "none",
-                boxShadow: "none",
-                willChange: "transform",
-              }}
             >
-              <Image
-                src="/images/hero/bloblogo.png"
-                alt={`${siteConfig.name} Logo`}
-                fill
-                sizes="56px"
-                priority
+              <div
                 className="
-                  pointer-events-none
-                  object-contain
-                  shadow-none
-                  [box-shadow:none!important]
-                  [filter:none!important]
+                  footer-logo-float
+                  relative
+                  h-full
+                  w-full
+                  transition-transform
+                  duration-700
+                  ease-out
+                  group-hover:scale-[1.06]
+                  group-hover:rotate-[3deg]
                 "
                 style={{
                   filter: "none",
                   boxShadow: "none",
                   willChange: "transform",
                 }}
+              >
+                <Image
+                  src="/images/hero/bloblogo.png"
+                  alt={`${siteConfig.name} Logo`}
+                  fill
+                  sizes="64px"
+                  priority
+                  className="
+                    pointer-events-none
+                    object-contain
+                  "
+                  style={{
+                    filter: "none",
+                    boxShadow: "none",
+                    willChange: "transform",
+                  }}
+                />
+              </div>
+            </Link>
+
+            {/* BRAND TEXT */}
+
+            <div className="mt-5 sm:ml-5 sm:mt-0">
+              <Link
+                href="/"
+                className="group inline-block"
+              >
+                <h2
+                  className="
+                    text-2xl
+                    font-black
+                    tracking-tight
+                    text-white
+                    transition-colors
+                    duration-300
+                    group-hover:text-yellow-300
+                    sm:text-3xl
+                  "
+                >
+                  {siteConfig.name}
+                </h2>
+              </Link>
+
+              <p className="mt-2 max-w-md text-sm leading-6 text-gray-400 sm:text-base">
+                {siteConfig.tagline}
+              </p>
+
+              <div
+                aria-hidden="true"
+                className="
+                  mx-auto
+                  mt-4
+                  h-px
+                  w-16
+                  bg-gradient-to-r
+                  from-emerald-400/70
+                  via-yellow-400/80
+                  to-transparent
+                  sm:mx-0
+                "
               />
             </div>
-          </a>
+          </div>
 
-          {/* ================================================= */}
-          {/* FOOTER BRAND TEXT */}
-          {/* ================================================= */}
+          {/* =================================================
+              NAVIGATION
+              ================================================= */}
 
-          <Link
-            href="/"
-            className="group cursor-pointer"
+          <nav
+            aria-label="Footer navigation"
+            className="
+              flex
+              flex-wrap
+              items-center
+              justify-center
+              gap-x-7
+              gap-y-4
+              text-sm
+              font-bold
+              text-gray-400
+              md:justify-end
+            "
           >
-            <h2
-              className="
-                text-2xl
-                font-black
-                text-white
-                transition-colors
-                duration-300
-                group-hover:text-emerald-400
-              "
-            >
-              {siteConfig.name}
-            </h2>
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="
+                  group
+                  relative
+                  py-2
+                  transition-colors
+                  duration-300
+                  hover:text-white
+                "
+              >
+                {link.label}
 
-            <p className="mt-1 text-sm leading-6 text-gray-400">
-              {siteConfig.tagline}
-            </p>
-          </Link>
+                <span
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    h-px
+                    w-0
+                    bg-gradient-to-r
+                    from-emerald-400
+                    to-yellow-400
+                    transition-[width]
+                    duration-300
+                    group-hover:w-full
+                  "
+                />
+              </Link>
+            ))}
+
+            {xLinkAvailable && (
+              <a
+                href={siteConfig.social.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${siteConfig.name} on X`}
+                className="
+                  group
+                  relative
+                  py-2
+                  transition-colors
+                  duration-300
+                  hover:text-white
+                "
+              >
+                X
+
+                <span
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    h-px
+                    w-0
+                    bg-gradient-to-r
+                    from-emerald-400
+                    to-yellow-400
+                    transition-[width]
+                    duration-300
+                    group-hover:w-full
+                  "
+                />
+              </a>
+            )}
+          </nav>
         </div>
 
-        {/* ================================================= */}
-        {/* NAVIGATION */}
-        {/* ================================================= */}
+        {/* =====================================================
+            DIVIDER
+            ===================================================== */}
 
-        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-4 text-sm font-semibold text-gray-300 md:justify-end">
-          {navigationLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="
-                transition-colors
-                duration-300
-                hover:text-emerald-400
-              "
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="relative mt-12 h-px bg-white/[0.07]">
+          <div
+            aria-hidden="true"
+            className="
+              absolute
+              left-1/2
+              top-0
+              h-px
+              w-24
+              -translate-x-1/2
+              bg-gradient-to-r
+              from-transparent
+              via-yellow-400/50
+              to-transparent
+            "
+          />
+        </div>
 
-          {xLinkAvailable && (
-            <a
-              href={siteConfig.social.x}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${siteConfig.name} on X`}
-              className="
-                transition-colors
-                duration-300
-                hover:text-emerald-400
-              "
-            >
-              X
-            </a>
-          )}
-        </nav>
-      </div>
+        {/* =====================================================
+            BOTTOM INFORMATION
+            ===================================================== */}
 
-      {/* ================================================= */}
-      {/* COPYRIGHT */}
-      {/* ================================================= */}
+        <div
+          className="
+            mt-7
+            flex
+            flex-col
+            items-center
+            gap-3
+            text-center
+            text-xs
+            leading-6
+            text-gray-500
+            sm:text-sm
+            md:flex-row
+            md:justify-between
+            md:text-left
+          "
+        >
+          <p>
+            © {currentYear} {siteConfig.name}. All rights reserved.
+          </p>
 
-      <div
-        className="
-          mx-auto
-          mt-10
-          flex
-          max-w-7xl
-          flex-col
-          items-center
-          gap-3
-          border-t
-          border-white/10
-          pt-8
-          text-center
-          text-xs
-          leading-6
-          text-gray-500
-          sm:text-sm
-          md:flex-row
-          md:justify-between
-          md:text-left
-        "
-      >
-        <p>
-          © {currentYear} {siteConfig.name}. All rights reserved.
-        </p>
+          <p>
+            {collection.totalSupply.toLocaleString()} handcrafted Explorers
+            <span className="mx-2 text-yellow-400/40">•</span>
+            {collection.totalWorlds} worlds
+          </p>
+        </div>
 
-        <p>
-          {collection.totalSupply.toLocaleString()} handcrafted Explorers
-          across {collection.totalWorlds} worlds.
-        </p>
+        {/* =====================================================
+            FINAL BRAND LINE
+            ===================================================== */}
+
+        <div className="mt-7 text-center">
+          <p
+            className="
+              text-[10px]
+              font-bold
+              uppercase
+              tracking-[0.28em]
+              text-gray-600
+              sm:text-xs
+              sm:tracking-[0.35em]
+            "
+          >
+            Explore. Discover. Together We Shape Our World.
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -199,50 +199,91 @@ export default function Navbar() {
             ))}
 
             {/* ================================================= */}
-            {/* X */}
-            {/* ================================================= */}
+{/* CLAIM */}
+{/* ================================================= */}
 
-            {xLinkAvailable && (
-              <a
-                href={siteConfig.social.x}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${siteConfig.name} on X`}
-                className="
-                  group
-                  relative
-                  py-2
-                  text-sm
-                  font-bold
-                  text-gray-300
-                  shadow-none
-                  [box-shadow:none!important]
-                  transition-colors
-                  duration-300
-                  hover:text-white
-                "
-              >
-                X
+<Link
+  href="/claim"
+  className="
+    group
+    relative
+    py-2
+    text-sm
+    font-bold
+    text-gray-300
+    shadow-none
+    [box-shadow:none!important]
+    transition-colors
+    duration-300
+    hover:text-white
+  "
+>
+  Claim
 
-                <span
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-px
-                    w-0
-                    bg-gradient-to-r
-                    from-emerald-400
-                    to-yellow-400
-                    shadow-none
-                    [box-shadow:none!important]
-                    transition-[width]
-                    duration-300
-                    group-hover:w-full
-                  "
-                />
-              </a>
-            )}
+  <span
+    className="
+      absolute
+      bottom-0
+      left-0
+      h-px
+      w-0
+      bg-gradient-to-r
+      from-emerald-400
+      to-yellow-400
+      shadow-none
+      [box-shadow:none!important]
+      transition-[width]
+      duration-300
+      group-hover:w-full
+    "
+  />
+</Link>
+
+{/* ================================================= */}
+{/* X */}
+{/* ================================================= */}
+
+{ xLinkAvailable && (
+  <a
+    href={siteConfig.social.x}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${siteConfig.name} on X`}
+    className="
+      group
+      relative
+      py-2
+      text-sm
+      font-bold
+      text-gray-300
+      shadow-none
+      [box-shadow:none!important]
+      transition-colors
+      duration-300
+      hover:text-white
+    "
+  >
+    X
+
+    <span
+      className="
+        absolute
+        bottom-0
+        left-0
+        h-px
+        w-0
+        bg-gradient-to-r
+        from-emerald-400
+        to-yellow-400
+        shadow-none
+        [box-shadow:none!important]
+        transition-[width]
+        duration-300
+        group-hover:w-full
+      "
+    />
+  </a>
+)}
           </nav>
 
           {/* ================================================= */}
@@ -374,32 +415,56 @@ export default function Navbar() {
               ))}
 
               {/* ================================================= */}
-              {/* MOBILE X */}
-              {/* ================================================= */}
+{/* MOBILE CLAIM */}
+{/* ================================================= */}
 
-              {xLinkAvailable && (
-                <a
-                  href={siteConfig.social.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMenuOpen(false)}
-                  className="
-                    rounded-xl
-                    px-4
-                    py-3
-                    font-bold
-                    text-gray-300
-                    shadow-none
-                    [box-shadow:none!important]
-                    transition-colors
-                    duration-300
-                    hover:bg-white/[0.06]
-                    hover:text-white
-                  "
-                >
-                  X
-                </a>
-              )}
+<Link
+  href="/claim"
+  onClick={() => setMenuOpen(false)}
+  className="
+    rounded-xl
+    px-4
+    py-3
+    font-bold
+    text-gray-300
+    shadow-none
+    [box-shadow:none!important]
+    transition-colors
+    duration-300
+    hover:bg-white/[0.06]
+    hover:text-white
+  "
+>
+  Claim
+</Link>
+
+{/* ================================================= */}
+{/* MOBILE X */}
+{/* ================================================= */}
+
+{xLinkAvailable && (
+  <a
+    href={siteConfig.social.x}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => setMenuOpen(false)}
+    className="
+      rounded-xl
+      px-4
+      py-3
+      font-bold
+      text-gray-300
+      shadow-none
+      [box-shadow:none!important]
+      transition-colors
+      duration-300
+      hover:bg-white/[0.06]
+      hover:text-white
+    "
+  >
+    X
+  </a>
+)}
 
               {/* ================================================= */}
               {/* MOBILE COLLECTION BUTTON */}

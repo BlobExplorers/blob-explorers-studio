@@ -58,8 +58,7 @@ export default function ClaimSpot() {
     postLink.trim().startsWith("https://x.com/") ||
     postLink.trim().startsWith("https://twitter.com/");
 
-  const canShowExplorerCard =
-    allTasksCompleted && walletLooksValid;
+  const canShowExplorerCard = walletLooksValid;
 
   const shareRequirementPassed = TEST_MODE ? true : shared;
 

@@ -307,41 +307,7 @@ export default function CollectionPage() {
                       "
                     />
 
-                    {/* ========================================= */}
-                    {/* NFT ID */}
-                    {/* ========================================= */}
-
-                    <p
-                      className="
-                        absolute
-                        bottom-4
-                        left-4
-                        z-20
-                        rounded-full
-                        border
-                        border-white/[0.16]
-                        bg-black/50
-                        px-3
-                        py-2
-                        text-xs
-                        font-bold
-                        text-yellow-400
-                        shadow-[0_5px_20px_rgba(0,0,0,0.25)]
-                        backdrop-blur-md
-                        transition-all
-                        duration-300
-                        group-hover:border-yellow-400/50
-                        group-hover:bg-black/65
-                        group-hover:shadow-[0_0_22px_rgba(250,204,21,0.12)]
-                        sm:bottom-5
-                        sm:left-5
-                        sm:px-4
-                        sm:text-sm
-                      "
-                    >
-                      #{explorer.id}
-                    </p>
-
+                    
                     {/* ========================================= */}
                     {/* CORNER LIGHT */}
                     {/* ========================================= */}

@@ -56,7 +56,7 @@ export default function Hero() {
           px-5
           sm:px-8
           lg:grid-cols-2
-          lg:gap-16
+          lg:gap-12
         "
       >
         {/* ========================================================= */}
@@ -212,407 +212,103 @@ export default function Hero() {
         </div>
 
         {/* ========================================================= */}
-        {/* HERO CHARACTER                                             */}
+        {/* FIVE IMAGE HERO WAVE                                      */}
         {/* ========================================================= */}
 
-        <div className="relative flex justify-center">
-          {/* EXISTING FLOATING MOTION — PRESERVED */}
+        <div className="hero-wave-stage">
+          {/* ===================================================== */}
+          {/* OUTER 3 — SNOW                                         */}
+          {/* ===================================================== */}
 
-          <div
-            className="
-              hero-character-motion
-              relative
-              z-10
-              w-full
-              max-w-[420px]
-              sm:max-w-[520px]
-              lg:max-w-[650px]
-            "
-          >
-            {/* ===================================================== */}
-            {/* PREMIUM IMAGE STAGE                                    */}
-            {/* ===================================================== */}
+          <div className="hero-wave-item hero-wave-snow">
+            <Image
+              src="/images/worlds/snow-cover.png"
+              alt="Snow World"
+              width={300}
+              height={300}
+              priority
+              quality={90}
+              sizes="150px"
+              className="h-full w-full object-cover"
+            />
+            <span aria-hidden="true" className="hero-image-shine" />
+          </div>
 
-            <div
-              className="
-                hero-image-stage
-                group
-                relative
-                overflow-hidden
-                rounded-[2rem]
-                border
-                border-white/[0.06]
-                bg-[#07110d]
+          {/* ===================================================== */}
+          {/* OUTER 1 — RIVER                                        */}
+          {/* ===================================================== */}
+
+          <div className="hero-wave-item hero-wave-river">
+            <Image
+              src="/images/worlds/river-cover.png"
+              alt="River World"
+              width={300}
+              height={300}
+              priority
+              quality={90}
+              sizes="150px"
+              className="h-full w-full object-cover"
+            />
+            <span aria-hidden="true" className="hero-image-shine" />
+          </div>
+
+          {/* ===================================================== */}
+          {/* CENTER — FOREST                                        */}
+          {/* ===================================================== */}
+
+          <div className="hero-wave-center">
+            <Image
+              src="/images/worlds/forest-cover.png"
+              alt="Enchanted Forest World"
+              width={650}
+              height={650}
+              priority
+              quality={90}
+              sizes="
+                (max-width: 480px) 62vw,
+                (max-width: 768px) 58vw,
+                (max-width: 1100px) 50vw,
+                430px
               "
-            >
-              {/* =================================================== */}
-              {/* SUBTLE INNER FRAME                                   */}
-              {/* =================================================== */}
+              className="h-full w-full object-cover"
+            />
+            <span aria-hidden="true" className="hero-image-shine" />
+          </div>
 
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-[5px]
-                  z-30
-                  rounded-[calc(2rem-5px)]
-                  border
-                  border-emerald-400/[0.10]
-                  transition-colors
-                  duration-700
-                  group-hover:border-emerald-400/[0.22]
-                "
-              />
+          {/* ===================================================== */}
+          {/* OUTER 2 — VOLCANO                                      */}
+          {/* ===================================================== */}
 
-              {/* =================================================== */}
-              {/* SECOND INNER GOLD FRAME                              */}
-              {/* =================================================== */}
+          <div className="hero-wave-item hero-wave-volcano">
+            <Image
+              src="/images/worlds/volcano-cover.png"
+              alt="Volcano World"
+              width={300}
+              height={300}
+              priority
+              quality={90}
+              sizes="150px"
+              className="h-full w-full object-cover"
+            />
+            <span aria-hidden="true" className="hero-image-shine" />
+          </div>
 
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-[9px]
-                  z-30
-                  rounded-[calc(2rem-9px)]
-                  border
-                  border-yellow-300/[0.06]
-                  transition-colors
-                  duration-700
-                  group-hover:border-yellow-300/[0.20]
-                "
-              />
+          {/* ===================================================== */}
+          {/* OUTER 4 — ICE                                          */}
+          {/* ===================================================== */}
 
-              {/* =================================================== */}
-              {/* HERO IMAGE — SIZE / POSITION PRESERVED              */}
-              {/* =================================================== */}
-
-              <Image
-                src="/images/hero/first-blob-explorer-v2.png"
-                alt="Blob Explorers flagship character"
-                width={650}
-                height={650}
-                priority
-                quality={85}
-                sizes="
-                  (max-width: 640px) 90vw,
-                  (max-width: 1024px) 520px,
-                  650px
-                "
-                className="
-                  relative
-                  z-10
-                  block
-                  h-auto
-                  w-full
-                  object-contain
-                "
-              />
-
-              {/* =================================================== */}
-              {/* CLEAN BASE BORDER                                    */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  z-40
-                  rounded-[2rem]
-                  border
-                  border-white/[0.08]
-                "
-              />
-
-              {/* =================================================== */}
-              {/* PREMIUM MOVING BORDER                                 */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  z-50
-                  rounded-[2rem]
-                  opacity-0
-                  transition-opacity
-                  duration-500
-                  group-hover:opacity-100
-                "
-              >
-                {/* TOP */}
-
-                <span
-                  className="
-                    absolute
-                    left-0
-                    top-0
-                    h-[2px]
-                    w-[28%]
-                    rounded-full
-                    bg-gradient-to-r
-                    from-transparent
-                    via-emerald-400
-                    to-[#f1d98a]
-                    animate-border-top
-                  "
-                />
-
-                {/* RIGHT */}
-
-                <span
-                  className="
-                    absolute
-                    right-0
-                    top-0
-                    h-[28%]
-                    w-[2px]
-                    rounded-full
-                    bg-gradient-to-b
-                    from-[#f1d98a]
-                    via-emerald-400
-                    to-transparent
-                    animate-border-right
-                  "
-                />
-
-                {/* BOTTOM */}
-
-                <span
-                  className="
-                    absolute
-                    bottom-0
-                    right-0
-                    h-[2px]
-                    w-[28%]
-                    rounded-full
-                    bg-gradient-to-l
-                    from-transparent
-                    via-emerald-400
-                    to-[#f1d98a]
-                    animate-border-bottom
-                  "
-                />
-
-                {/* LEFT */}
-
-                <span
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-[28%]
-                    w-[2px]
-                    rounded-full
-                    bg-gradient-to-t
-                    from-[#f1d98a]
-                    via-emerald-400
-                    to-transparent
-                    animate-border-left
-                  "
-                />
-              </div>
-
-              {/* =================================================== */}
-              {/* PREMIUM DIAGONAL SHINE                               */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-y-[-20%]
-                  left-[-45%]
-                  z-50
-                  w-[22%]
-                  rotate-[18deg]
-                  bg-gradient-to-r
-                  from-transparent
-                  via-white/[0.16]
-                  to-transparent
-                  opacity-0
-                  transition-all
-                  duration-[1100ms]
-                  ease-out
-                  group-hover:left-[125%]
-                  group-hover:opacity-100
-                "
-              />
-
-              {/* =================================================== */}
-              {/* TOP GOLD DETAIL                                      */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  left-[15%]
-                  right-[15%]
-                  top-[5px]
-                  z-50
-                  h-px
-                  bg-gradient-to-r
-                  from-transparent
-                  via-[#d9b35f]/35
-                  to-transparent
-                  transition-all
-                  duration-700
-                  group-hover:left-[8%]
-                  group-hover:right-[8%]
-                  group-hover:via-[#d9b35f]/75
-                "
-              />
-
-              {/* =================================================== */}
-              {/* BOTTOM GOLD DETAIL                                   */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-[5px]
-                  left-[18%]
-                  right-[18%]
-                  z-50
-                  h-px
-                  bg-gradient-to-r
-                  from-transparent
-                  via-[#d9b35f]/20
-                  to-transparent
-                  transition-all
-                  duration-700
-                  group-hover:left-[10%]
-                  group-hover:right-[10%]
-                  group-hover:via-[#d9b35f]/55
-                "
-              />
-
-              {/* =================================================== */}
-              {/* CORNER DETAILS                                       */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  left-4
-                  top-4
-                  z-50
-                  h-7
-                  w-7
-                  border-l
-                  border-t
-                  border-[#d9b35f]/35
-                  transition-all
-                  duration-700
-                  group-hover:left-3
-                  group-hover:top-3
-                  group-hover:h-9
-                  group-hover:w-9
-                  group-hover:border-[#d9b35f]/75
-                "
-              />
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  right-4
-                  top-4
-                  z-50
-                  h-7
-                  w-7
-                  border-r
-                  border-t
-                  border-[#42b883]/30
-                  transition-all
-                  duration-700
-                  group-hover:right-3
-                  group-hover:top-3
-                  group-hover:h-9
-                  group-hover:w-9
-                  group-hover:border-[#42b883]/70
-                "
-              />
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-4
-                  left-4
-                  z-50
-                  h-7
-                  w-7
-                  border-b
-                  border-l
-                  border-[#42b883]/25
-                  transition-all
-                  duration-700
-                  group-hover:bottom-3
-                  group-hover:left-3
-                  group-hover:h-9
-                  group-hover:w-9
-                  group-hover:border-[#42b883]/65
-                "
-              />
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-4
-                  right-4
-                  z-50
-                  h-7
-                  w-7
-                  border-b
-                  border-r
-                  border-[#d9b35f]/30
-                  transition-all
-                  duration-700
-                  group-hover:bottom-3
-                  group-hover:right-3
-                  group-hover:h-9
-                  group-hover:w-9
-                  group-hover:border-[#d9b35f]/70
-                "
-              />
-
-              {/* =================================================== */}
-              {/* VERY SUBTLE PREMIUM OVERLAY                          */}
-              {/* =================================================== */}
-
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  z-20
-                  rounded-[2rem]
-                  bg-gradient-to-t
-                  from-[#07110d]/10
-                  via-transparent
-                  to-transparent
-                "
-              />
-            </div>
+          <div className="hero-wave-item hero-wave-ice">
+            <Image
+              src="/images/worlds/ice-cover.png"
+              alt="Ice World"
+              width={300}
+              height={300}
+              priority
+              quality={90}
+              sizes="150px"
+              className="h-full w-full object-cover"
+            />
+            <span aria-hidden="true" className="hero-image-shine" />
           </div>
         </div>
       </div>

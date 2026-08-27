@@ -129,8 +129,8 @@ export default function Stats() {
               sm:leading-8
             "
           >
-            A handcrafted universe of explorers, worlds and stories — built
-            one character at a time.
+            A handcrafted universe of explorers, worlds and stories — where every
+NFT is individually designed with its own identity, profession and adventure.
           </p>
         </div>
 
@@ -390,7 +390,7 @@ export default function Stats() {
           })}
         </div>
 
-        {/* ===================================================== */}
+                {/* ===================================================== */}
         {/* BOTTOM MESSAGE */}
         {/* ===================================================== */}
 
@@ -431,8 +431,8 @@ export default function Stats() {
               sm:text-base
             "
           >
-            {revealedWorlds} worlds have been discovered, while {hiddenWorlds}{" "}
-            remain hidden, waiting for future explorers.
+            {revealedWorlds} worlds have been discovered, each opening a new
+            chapter of the BlobVerse.
           </p>
         </div>
       </div>

@@ -133,53 +133,53 @@ export default function DiscoveryProgress() {
 
           <div className="relative z-30 mx-auto max-w-4xl text-center">
             <p
-              className="
-                text-xs
-                font-black
-                uppercase
-                tracking-[0.28em]
-                text-yellow-400
-                sm:text-sm
-                sm:tracking-[0.38em]
-              "
-            >
-              The Journey Continues
-            </p>
+  className="
+    text-sm
+    font-black
+    uppercase
+    tracking-[0.32em]
+    text-yellow-400
+    sm:text-base
+    sm:tracking-[0.42em]
+  "
+>
+  The Journey Continues
+</p>
 
             <h2
-              className="
-                mt-5
-                text-4xl
-                font-black
-                leading-[1.05]
-                tracking-tight
-                text-white
-                sm:text-5xl
-                md:text-6xl
-              "
-            >
-              Every World Reveals
-              <br className="hidden sm:block" />
-              <span className="text-emerald-400">
-                {" "}
-                a New Chapter.
-              </span>
-            </h2>
+  className="
+    mt-6
+    text-5xl
+    font-black
+    leading-[1.02]
+    tracking-tight
+    text-white
+    sm:text-6xl
+    md:text-7xl
+  "
+>
+  Every World Reveals
+  <br className="hidden sm:block" />
+  <span className="text-emerald-400">
+    {" "}
+    a New Chapter.
+  </span>
+</h2>
 
             <p
-              className="
-                mt-5
-                text-base
-                font-semibold
-                leading-7
-                text-gray-400
-                sm:mt-6
-                sm:text-lg
-                sm:leading-8
-              "
-            >
-              Every Explorer carries a new story.
-            </p>
+  className="
+    mt-6
+    text-lg
+    font-semibold
+    leading-8
+    text-gray-300
+    sm:mt-7
+    sm:text-xl
+    sm:leading-9
+  "
+>
+  Every Explorer carries a new story.
+</p>
 
             {/* HEADER DIVIDER */}
 
@@ -244,8 +244,7 @@ export default function DiscoveryProgress() {
                 sm:leading-8
               "
             >
-              {revealedWorlds} worlds have been discovered, while{" "}
-              {hiddenWorlds} remain hidden, waiting for future explorers.
+              {revealedWorlds} worlds have been discovered, each opening a new chapter of the BlobVerse.
             </p>
           </div>
 
@@ -665,7 +664,7 @@ export default function DiscoveryProgress() {
                 sm:leading-8
               "
             >
-              {revealedWorlds} worlds have been discovered.
+              {revealedWorlds} The BlobVerse is still unfolding.
             </p>
 
             <p
@@ -677,7 +676,7 @@ export default function DiscoveryProgress() {
                 sm:text-base
               "
             >
-              {hiddenWorlds} remain hidden, waiting for future explorers.
+              {hiddenWorlds} More worlds await discovery.
             </p>
           </div>
 

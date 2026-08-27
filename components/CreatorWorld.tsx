@@ -55,24 +55,24 @@ export default function CreatorWorld() {
       {/* ===================================================== */}
 
       <div
-        className="
-          creator-world-card
-          group
-          relative
-          mx-auto
-          max-w-6xl
-          overflow-hidden
-          rounded-[2rem]
-          border
-          border-white/[0.08]
-          bg-[#0a1510]
-          px-5
-          py-8
-          sm:p-10
-          md:p-14
-          lg:p-16
-        "
-      >
+  className="
+    creator-world-card
+    group
+    relative
+    mx-auto
+    max-w-6xl
+    overflow-hidden
+    rounded-[2rem]
+    border
+    border-white/[0.08]
+    bg-[#0a1510]
+    px-5
+    py-8
+    sm:p-10
+    md:p-14
+    lg:p-16
+  "
+>
         {/* =================================================== */}
         {/* OUTER PREMIUM BORDER */}
         {/* =================================================== */}

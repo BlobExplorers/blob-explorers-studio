@@ -174,13 +174,13 @@ export default function Hero() {
               lg:mx-0
             "
           >
-            <span className="font-semibold text-emerald-400">
-              {collection.revealedWorlds} worlds discovered
-            </span>{" "}
-            <span className="text-gray-500">•</span>{" "}
-            {collection.hiddenWorlds} remain hidden, waiting for future
-            explorers.
-          </p>
+  <span className="font-semibold text-emerald-400">
+    {collection.revealedWorlds} worlds discovered
+  </span>{" "}
+  <span className="text-gray-500">•</span>{" "}
+  {collection.hiddenWorlds} hidden worlds remain beyond the known horizon,
+  holding countless stories, professions and adventures yet to be revealed.
+</p>
 
           {/* ========================================================= */}
           {/* HERO BUTTONS                                              */}

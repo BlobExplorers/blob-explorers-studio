@@ -287,9 +287,7 @@ export default function About() {
                 lg:mx-0
               "
             >
-              {revealedWorlds} worlds have been discovered. {hiddenWorlds}{" "}
-              remain hidden, waiting for future explorers to uncover their
-              stories.
+              {revealedWorlds} worlds have been discovered, each unveiling a new chapter of the BlobVerse. {hiddenWorlds} hidden worlds remain beyond the known horizon, holding countless stories, professions and adventures yet to be revealed.
             </p>
           </div>
 

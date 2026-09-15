@@ -6,7 +6,7 @@ export const siteConfig = {
 
   url: "https://blob-explorers-studio.vercel.app",
 
-  totalNFTs: 3,333,
+  totalNFTs: 3333,
   totalWorlds: 34,
 
   launchWorlds: 6,

@@ -32,7 +32,7 @@ const roadmapItems = [
     title: "Creator World",
     status: "Final Destination",
     description:
-      "Reveal the final Creator World and complete the journey across all 78 worlds of the BlobVerse.",
+      "Reveal the final Creator World and complete the journey across all 34 worlds of the BlobVerse.",
   },
 ];
 

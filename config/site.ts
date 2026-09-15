@@ -2,12 +2,12 @@ export const siteConfig = {
   name: "Blob Explorers",
 
   description:
-    "A premium handcrafted Ethereum NFT collection of 7,777 Blob Explorers across 78 magical worlds.",
+    "A premium handcrafted Ethereum NFT collection of 3,333 Blob Explorers across 34 magical worlds.",
 
   url: "https://blob-explorers-studio.vercel.app",
 
-  totalNFTs: 7777,
-  totalWorlds: 78,
+  totalNFTs: 3333,
+  totalWorlds: 34,
 
   launchWorlds: 6,
 

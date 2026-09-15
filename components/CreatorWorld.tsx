@@ -55,24 +55,24 @@ export default function CreatorWorld() {
       {/* ===================================================== */}
 
       <div
-  className="
-    creator-world-card
-    group
-    relative
-    mx-auto
-    max-w-6xl
-    overflow-hidden
-    rounded-[2rem]
-    border
-    border-white/[0.08]
-    bg-[#0a1510]
-    px-5
-    py-8
-    sm:p-10
-    md:p-14
-    lg:p-16
-  "
->
+        className="
+          creator-world-card
+          group
+          relative
+          mx-auto
+          max-w-6xl
+          overflow-hidden
+          rounded-[2rem]
+          border
+          border-white/[0.08]
+          bg-[#0a1510]
+          px-5
+          py-8
+          sm:p-10
+          md:p-14
+          lg:p-16
+        "
+      >
         {/* =================================================== */}
         {/* OUTER PREMIUM BORDER */}
         {/* =================================================== */}
@@ -306,7 +306,7 @@ export default function CreatorWorld() {
               "
             />
 
-            World 78 · Classified
+            World 34 · Classified
           </div>
 
           {/* ================================================= */}
@@ -436,7 +436,7 @@ export default function CreatorWorld() {
                   sm:text-lg
                 "
               >
-                #07701–#07777
+                #03301–#03333
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function CreatorWorld() {
                   sm:text-4xl
                 "
               >
-                77
+                33
               </p>
             </div>
 

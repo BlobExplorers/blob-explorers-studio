@@ -528,7 +528,7 @@ export default function Roadmap() {
             "
           >
             Five phases. One expanding universe. The journey continues across
-            all 78 worlds of the BlobVerse.
+            all 34 worlds of the BlobVerse.
           </p>
         </div>
       </div>

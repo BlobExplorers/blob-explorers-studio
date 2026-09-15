@@ -8,13 +8,13 @@ const features = [
   },
   {
     number: "02",
-    title: "78 Worlds",
-    text: "The complete BlobVerse spans 78 worlds, each offering a distinct environment, theme and chapter of the journey.",
+    title: "34 Worlds",
+    text: "The complete BlobVerse spans 34 worlds, each offering a distinct environment, theme and chapter of the journey.",
   },
   {
     number: "03",
     title: "Ethereum",
-    text: "A premium 7,777-piece NFT collection created for the Ethereum blockchain using the ERC-721 standard.",
+    text: "A premium 3,333-piece NFT collection created for the Ethereum blockchain using the ERC-721 standard.",
   },
   {
     number: "04",

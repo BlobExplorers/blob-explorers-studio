@@ -1,19 +1,21 @@
 export const collection = {
+
   name: "Blob Explorers",
 
   blockchain: "Ethereum",
 
   standard: "ERC-721",
 
-  totalSupply: 7777,
+  totalSupply: 3333,
 
-  totalWorlds: 78,
+  totalWorlds: 34,
 
   revealedWorlds: 6,
 
-  hiddenWorlds: 72,
+  hiddenWorlds: 28,
 
   nftsPerWorld: 100,
 
-  creatorWorldSupply: 77,
+  creatorWorldSupply: 33,
+
 } as const;

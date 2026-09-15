@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "How many NFTs are in the collection?",
     answer:
-      "The collection contains exactly 3333 handcrafted NFTs, created one by one with individually designed professions, outfits, environments and hero props.",
+      "The collection contains exactly 3,333 handcrafted NFTs, created one by one with individually designed professions, outfits, environments and hero props.",
   },
   {
     question: "Why are only six worlds visible?",

@@ -55,7 +55,7 @@ export default async function ExplorerPage({
     },
     {
       label: "Collection",
-      value: "7,777 Handcrafted NFTs",
+      value: "3,333 Handcrafted NFTs",
     },
   ];
 
